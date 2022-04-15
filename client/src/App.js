@@ -1,12 +1,8 @@
 import { render } from "react-dom"
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import MatchItem from "./components/MatchItem";
-import './App.css';
-import MatchItemList from "./components/MatchItemsList";
+
+// import MatchItem from "./components/MatchItem";
+// import './App.css';
+// import MatchItemList from "./components/MatchItemsList";
 
 
 const match = [
@@ -25,22 +21,18 @@ const match = [
     location: 'Vancouver'
   }
 ]
-
-
+    
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Routes>
-      <Route path="matches/:matchid" element={<MatchItem />} />
-      <Route path="matches" element={<MatchItemList />}  />
-
-      </Routes>
-      </BrowserRouter>
-
-      <a href="/matches/:matchid">link</a>
-
-      <MatchItemList />
+      <ul>
+        <li><a href="profile">Profile</a></li>
+       <li><a href="matches">All Matches</a></li>
+       <li><a href="tournaments">All Tournaments</a></li>
+        <li><a href="creatematch">Create Match</a></li>
+       <li> <a href="createtournament">Create Tournament</a></li>
+        <li> <a href="createteam">Create Teams</a></li>
+    </ul>
     </div>
   );
 }

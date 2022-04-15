@@ -1,9 +1,9 @@
-
+import './MatchItem.css';
 
 export default function MatchItem(props) {
 
 return ( 
-  <section>
+  <section className="match-container">
     <ul>
 
       <h3>{props.date}</h3> 
@@ -13,7 +13,7 @@ return (
       <h3>{props.player1} vs {props.player2}</h3> 
 
       <h3>{props.location}</h3> 
-    </ul>
+    </ul> 
   </section>
 )
 
