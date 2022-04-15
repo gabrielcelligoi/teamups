@@ -23,7 +23,7 @@ export default function MatchItemList(props) {
   let location = useLocation();
 
   console.log(location.state.state)
-  const matches = location.state.state.matches
+  const matches = location.state.matches
 
   const mappedMatches = matches.map(match => {
 
