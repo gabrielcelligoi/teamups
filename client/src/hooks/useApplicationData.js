@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export default function useApplicationData(props) {
-
+  
   const [state, setState] = useState({
-
+  
     matches: {},
     tournaments: {},
     sports: {}
   })
 
- 
   useEffect(() => {
     Promise.all([
       axios.get('/api/matches'),
@@ -18,7 +17,6 @@ export default function useApplicationData(props) {
       axios.get('/api/sports')
     ])
     .then((all) => {
-      console.log(all)
       setState(prev => ({
         ...prev,
         matches: all[0].data,
@@ -26,5 +24,6 @@ export default function useApplicationData(props) {
         sports: all[2].data
       }))
     })
-  }, []);
+  }, [])
+  return { state } 
 }

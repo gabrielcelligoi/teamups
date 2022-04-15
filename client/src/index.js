@@ -22,11 +22,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}/>
+        <Route path="/" element={<App />} />
         <Route path="matches" element={<MatchItemList />} />
         <Route path="matches/:matchid" element={<MatchItem />} />
         <Route path="sport/create" element={<CreateSport />} />
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

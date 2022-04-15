@@ -7,7 +7,6 @@ module.exports = (db) => {
     FROM MATCHES
     `)
     .then(data => {
-        console.log(data)
         res.json(data.rows)
       }
     )
