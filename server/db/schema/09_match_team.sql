@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS match_team CASCADE;
+
+CREATE TABLE match_team (
+  id SERIAL PRIMARY KEY,
+  team_id INTEGER REFERENCES teams(id) NOT NULL,
+  match_id INTEGER REFERENCES matches(id) NOT NULL,
+  win BOOLEAN
+);
