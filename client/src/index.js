@@ -12,6 +12,7 @@ import {
 import MatchItem from "./components/MatchItem";
 import './App.css';
 import MatchItemList from "./components/MatchItemsList";
+import NavBar from "./components/partials/NavBar"
 
 import { createRoot } from "react-dom/client"
 
@@ -21,6 +22,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="matches" element={<MatchItemList />} />

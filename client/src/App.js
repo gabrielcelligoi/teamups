@@ -1,5 +1,5 @@
 // import { render } from "react-dom"
-import NavBar from "./components/partials/NavBar"
+
 
 // import MatchItem from "./components/MatchItem";
 // import './App.css';
@@ -11,7 +11,6 @@ import NavBar from "./components/partials/NavBar"
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <ul>
         <li><a href="profile">Profile</a></li>
         <li><a href="matches">All Matches</a></li>

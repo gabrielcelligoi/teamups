@@ -29,9 +29,11 @@ nav ul {
   transform: translateY(-50%);
   position: inherit;
   width: 250px;
+  list-style: none;
 }
 
 nav ul li {
-  list-style: none;
-  
+  color: black;
+  text-decoration: none;
+
 }
