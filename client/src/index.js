@@ -12,12 +12,12 @@ import {
 import MatchItem from "./components/MatchItem";
 import './App.css';
 import MatchItemList from "./components/MatchItemsList";
-
-import { createRoot } from "react-dom/client"
+import CreateSport from './components/CreateSport';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -25,7 +25,7 @@ root.render(
         <Route path="/" element={<App />}/>
         <Route path="matches" element={<MatchItemList />} />
         <Route path="matches/:matchid" element={<MatchItem />} />
-        
+        <Route path="sport/create" element={<CreateSport />} />
 
       </Routes>
     </BrowserRouter>
