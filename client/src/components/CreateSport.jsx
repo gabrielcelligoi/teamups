@@ -5,8 +5,10 @@ import { useState } from "react";
 
 export default function CreateSport(props) {
 
-  const { createSport }  = useApplicationData()
+  const { createSport, state }  = useApplicationData()
   const [sport, setSport] = useState("")
+  const id = state.sports.length
+  console.log(id)
   return (
     <form>
       <h1>Add a Sport</h1>
@@ -14,8 +16,8 @@ export default function CreateSport(props) {
       <input type="text" id="sport-input" name="sport-input" onChange={(e) => setSport(e.target.value)}/>
       <br /><button type="submit" onClick={(e) => {
         e.preventDefault() 
-        console.log(e)
-        createSport(sport)
+        createSport(id, sport)
+        window.location.reload()
       }}>Submit</button>
     </form>
 

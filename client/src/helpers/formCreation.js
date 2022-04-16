@@ -1,10 +1,13 @@
-import axios from "axios";
-import useApplicationData from "../hooks/useApplicationData";
+// import axios from "axios";
+// import useApplicationData from "../hooks/useApplicationData";
 
-const createSport = (name) => {
+// const createSport = (name, type) => {
 
-  return axios.put(`/api/sports/${name}`, name)
-    .then(res => {
-      console.log(res)
-    })
-}
+//   if (type === 'sport') {
+//     return axios.put(`/api/sports/${name}`, name)
+//       .then(res => {
+//         console.log(res)
+//       })
+
+//   }
+// }
