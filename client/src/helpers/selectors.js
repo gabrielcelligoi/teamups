@@ -17,7 +17,7 @@ const matches = [
 
     {
       match_id: 2,
-      players: "Francis",
+      players: "Tom",
       sport: "Basketball",
       date: "2022-05-01T04:00:00.000Z",
       location: "Toronto"
@@ -25,7 +25,7 @@ const matches = [
 
     {
       match_id: 2,
-      players: "Billy",
+      players: "Jake",
       sport: "Basketball",
       date: "2022-05-01T04:00:00.000Z",
       location: "Toronto"
@@ -33,15 +33,32 @@ const matches = [
   ]
 
   const getPlayersPerMatch = (match, id) => {
-
-    const currentMatch = matches.filter(current => current.match_id === id);
+    
+    const currentMatch = match.filter(current => current.match_id === id);
     currentMatch[0].players = [currentMatch[0].players]
     for (let i = 0; i < currentMatch.length - 1; i++) {
       
       currentMatch[0].players.push(currentMatch[1].players)
     }
 
-    currentMatch.length = 1
-    return currentMatch
+    const matchObject = currentMatch[0]
+    return matchObject
   }
-  console.log(getPlayersPerMatch(matches, 1))
+  // console.log(getPlayersPerMatch(matches, 1))
+
+  const getAllMatches = (db) => {
+
+    const matchArr = []
+    for (let item of db) {
+     let currentItem = getPlayersPerMatch(db, item.match_id)
+     currentItem.players = currentItem.players.flat()
+     matchArr.push(currentItem)
+    }
+    const uniqueArr = [...new Set(matchArr)]
+    for (let item of uniqueArr) {
+      item.players = [...new Set(item.players)]
+    }
+    return uniqueArr
+  }
+
+  getAllMatches(matches)
