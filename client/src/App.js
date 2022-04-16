@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import useApplicationData from "./hooks/useApplicationData";
 import Banner from "./components/Banner";
+import HomepageIconsList from "./components/HomepageIconsList";
     
 function App() {
   const state = useApplicationData()
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
+      <HomepageIconsList />
       <ul>
         <li><a href="profile">Profile</a></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>

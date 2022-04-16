@@ -1,0 +1,5 @@
+.home-icons-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
