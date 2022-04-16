@@ -26,16 +26,19 @@ export default function useApplicationData(props) {
     })
   }, [])
 
-  const createSport = (id, name) => {
-    console.log(state.sports)
-    return axios.put(`/api/sports/${id}`, name)
+  const createSport = (id, name, image) => {
+    const data = {
+      name: name,
+      image: image
+    }
+    return axios.put(`/api/sports/${id}`, data)
       .then(res => {
-        console.log(res)
+        console.log("res", res)
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
-
-
-
 
   return { state, createSport } 
 }

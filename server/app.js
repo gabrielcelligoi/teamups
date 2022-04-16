@@ -5,7 +5,6 @@ const logger = require('morgan');
 
 // db connection
 const db = require('./configs/db.config');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const matchesRouter = require('./routes/matches')
@@ -15,8 +14,8 @@ const sportsRouter = require('./routes/sports')
 const app = express();
 
 app.use(logger('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

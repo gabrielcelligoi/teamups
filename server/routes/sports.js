@@ -13,12 +13,13 @@ module.exports = (db) => {
   })
 
   router.put('/sports/:id', (req,res) => {
-
-    const name = Object.keys(req.body)[0]
+    console.log("body", req.body)
+    const name = req.body.name
+    const image = req.body.image
     db.query(`
-    INSERT INTO sports (name)
-    VALUES ($1::text)
-    `, [name])
+    INSERT INTO sports (name, image)
+    VALUES ($1::text, $2::text)
+    `, [name, image])
     .then(data => {
       console.log(data.rows)
     })
