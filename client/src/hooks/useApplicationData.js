@@ -12,7 +12,7 @@ export default function useApplicationData(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get('/api/matches'),
+      axios.get('/api/matches/all'),
       axios.get('/api/tournaments'),
       axios.get('/api/sports')
     ])
@@ -25,5 +25,17 @@ export default function useApplicationData(props) {
       }))
     })
   }, [])
-  return { state } 
+
+  const createSport = (id, name) => {
+    console.log(state.sports)
+    return axios.put(`/api/sports/${id}`, name)
+      .then(res => {
+        console.log(res)
+      })
+  }
+
+
+
+
+  return { state, createSport } 
 }

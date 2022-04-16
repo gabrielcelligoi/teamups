@@ -1,40 +1,25 @@
 import MatchItem from "./MatchItem"
 import { useLocation } from "react-router-dom"
-
-// const match = [
-//   {
-//     date: '2022-04-01T08:00:00.000Z',
-//     sport: 'Baseball',
-//     player1: 'Francis',
-//     player2: 'Keila',
-//     location: 'Toronto'
-//   },
-//   {
-//     date: '2022-05-01T08:00:00.000Z',
-//     sport: 'Soccer',
-//     player1: 'Gabriel',
-//     player2: 'Keila',
-//     location: 'Vancouver'
-//   }
-// ]
+import { getAllMatches } from "../helpers/selectors";
 
 export default function MatchItemList(props) {
   
   let location = useLocation();
 
-  console.log(location.state.state)
-  const matches = location.state.state.matches
 
+  const matches = getAllMatches(location.state.matches)
   const mappedMatches = matches.map(match => {
-
+    console.log(match)
     return (
       
 
       <MatchItem 
-      key={match.id}
-      date={match.match_date}
-      sport={match.sport_id}
-
+      key={match.match_id}
+      date={match.date}
+      sport={match.sport}
+      location={match.location}
+      player1={match.players[0]}
+      player2={match.players[1]}
       />
       )
     }) 
