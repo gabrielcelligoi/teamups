@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import useApplicationData from "./hooks/useApplicationData";
     
 function App() {
-  const state = useApplicationData()
+  const { state }  = useApplicationData()
   // const matches = state.matches
   // console.log(matches)
   // console.log(state.matches)
@@ -18,7 +18,7 @@ function App() {
         <li><a href="match/create">Create Match</a></li>
         <li><a href="tournament/create">Create Tournament</a></li>
         <li><a href="team/create">Create Teams</a></li>
-        <li><a href="sport/create">Create Sport</a></li>
+        <li><Link to="sport/create">Create Sport</Link></li>
     </ul>
     <Outlet />
     </div>
