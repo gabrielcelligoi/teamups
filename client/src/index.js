@@ -15,20 +15,23 @@ import MatchItemList from "./components/MatchItemsList";
 import NavBar from "./components/partials/NavBar"
 
 import { createRoot } from "react-dom/client"
+import CreateSport from './components/CreateSport';
+import Tournaments from './components/Tournaments';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <NavBar />
       <Routes>
-        <Route path="/" element={<App />}/>
+        <Route path="/" element={<App />} />
         <Route path="matches" element={<MatchItemList />} />
         <Route path="matches/:matchid" element={<MatchItem />} />
-        
-
+        <Route path="sport/create" element={<CreateSport />} />
+        <Route path="tournaments" element={<Tournaments />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
