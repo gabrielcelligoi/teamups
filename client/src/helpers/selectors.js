@@ -32,7 +32,7 @@ const matches = [
     }
   ]
 
-  const getPlayersPerMatch = (match, id) => {
+ export function getPlayersPerMatch(match, id) {
     
     const currentMatch = match.filter(current => current.match_id === id);
     currentMatch[0].players = [currentMatch[0].players]
@@ -46,7 +46,7 @@ const matches = [
   }
   // console.log(getPlayersPerMatch(matches, 1))
 
-  const getAllMatches = (db) => {
+  export function getAllMatches(db) {
 
     const matchArr = []
     for (let item of db) {
@@ -61,4 +61,4 @@ const matches = [
     return uniqueArr
   }
 
-  getAllMatches(matches)
+  // getAllMatches(matches)

@@ -12,7 +12,7 @@ export default function useApplicationData(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get('/api/matches'),
+      axios.get('/api/matches/all'),
       axios.get('/api/tournaments'),
       axios.get('/api/sports')
     ])
