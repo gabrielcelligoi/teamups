@@ -40,5 +40,21 @@ export default function useApplicationData(props) {
       })
   }
 
-  return { state, createSport } 
+
+  const createMatch = (sport, date, location) => {
+    const data ={
+      sport: sport,
+      date: date,
+      location: location
+    }
+    return axios.put('/api/matches/create', data)
+      .then(res => {
+        console.log("res", res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+  }
+  return { state, createSport, createMatch} 
 }
