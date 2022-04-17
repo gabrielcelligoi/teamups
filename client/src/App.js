@@ -9,7 +9,6 @@ function App() {
   // const matches = state.matches
   // console.log(matches)
   // console.log(state.matches)
-  console.log(state)
   return (
     <div className="App">
       <Banner />
@@ -18,8 +17,8 @@ function App() {
       <ul>
         <li><a href="profile">Profile</a></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>
-        <li><a href="tournaments">All Tournaments</a></li>
-        <li><a href="sports">Sports</a></li>
+        <li><Link to="tournaments" state={state}>All Tournaments</Link></li>
+        <li><Link to="sports" state={state}>Sports</Link></li>
         <li><a href="match/create">Create Match</a></li>
         <li><a href="tournament/create">Create Tournament</a></li>
         <li><a href="team/create">Create Teams</a></li>
