@@ -12,7 +12,7 @@ function App() {
       <ul>
         <li><a href="profile">Profile</a></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>
-        <li><a href="tournaments">All Tournaments</a></li>
+        <li><Link to="/tournaments" state={state}>All Tournaments</Link></li>
         <li><a href="sports">Sports</a></li>
         <li><a href="match/create">Create Match</a></li>
         <li><a href="tournament/create">Create Tournament</a></li>
