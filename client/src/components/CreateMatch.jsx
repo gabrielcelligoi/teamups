@@ -48,7 +48,7 @@ export default function CreateMatch(props) {
        <MatchItem
        key={newMatch.id}
        date={newMatch.match_date}
-       sport={newMatch.sport_id}
+       sport={sport}
        location={newMatch.match_location}
        
        /> : null}
