@@ -50,8 +50,9 @@ export default function CreateMatch(props) {
        date={newMatch.match_date}
        sport={sport}
        location={newMatch.match_location}
-       
-       /> : null}
+       addPlayer={true}
+       /> 
+       : null}
     </div>
 
   )
