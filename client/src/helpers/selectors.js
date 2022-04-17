@@ -30,7 +30,7 @@
 
   export function getSportId(name, state) {
     for (let item of state.sports) {
-      if (item.name == name) {
+      if (item.name === name) {
         return item.id
       }
     }

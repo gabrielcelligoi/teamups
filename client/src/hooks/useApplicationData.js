@@ -67,5 +67,17 @@ export default function useApplicationData(props) {
       console.log(error)
     })
   }
-  return { state, createSport, createMatch, getNewMatch} 
+
+  const addPlayerToMatch = (id, matchId) => {
+    const data = {
+      user_id: id,
+      match_id: matchId
+    }
+    return axios.put('/api/matches/add', data)
+      .then(res => {
+        console.log('RES', res)
+      })
+  }
+
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch } 
 }

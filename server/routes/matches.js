@@ -1,3 +1,5 @@
+const { route } = require('.');
+
 const router = require('express').Router();
 
 module.exports = (db) => {
@@ -49,6 +51,17 @@ module.exports = (db) => {
       .then(data => {
         res.json(data.rows)
       })
+    })
+
+    router.put('/matches/add', (req,res) => {
+      console.log("body", req.body)
+      const userId = req.body.user_id
+      const matchId = req.body.match_id
+
+      db.query(`
+        INSERT INTO match_player (user_id, match_id)
+        VALUES ($1, $2)
+      `, [userId, matchId])
     })
   return router;
 }

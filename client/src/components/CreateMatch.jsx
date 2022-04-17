@@ -44,15 +44,18 @@ export default function CreateMatch(props) {
         <input type="text" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
         <button type="submit" onClick={handleClick}>Submit</button>
       </form>
+      <div>
       {showNew ?
-       <MatchItem
-       key={newMatch.id}
-       date={newMatch.match_date}
-       sport={sport}
-       location={newMatch.match_location}
-       addPlayer={true}
-       /> 
-       : null}
+      <MatchItem
+      key={newMatch.id}
+      id ={newMatch.id}
+      date={newMatch.match_date}
+      sport={sport}
+      location={newMatch.match_location}
+      addPlayer={true}
+      /> 
+      : null}
+      </div>
     </div>
 
   )
