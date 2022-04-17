@@ -17,7 +17,7 @@ return (
       <h3>{props.sport}</h3> 
       <h3>{props.player1} vs {props.player2}</h3> 
       <h3>{props.location}</h3> 
-      {props.addPlayer ? <button type="Submit" onClick={handleClick}>testbutton</button> : null}
+      {props.addPlayer ? <button type="Submit" onClick={handleClick}>Add Player To Match</button> : null}
     </ul> 
     {add ?
       <div>
