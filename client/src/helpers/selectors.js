@@ -29,10 +29,8 @@
 
 
   export function getSportId(name, state) {
-    console.log("name", name)
     for (let item of state.sports) {
       if (item.name == name) {
-        console.log("id", item.id)
         return item.id
       }
     }

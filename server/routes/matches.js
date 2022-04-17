@@ -39,5 +39,16 @@ module.exports = (db) => {
       res.json(data.rows)
     })
   })
+
+    router.get('/matches/create', (req, res) => {
+      db.query(`
+        SELECT * FROM matches
+        ORDER BY id DESC
+        LIMIT 1;
+      `)
+      .then(data => {
+        res.json(data.rows)
+      })
+    })
   return router;
 }

@@ -49,12 +49,23 @@ export default function useApplicationData(props) {
     }
     return axios.put('/api/matches/create', data)
       .then(res => {
-        console.log("res", res)
+        console.log("res put", res)
       })
       .catch(error => {
         console.log(error)
       })
 
   }
-  return { state, createSport, createMatch} 
+
+  const getNewMatch = () => {
+    return axios.get('/api/matches/create')
+    .then(res => {
+      console.log("res", res)
+      return res
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+  return { state, createSport, createMatch, getNewMatch} 
 }
