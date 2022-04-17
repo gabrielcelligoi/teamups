@@ -20,7 +20,7 @@ function App() {
         <li><Link to="/matches" state={state}>Matches</Link></li>
         <li><a href="tournaments">All Tournaments</a></li>
         <li><a href="sports">Sports</a></li>
-        <li><a href="match/create">Create Match</a></li>
+        <li><Link to="matches/create" state={state}>Create Match</Link></li>
         <li><a href="tournament/create">Create Tournament</a></li>
         <li><a href="team/create">Create Teams</a></li>
         <li><Link to="sport/create">Create Sport</Link></li>

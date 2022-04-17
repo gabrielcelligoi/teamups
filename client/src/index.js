@@ -14,10 +14,9 @@ import './App.css';
 import MatchItemList from "./components/MatchItemsList";
 import NavBar from "./components/partials/NavBar"
 
-import { createRoot } from "react-dom/client"
 import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
-
+import CreateMatch from './components/CreateMatch';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,6 +29,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="matches" element={<MatchItemList />} />
         <Route path="matches/:matchid" element={<MatchItem />} />
+        <Route path="matches/create" element={<CreateMatch />} />
         <Route path="sport/create" element={<CreateSport />} />
         <Route path="tournaments" element={<Tournaments />} />
       </Routes>
