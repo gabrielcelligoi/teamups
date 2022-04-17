@@ -12,7 +12,6 @@ export default function MatchItemList(props) {
     console.log(match)
     return (
       
-
       <MatchItem 
       key={match.match_id}
       date={match.date}
