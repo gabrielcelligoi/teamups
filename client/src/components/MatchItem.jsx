@@ -8,6 +8,9 @@ const handleClick = () => {
   setAdd(true)
 }
 
+const handlePlayerAdded = () => {
+  setAdd(false)
+}
 
 return ( 
   <section className="match-container">
@@ -24,6 +27,7 @@ return (
         <AddPlayer 
         key={props.id}
         id={props.id}
+        onSubmit={() => handlePlayerAdded}
         />
       </div>
       : null}
