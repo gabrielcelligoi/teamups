@@ -1,88 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import useApplicationData from "../hooks/useApplicationData";
 import { useLocation } from 'react-router-dom';
-
-// const tournaments = [
-//   {
-//     id: 1,
-//     name: 'Ultimate Championship',
-//     sport_id: 1
-//   },
-//   {
-//     id: 2,
-//     name: 'Winner winner chicken dinner',
-//     sport_id: 2
-//   },
-//   {
-//     id: 3,
-//     name: 'Ultimate Frisbee',
-//     sport_id: 1
-//   },    
-//   {
-//     id: 4,
-//     name: 'Ultimate Sport!!!!!!!',
-//     sport_id: 3
-//   },    
-//   {
-//     id: 5,
-//     name: 'Total Tournament',
-//     sport_id: 2
-//   },
-// ]
-
-// const sports = [
-//   {
-//     id: 1,
-//     name: 'Baseball',
-//   },
-//   {
-//     id: 2,
-//     name: 'Hockey',
-//   },
-//   {
-//     id: 3,
-//     name: 'Soccer',
-//   }
-// ]
-
-// const matches = [
-//   {
-//     id: 1,
-//     name: "matcheroo1",
-//     tournament_id: 1,
-//     sport_id: 1
-//   },
-//   {
-//     id: 2,
-//     name: "matcheroo2",
-//     tournament_id: 1,
-//     sport_id: 2
-//   },
-//   {
-//     id: 3,
-//     name: "matcheroo3",
-//     tournament_id: 3,
-//     sport_id: 2
-//   },
-//   {
-//     id: 4,
-//     name: "matcheroo4",
-//     tournament_id: 3,
-//     sport_id: 1
-//   },
-//   {
-//     id: 5,
-//     name: "matcheroo5",
-//     tournament_id: 2,
-//     sport_id: 2
-//   },
-//   {
-//     id: 6,
-//     name: "matcheroo6",
-//     tournament_id: 2,
-//     sport_id: 3
-//   },
-// ]
+import MatchItem from './MatchItem';
+import TournamentItem from './TournamentItem';
+import { getAllMatches } from "../helpers/selectors";
 
 // const users = [
 //   {
@@ -111,8 +32,9 @@ export default function SportsList(props) {
   let location = useLocation();
   // console.log(location.state)
   const sports = location.state.sports;
-  const matches = location.state.match;
+  const matches = getAllMatches(location.state.matches);
   const tournaments = location.state.tournaments;
+
 
   const [filteredTournaments, setFilteredTournament] = useState(null);
   useEffect(() => {
@@ -184,12 +106,19 @@ export default function SportsList(props) {
       <h4>Tournaments</h4>
       {filteredTournaments &&
       filteredTournaments.map(tournament => (
-        <p key={tournament.id} value={tournament.id}>{tournament.name}</p>
+        <p key={tournament.id} value={tournament.id}><TournamentItem name={tournament.name} /></p>
       ))}
       <h4>Matches</h4>
       {filteredMatches &&
       filteredMatches.map(match => (
-        <p key={match.id} value={match.id}>{match.id}</p>
+        <h4><MatchItem 
+        key={match.match_id}
+        date={match.date}
+        sport={match.sport}
+        location={match.location}
+        player1={match.players[0]}
+        player2={match.players[1]}
+        /></h4>
       ))}
     {/* <h4>Users</h4>
     {filteredUsers &&
