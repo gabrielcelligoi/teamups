@@ -18,6 +18,7 @@ import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
 import SportsList from './components/SportsList';
+import CreateTournament from './components/CreateTournament';
 
 
 
@@ -33,6 +34,7 @@ root.render(
         <Route path="matches/:matchid" element={<MatchItem />} />
         <Route path="matches/create" element={<CreateMatch />} />
         <Route path="sport/create" element={<CreateSport />} />
+        <Route path="tournament/create" element={<CreateTournament />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
       </Routes>

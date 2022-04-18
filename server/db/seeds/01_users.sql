@@ -23,10 +23,10 @@ INSERT INTO team_member (user_id, team_id) VALUES (1, 2);
 INSERT INTO team_member (user_id, team_id) VALUES (2, 1);
 INSERT INTO team_member (user_id, team_id) VALUES (2, 2);
 
-INSERT INTO tournaments (name, sport_id) VALUES ('tournament1', 2);
-INSERT INTO tournaments (name, sport_id) VALUES ('tournament2', 3);
-INSERT INTO tournaments (name, sport_id) VALUES ('tournament3', 4);
-INSERT INTO tournaments (name, sport_id) VALUES ('tournament4', 1);
+INSERT INTO tournaments (name, sport_id, number_of_players, type) VALUES ('tournament1', 2, 8, 'single');
+INSERT INTO tournaments (name, sport_id, number_of_players, type) VALUES ('tournament2', 3, 6, 'single');
+INSERT INTO tournaments (name, sport_id, number_of_players, type) VALUES ('tournament3', 4, 8, 'single');
+INSERT INTO tournaments (name, sport_id, number_of_players, type) VALUES ('tournament4', 1, 6, 'single');
 
 INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (1, 1, '2022-04-01T08:00:00.000Z', 'Baltimore');
 INSERT INTO matches (sport_id, match_date, match_location) VALUES (1, '2022-05-01T08:00:00.000Z', 'Toronto');
