@@ -12,6 +12,4 @@ const createSingle = (players) => {
 
 }
 
-console.log(createSingle(8))
-
 module.exports = { createSingle }

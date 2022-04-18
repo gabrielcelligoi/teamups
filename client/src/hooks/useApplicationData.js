@@ -82,5 +82,21 @@ export default function useApplicationData(props) {
       })
   }
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch } 
+  const createNewTournament = (name, sport, number_of_players, type) => {
+    const data = {
+      name: name,
+      sport: sport,
+      number_of_players: number_of_players,
+      type: type
+    }
+    return axios.put('/api/tournaments', data)
+      .then(res => {
+        console.log("res", res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament } 
 }
