@@ -1,37 +1,3 @@
-const matches = [
-    {
-      match_id: 1,
-      players: "Francis",
-      sport: "Basketball",
-      date: "2022-04-01T04:00:00.000Z",
-      location: "Baltimore"
-    },
-
-    {
-      match_id: 1,
-      players: "Billy",
-      sport: "Basketball",
-      date: "2022-04-01T04:00:00.000Z",
-      location: "Baltimore"
-    },
-
-    {
-      match_id: 2,
-      players: "Tom",
-      sport: "Basketball",
-      date: "2022-05-01T04:00:00.000Z",
-      location: "Toronto"
-    },
-
-    {
-      match_id: 2,
-      players: "Jake",
-      sport: "Basketball",
-      date: "2022-05-01T04:00:00.000Z",
-      location: "Toronto"
-    }
-  ]
-
  export function getPlayersPerMatch(match, id) {
     
     const currentMatch = match.filter(current => current.match_id === id);
@@ -61,4 +27,12 @@ const matches = [
     return uniqueArr
   }
 
+
+  export function getSportId(name, state) {
+    for (let item of state.sports) {
+      if (item.name === name) {
+        return item.id
+      }
+    }
+  }
   // getAllMatches(matches)

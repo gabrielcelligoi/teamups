@@ -41,8 +41,8 @@ DROP TABLE IF EXISTS tournaments CASCADE;
 
 CREATE TABLE tournaments(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
-
+  name VARCHAR(255) NOT NULL,
+  sport_id INTEGER REFERENCES sports(id) NOT NULL
 );
 
 DROP TABLE IF EXISTS matches CASCADE;
@@ -51,7 +51,7 @@ CREATE TABLE matches(
   id SERIAL PRIMARY KEY,
   tournament_id INTEGER REFERENCES tournaments(id),
   sport_id INTEGER REFERENCES sports(id) NOT NULL,
-  match_date DATE, 
+  match_date DATE DEFAULT now(), 
   match_location VARCHAR(255) NOT NULL 
 
 );
