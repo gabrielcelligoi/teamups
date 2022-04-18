@@ -21,6 +21,8 @@ import SportsList from './components/SportsList';
 import CreateTournament from './components/CreateTournament';
 import TournamentItem from './components/TournamentItem';
 
+import Profile from './components/Profile';
+import ViewUserDetails from './components/Profile/ViewUserDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -39,6 +41,8 @@ root.render(
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
         <Route path='tournaments/:tournament_id' element={<TournamentItem />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="profile/:profileid" element={<ViewUserDetails />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
