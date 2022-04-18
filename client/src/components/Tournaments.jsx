@@ -1,90 +1,58 @@
 import React, {useState, useEffect} from 'react';
+import useApplicationData from "../hooks/useApplicationData";
+import { useLocation } from 'react-router-dom';
+
 import './Tournaments.css';
-
-const tournaments = [
-  {
-    id: 1,
-    name: 'Ultimate Championship',
-    sport: 'Soccer'
-  },
-  {
-    id: 2,
-    name: 'Winner winner chicken dinner',
-    sport: 'Baseball'
-  },
-  {
-    id: 3,
-    name: 'Ultimate Frisbee',
-    sport: 'Hockey'
-  },    
-  {
-    id: 4,
-    name: 'Ultimate Sport!!!!!!!',
-    sport: 'Basketball'
-  },    
-  {
-    id: 5,
-    name: 'Total Tournament',
-    sport: 'Baseball'
-  },
-]
-
-const sports = [
-  {
-    id: 1,
-    name: 'Baseball',
-  },
-  {
-    id: 2,
-    name: 'Hockey',
-  },
-  {
-    id: 3,
-    name: 'Soccer',
-  }
-]
 
 
 export default function Tournaments(props) {
-
-  const [filteredTournaments, setFilteredTournaments] = useState(null);
+  const { state }  = useApplicationData()
+  let location = useLocation();
+  // console.log(location.state)
+  let matches = location.state.match
+  let tournaments = location.state.tournaments
+  const [hidden, setHidden] = useState(true);
+  const [Tournaments, setTournaments] = useState(null);
   useEffect(() => {
-    setFilteredTournaments(tournaments);
-  }, [])
+  setTournaments(tournaments)
+  }, []);
+  const [filteredMatch, setFilteredMatch] = useState(null);
+  useEffect(() => {
+  setFilteredMatch(matches)
+  }, []);
 
-  const filterTournament = function(sport) {
-    let filteredTournament = tournaments.filter(tournament => tournament.sport === sport);
-    return filteredTournament;
+    const filterMatch = function(tournament_id) {
+    let filteredMatch = matches.filter(match => Number(match.tournament_id) === Number(tournament_id))
+    console.log(filteredMatch)
+    return filteredMatch;
   }
 
-  const handleTournament = function(event) {
-    let tournament = event.target.value;
-    if (tournament !== "") {
-      setFilteredTournaments(filterTournament(tournament))
-    }
-    else {
-      setFilteredTournaments(tournaments)
+    const handleMatches = function(event) {
+    event.preventDefault();
+    let value = event.target.value;
+    if (value !== null) {
+      setHidden(setFilteredMatch(filterMatch(value)))
+    } else {
+      setHidden(matches)
     }
   }
 
   return (
     <div>
-      <h1>FILTER TOURNAMENTS BY SPORT</h1>
-      <button value={""} onClick={handleTournament}>See All</button>
-      {sports &&
-      sports.map((sport) => (
-        <button key={sport.id} value={sport.name} onClick={handleTournament}>
-          {sport.name}
-        </button>
-      ))}
-      <h1>TOURNAMENTS</h1>
-      {filteredTournaments &&
-      filteredTournaments.map(tournament => (
-        <ul>
-          <li>{tournament.name}</li>
-        </ul>
-      ))}
+      <h1>Tournaments</h1>
+        {Tournaments &&
+        Tournaments.map(tournament => (
+         <button key={tournament.id} value={tournament.id} onClick={(e) => {
+          e.preventDefault()
+          handleMatches(e)}}> {tournament.name} </button>
+         ))}
+      <div hidden={hidden}>
+        <h1>Matches in Tournament:</h1>
+        {filteredMatch && 
+        filteredMatch.map(match => (
+        <h4><a key={match.id} href={`/matches/${match.id}`}>{match.id}</a></h4>
+        ))}</div>
     </div>
-  )
+  );
 
 }

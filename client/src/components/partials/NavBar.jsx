@@ -1,25 +1,40 @@
-import {Link} from 'react-router-dom'
+
 import styles from './NavBar.css'
 
 export default function NavBar(props) {
   return (
     <nav>
       <div className='logo'>
-        <Link to="/">SPORTS</Link>
+      <a href="/" className='logo-name'>
+        TeamUps
+      </a>
       </div>
       <ul>
+
         <li>
-          <Link to="/register">Register</Link>
+          <a href="/register" className='navbar-link'>
+            Register
+          </a>          
         </li>
+
         <li>
-          <Link to="/login">Login</Link>
+          <a href="/login" className='navbar-link'>
+            Login
+          </a>          
         </li>
+
         <li>
-          <Link to="/logout">Logout</Link>
+          <a href="/logout" className='navbar-link'>
+            Logout
+          </a>          
         </li>
+
         <li>
-          <Link to="/my-profile">My Profile</Link>
+          <a href="/my-profile" className='navbar-link'>
+            My Profile
+          </a>          
         </li>
+
       </ul>
     </nav>
   )

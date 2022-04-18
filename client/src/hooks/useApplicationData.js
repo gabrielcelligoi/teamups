@@ -7,21 +7,24 @@ export default function useApplicationData(props) {
   
     matches: {},
     tournaments: {},
-    sports: {}
+    sports: {},
+    match: {},
   })
 
   useEffect(() => {
     Promise.all([
       axios.get('/api/matches/all'),
       axios.get('/api/tournaments'),
-      axios.get('/api/sports')
+      axios.get('/api/sports'),
+      axios.get('/api/matches'),
     ])
     .then((all) => {
       setState(prev => ({
         ...prev,
         matches: all[0].data,
         tournaments: all[1].data,
-        sports: all[2].data
+        sports: all[2].data,
+        match: all[3].data,
       }))
     })
   }, [])

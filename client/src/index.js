@@ -17,6 +17,8 @@ import NavBar from "./components/partials/NavBar"
 import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
+import SportsList from './components/SportsList';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -32,6 +34,7 @@ root.render(
         <Route path="matches/create" element={<CreateMatch />} />
         <Route path="sport/create" element={<CreateSport />} />
         <Route path="tournaments" element={<Tournaments />} />
+        <Route path="sports" element={<SportsList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
