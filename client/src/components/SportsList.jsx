@@ -106,12 +106,12 @@ export default function SportsList(props) {
       <h4>Tournaments</h4>
       {filteredTournaments &&
       filteredTournaments.map(tournament => (
-        <p key={tournament.id} value={tournament.id}><TournamentItem name={tournament.name} /></p>
+        <h4 key={tournament.id} value={tournament.id}><TournamentItem name={tournament.name} /></h4>
       ))}
       <h4>Matches</h4>
       {filteredMatches &&
       filteredMatches.map(match => (
-        <h4><MatchItem 
+        <h4 key={match.match_id}><MatchItem 
         key={match.match_id}
         date={match.date}
         sport={match.sport}
