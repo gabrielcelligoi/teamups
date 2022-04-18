@@ -11,11 +11,13 @@ module.exports = (db) => {
     })
   })
 
-  router.get('/profiles/1', (req, res) => {
+  router.get('/profiles/:profileid', (req, res) => {
+    const id = req.params
+
     db.query(`
       SELECT *
       FROM users
-      WHERE id = 1;
+      WHERE id = ${id};
     `)
     .then(data => {
       res.json(data.rows)
