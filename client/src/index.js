@@ -19,7 +19,7 @@ import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
 import SportsList from './components/SportsList';
 import Profile from './components/Profile';
-
+import ViewUserDetails from './components/Profile/ViewUserDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -37,6 +37,7 @@ root.render(
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="profile/:profileid" element={<ViewUserDetails />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

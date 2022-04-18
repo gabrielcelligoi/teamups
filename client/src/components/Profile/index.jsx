@@ -58,6 +58,7 @@ export default function Profile() {
   const usersInfo = users.map (user => (
     <ProfileItem
       key={user.id}
+      id={user.id}
       name={user.name}
       wins={user.wins}
       losses={user.losses}
