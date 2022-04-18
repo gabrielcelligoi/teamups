@@ -19,6 +19,7 @@ import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
 import SportsList from './components/SportsList';
 import CreateTournament from './components/CreateTournament';
+import TournamentItem from './components/TournamentItem';
 
 
 
@@ -37,6 +38,7 @@ root.render(
         <Route path="tournament/create" element={<CreateTournament />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
+        <Route path='tournaments/:tournament_id' element={<TournamentItem />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

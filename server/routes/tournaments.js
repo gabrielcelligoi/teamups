@@ -22,6 +22,9 @@ module.exports = (db) => {
     INSERT INTO tournaments (name, sport_id, number_of_players, type)
     VALUES ($1::text, $2, $3, $4)
     `, [name, sport_id, number_of_players, type])
+    .then(data => {
+      res.json(data.rows)
+    })
 
   })
   return router;

@@ -90,12 +90,6 @@ export default function useApplicationData(props) {
       type: type
     }
     return axios.put('/api/tournaments', data)
-      .then(res => {
-        console.log("res", res)
-      })
-      .catch(error => {
-        console.log(error)
-      })
   }
 
   return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament } 
