@@ -68,7 +68,7 @@ export default function CreateTournament(props) {
     {create ?
     <div>
       <h1>hello!</h1>
-      <Link to={`/tournaments/${id}`}>
+      <Link to={`/tournaments/${id}`} state={state}>
         <button>See Tournament</button>
       </Link>
       <button onClick={(e) => setCreate(false)}>back</button>
