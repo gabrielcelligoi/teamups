@@ -23,16 +23,16 @@ INSERT INTO team_member (user_id, team_id) VALUES (1, 2);
 INSERT INTO team_member (user_id, team_id) VALUES (2, 1);
 INSERT INTO team_member (user_id, team_id) VALUES (2, 2);
 
-INSERT INTO tournaments (name) VALUES ('tournament1');
-INSERT INTO tournaments (name) VALUES ('tournament2');
-INSERT INTO tournaments (name) VALUES ('tournament3');
-INSERT INTO tournaments (name) VALUES ('tournament4');
+INSERT INTO tournaments (name, sport_id) VALUES ('tournament1', 2);
+INSERT INTO tournaments (name, sport_id) VALUES ('tournament2', 3);
+INSERT INTO tournaments (name, sport_id) VALUES ('tournament3', 4);
+INSERT INTO tournaments (name, sport_id) VALUES ('tournament4', 1);
 
 INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (1, 1, '2022-04-01T08:00:00.000Z', 'Baltimore');
 INSERT INTO matches (sport_id, match_date, match_location) VALUES (1, '2022-05-01T08:00:00.000Z', 'Toronto');
 INSERT INTO matches (sport_id, match_date, match_location) VALUES (2, '2022-05-01T08:00:00.000Z', 'Park');
-INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (2, 2, '2022-05-01T08:00:00.000Z', 'New York');
-INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (2, 2, '2022-05-01T08:00:00.000Z', 'Elkridge');
+INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (2, 4, '2022-05-01T08:00:00.000Z', 'New York');
+INSERT INTO matches (tournament_id, sport_id, match_date, match_location) VALUES (3, 3, '2022-05-01T08:00:00.000Z', 'Elkridge');
 
 
 INSERT INTO match_player (user_id, match_id, win) VALUES (1, 1, true);
