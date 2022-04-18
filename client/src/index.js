@@ -18,6 +18,7 @@ import { createRoot } from "react-dom/client"
 import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
 import SportsList from './components/SportsList';
+import Profile from './components/Profile';
 
 
 
@@ -34,6 +35,7 @@ root.render(
         <Route path="sport/create" element={<CreateSport />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
+        <Route path="profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
