@@ -12,7 +12,7 @@ module.exports = (db) => {
   })
 
   router.get('/profiles/:profileid', (req, res) => {
-    const id = req.params
+    const id = req.params.profileid
 
     db.query(`
       SELECT *

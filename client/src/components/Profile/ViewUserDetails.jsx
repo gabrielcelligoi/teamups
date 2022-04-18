@@ -7,7 +7,7 @@ export default function ViewUserDetails(props) {
 
   return (
     <div>
-      Hello
+      Hello {location.state[0].name}
     </div>
   )
 }
