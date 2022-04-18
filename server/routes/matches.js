@@ -1,5 +1,3 @@
-const { route } = require('.');
-
 const router = require('express').Router();
 
 module.exports = (db) => {
