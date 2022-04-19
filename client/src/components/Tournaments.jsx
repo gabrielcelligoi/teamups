@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import useApplicationData from "../hooks/useApplicationData";
 import { useLocation } from 'react-router-dom';
+import MatchItem from './MatchItem';
+import { getAllMatches } from "../helpers/selectors";
 
 import './Tournaments.css';
 
@@ -8,9 +10,10 @@ import './Tournaments.css';
 export default function Tournaments(props) {
   const { state }  = useApplicationData()
   let location = useLocation();
-  // console.log(location.state)
-  let matches = location.state.match
+  let matches = getAllMatches(location.state.matches)
   let tournaments = location.state.tournaments
+
+
   const [hidden, setHidden] = useState(true);
   const [Tournaments, setTournaments] = useState(null);
   useEffect(() => {
@@ -50,7 +53,14 @@ export default function Tournaments(props) {
         <h1>Matches in Tournament:</h1>
         {filteredMatch && 
         filteredMatch.map(match => (
-        <h4><a key={match.id} href={`/matches/${match.id}`}>{match.id}</a></h4>
+        <h4 key={match.match_id}><MatchItem 
+        key={match.match_id}
+        date={match.date}
+        sport={match.sport}
+        location={match.location}
+        player1={match.players[0]}
+        player2={match.players[1]}
+        /></h4>
         ))}</div>
     </div>
   );

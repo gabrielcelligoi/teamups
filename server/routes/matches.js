@@ -16,7 +16,7 @@ module.exports = (db) => {
 
   router.get('/matches/all', (req, res) => {
     db.query(`
-    SELECT matches.id as match_id, users.name as Players,  sports.name as Sport, match_date as Date, match_location as Location FROM matches 
+    SELECT matches.id as match_id, matches.tournament_id as tournament_id, users.name as Players,  sports.name as Sport, sports.id as sport_id, match_date as Date, match_location as Location FROM matches 
     LEFT JOIN match_player ON matches.id = match_id
     JOIN sports ON sport_id = sports.id
     LEFT JOIN users ON users.id = user_id;
