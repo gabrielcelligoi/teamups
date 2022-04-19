@@ -9,16 +9,15 @@ export default function MatchItemList(props) {
 
   const matches = getAllMatches(location.state.matches)
   const mappedMatches = matches.map(match => {
-    console.log(match)
     return (
       
       <MatchItem 
       key={match.match_id}
+      id={match.match_id}
       date={match.date}
       sport={match.sport}
       location={match.location}
-      player1={match.players[0]}
-      player2={match.players[1]}
+      players={match.players}
       />
       )
     }) 

@@ -10,7 +10,6 @@
     const matchObject = currentMatch[0]
     return matchObject
   }
-  // console.log(getPlayersPerMatch(matches, 1))
 
   export function getAllMatches(db) {
 
