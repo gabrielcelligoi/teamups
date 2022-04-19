@@ -53,6 +53,7 @@ export default function Profiles() {
   let location = useLocation()
   const { state } = useApplicationData();
   const usersList = location.state.users;
+  
 
   const usersInfo = usersList.map(user => (
     <ProfileItem
