@@ -3,6 +3,7 @@ import useApplicationData from "./hooks/useApplicationData";
 import Banner from "./components/Banner";
 import HomepageIconsList from "./components/HomepageIconsList";
 import HomepageLinkList from "./components/HomepageLinkList";
+import "./App.css"
     
 function App() {
   const { state }  = useApplicationData()
