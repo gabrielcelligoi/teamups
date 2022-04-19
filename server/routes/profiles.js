@@ -14,10 +14,6 @@ module.exports = (db) => {
   
   router.get('/profiles/:profileid', (req, res) => {
     const id = req.params.profileid
-<<<<<<< HEAD
-=======
-
->>>>>>> c9332a06c79477b51918309e2e6a354545c8d313
     db.query(`
       SELECT *
       FROM users
