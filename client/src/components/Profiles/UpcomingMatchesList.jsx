@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import './UpcomingMatchesList.css'
+import './UpcomingMatchesList.scss'
 
 export default function UpcomingMacthesList(props) {
   const location = useLocation();

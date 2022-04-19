@@ -1,4 +1,4 @@
-import './TournamentItem.css';
+import './TournamentItem.scss';
 import { useState } from 'react';
 export default function TournamentItem(props) {
 

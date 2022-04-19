@@ -1,4 +1,4 @@
-import './AddPlayer.css'
+import './AddPlayer.scss'
 import { useState } from 'react'
 import useApplicationData from '../hooks/useApplicationData'
 

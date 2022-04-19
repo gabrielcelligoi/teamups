@@ -1,4 +1,4 @@
-import "./CreateSport.css";
+import "./CreateSport.scss";
 import useApplicationData from "../hooks/useApplicationData";
 import { useState } from "react";
 

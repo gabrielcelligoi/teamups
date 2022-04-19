@@ -1,5 +1,5 @@
 
-import './UpcomingMatchItem.css'
+import './UpcomingMatchItem.scss'
 
 export default function UpcomingMatchItem(props) {
   return (

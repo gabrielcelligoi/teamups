@@ -1,8 +1,0 @@
-.banner {
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(../../docs/hands-up.png);
-  background-size: cover;
-}

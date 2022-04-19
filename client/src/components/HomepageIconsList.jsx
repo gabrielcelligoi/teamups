@@ -1,5 +1,5 @@
 import HomepageIcon from "./HomePageIcon";
-import './HomepageIconsList.css'
+import './HomepageIconsList.scss'
 import icon1 from '../images/icon-chat.png'
 import icon2 from '../images/icon-team.png'
 import icon3 from '../images/icon-tournament.png'

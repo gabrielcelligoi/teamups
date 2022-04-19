@@ -1,5 +1,5 @@
 import HomepageLink from './HomepageLink'
-import './HomepageLinkList.css'
+import './HomepageLinkList.scss'
 import imgLink1 from '../images/link-find-friend.png'
 import imgLink2 from '../images/link-create-team.png'
 import imgLink3 from '../images/link-create-tournament.png'

@@ -1,4 +1,4 @@
-import './MatchItem.css';
+import './MatchItem.scss';
 import AddPlayer from './AddPlayer';
 import { useState } from 'react';
 export default function MatchItem(props) {

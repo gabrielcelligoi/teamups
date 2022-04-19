@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import MatchItem from './MatchItem';
 import { getAllMatches } from "../helpers/selectors";
 
-import './Tournaments.css';
+import './Tournaments.scss';
 
 
 export default function Tournaments(props) {

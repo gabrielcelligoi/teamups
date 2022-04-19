@@ -1,5 +1,5 @@
 
-import styles from './NavBar.css'
+import styles from './NavBar.scss'
 
 export default function NavBar(props) {
   return (
