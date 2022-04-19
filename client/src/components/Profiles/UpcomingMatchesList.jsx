@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import './UpcomingMatchesList.css'
+
 export default function UpcomingMacthesList(props) {
   const location = useLocation();
 
@@ -41,7 +43,7 @@ export default function UpcomingMacthesList(props) {
     return (
       <div>
         <h1>Upcoming Matches</h1>
-        <div>
+        <div className="matches-list">
           {match}
         </div>
       </div>
