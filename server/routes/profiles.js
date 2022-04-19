@@ -64,6 +64,25 @@ module.exports = (db) => {
     })
   })
 
+  router.get('/profiles/:profileid/teams', (req, res) => {
+    const id = req.params.profileid
+
+    db.query(`
+      SELECT
+        users.id AS user_id,
+        users.name AS user_name,
+        teams.name AS team_name,
+        teams.id AS team_id
+      FROM users
+      JOIN team_member ON users.id = team_member.user_id
+      JOIN teams ON teams.id = team_member.team_id
+      WHERE users.id = ${id};
+    `)
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+
   return router;
 }
 
