@@ -8,18 +8,13 @@ import TournamentItem from './TournamentItem';
 
 export default function CreateTournament(props) {
   let location = useLocation();
-  const currentId = Number(location.state.tournaments.length)
-  console.log("location",location)
-  console.log(currentId)
+  const id = Number(location.state.tournaments.length) + 1
   
   const [sport, setSport] = useState("Basketball")
   const [name, setName] = useState("")
   const [type, setType] = useState('single')
   const [players, setPlayers] = useState()
-  const [matches, setMatches] = useState()
   const [create, setCreate] = useState(false)
-  let [id, setId] = useState(currentId)
-  const [state, setState] = useState({})
 
   const { createNewTournament } = useApplicationData()
   const handleClick = (e) => {
@@ -27,16 +22,10 @@ export default function CreateTournament(props) {
     const sportId = getSportId(sport, location.state)
     const numMatches = createSingle(players)
 
-    createNewTournament(name, sportId, players, type)
+    createNewTournament(name, sportId, players, type, numMatches.totalMatches)
       .then((data) => {
-        setId(id++)
+        console.log("new", id)
         setCreate(true)
-        setState({
-          id: id,
-          name: name,
-          sport: sport,
-          bracket: numMatches
-        })
       })
       .catch((error) => {
         console.log(error)
@@ -67,9 +56,9 @@ export default function CreateTournament(props) {
     </div>
     {create ?
     <div>
-      <h1>hello!</h1>
-      <Link to={`/tournaments/${id}`} state={state}>
-        <button>See Tournament</button>
+      <h1>Tournament Created!</h1>
+      <Link to={`/tournaments/${id}`} state={id} >
+        <button>Manage Tournament</button>
       </Link>
       <button onClick={(e) => setCreate(false)}>back</button>
     </div>

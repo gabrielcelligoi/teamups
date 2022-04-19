@@ -5,7 +5,7 @@ import useApplicationData from "../../hooks/useApplicationData"
 
 
 export default function ProfileItem(props) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     Promise.all([
@@ -19,7 +19,7 @@ export default function ProfileItem(props) {
   return (
     <div>
       <h2>
-        <Link to={`${props.id}`} state={{user}}>
+        <Link to={`${props.id}`} state={user}>
           {props.name}
         </Link>        
       </h2>

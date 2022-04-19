@@ -37,7 +37,7 @@ root.render(
         <Route path="matches/:matchid" element={<MatchItem />} />
         <Route path="matches/create" element={<CreateMatch />} />
         <Route path="sport/create" element={<CreateSport />} />
-        <Route path="tournament/create" element={<CreateTournament />} />
+        <Route path="tournament/create" element={<CreateTournament />}/>
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
         <Route path='tournaments/:tournament_id' element={<TournamentItem />} />
