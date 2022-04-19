@@ -18,8 +18,8 @@ import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
 import SportsList from './components/SportsList';
-import Profile from './components/Profile';
-import ViewUserDetails from './components/Profile/ViewUserDetails';
+import Profiles from './components/Profiles';
+import ViewUserDetails from './components/Profiles/ViewUserDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,8 +36,8 @@ root.render(
         <Route path="sport/create" element={<CreateSport />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="profile/:profileid" element={<ViewUserDetails />} />
+        <Route path="profiles" element={<Profiles />} />
+        <Route path="profiles/:profileid" element={<ViewUserDetails />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

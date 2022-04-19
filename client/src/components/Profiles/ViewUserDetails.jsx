@@ -7,7 +7,9 @@ export default function ViewUserDetails(props) {
 
   return (
     <div>
-      Hello {location.state[0].name}
+      <h1>Hello {location.state[0].name}</h1>
+      <h2>You won {location.state[0].wins} matches</h2>
+      <h2>You lost {location.state[0].losses} matches</h2>
     </div>
   )
 }

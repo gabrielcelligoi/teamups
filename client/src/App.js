@@ -15,7 +15,7 @@ function App() {
       <HomepageIconsList />
       <HomepageLinkList />
       <ul>
-        <li><a href="profile">Profile</a></li>
+        <li><Link to="profiles" state={state}>Profiles</Link></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>
         <li><Link to="tournaments" state={state}>All Tournaments</Link></li>
         <li><Link to="sports" state={state}>Sports</Link></li>
