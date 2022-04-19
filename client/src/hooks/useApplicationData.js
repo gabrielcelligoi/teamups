@@ -9,6 +9,7 @@ export default function useApplicationData(props) {
     tournaments: {},
     sports: {},
     match: {},
+    users: {},
   })
 
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function useApplicationData(props) {
       axios.get('/api/tournaments'),
       axios.get('/api/sports'),
       axios.get('/api/matches'),
+      axios.get('/api/profiles'),
     ])
     .then((all) => {
       setState(prev => ({
@@ -25,6 +27,7 @@ export default function useApplicationData(props) {
         tournaments: all[1].data,
         sports: all[2].data,
         match: all[3].data,
+        users: all[4].data,
       }))
     })
   }, [])

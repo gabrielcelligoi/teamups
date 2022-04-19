@@ -1,4 +1,5 @@
 import './TournamentItem.css';
+<<<<<<< HEAD
 import { useDebugValue, useEffect, useState } from "react"
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -87,4 +88,19 @@ export default function TournamentItem(props) {
     : null}
     </section>
   )
+=======
+import { useState } from 'react';
+export default function TournamentItem(props) {
+
+return ( 
+ <section className="tournament-container">
+    <ul>
+
+      <h3>{props.name}</h3> 
+    </ul> 
+  </section>
+  
+  )
+
+>>>>>>> c9332a06c79477b51918309e2e6a354545c8d313
 }

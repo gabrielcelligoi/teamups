@@ -23,6 +23,8 @@ import TournamentItem from './components/TournamentItem';
 
 import Profile from './components/Profile';
 import ViewUserDetails from './components/Profile/ViewUserDetails';
+import Profiles from './components/Profiles';
+import ViewUserDetails from './components/Profiles/ViewUserDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
