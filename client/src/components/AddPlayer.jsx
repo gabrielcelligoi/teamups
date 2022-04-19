@@ -29,6 +29,7 @@ export default function AddPlayer(props) {
       </form>
     : <div>
         <h2>Player Added</h2>
+        <button type="submit" onClick={handleAddAnother}>Add Another Player</button> 
       </div>}
     </section>
   )

@@ -13,13 +13,13 @@ export default function CreateTournament(props) {
   const [sport, setSport] = useState("Basketball")
   const [name, setName] = useState("")
   const [type, setType] = useState('single')
-  const [players, setPlayers] = useState()
+  const [players, setPlayers] = useState(4)
   const [create, setCreate] = useState(false)
 
   const { createNewTournament } = useApplicationData()
   const handleClick = (e) => {
     e.preventDefault()
-    const sportId = getSportId(sport, location.state)
+    const sportId = getSportId(sport, location.state.sports)
     const numMatches = players - 1
 
     createNewTournament(name, sportId, players, type, numMatches)
@@ -46,8 +46,13 @@ export default function CreateTournament(props) {
         <select id="create-tournament-type" name='create-tournament-type'>
           <option value="Single Elimination">Single Elimination</option>
         </select>
-        <label htmlFor='create-tournament-players'>Number Of Players: </label>
-        <input type="text" id='create-tournament-players' name='create-tournament-players' onChange={(e) => setPlayers(e.target.value)}/>
+        <label htmlFor='create-tournament-players'>Select Number Of Players: </label>
+        <select id='create-tournament-players' name='create-tournament-players' onChange={(e) => setPlayers(e.target.value)}>
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="32">32</option>
+        </select>  
         <select id="create-tournament-sport" name='create-tournament-sport' onChange={(e) => setSport(e.target.value)}>
           {sportsArr.map(item => <option key={item} value={item}>{item}</option>)}
         </select>

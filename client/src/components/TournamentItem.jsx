@@ -1,5 +1,5 @@
 import './TournamentItem.css';
-import { useEffect, useState } from "react"
+import { useDebugValue, useEffect, useState } from "react"
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { createSingle } from '../helpers/tournaments';
@@ -28,6 +28,8 @@ export default function TournamentItem(props) {
     console.log(bracket)
     setModeMatches(true)
   }
+
+  // console.log("BRACKET", Object.keys(bracket).length)
   return (
     <section>
     {tournament ? 
@@ -41,14 +43,46 @@ export default function TournamentItem(props) {
       {modeMatches ? 
       <div>
         <h2>Round 1</h2>
-        { [...Array(bracket.round1)].map((e,i) => {
+        { [...Array(bracket.round1)].map((ele,i) => {
           console.log([...Array(bracket)])
-         return (
-          <article>
+          return (
            <CreateMatch key={i} tournament_id={id.tournament_id}/> 
-          </article> 
          ) 
         })}
+        <h2>Round 2</h2>
+        { [...Array(bracket.round2)].map((e,i) => {
+          return (
+            <CreateMatch key={i} tournament_id={id.tournament_id} />
+          )
+        })}
+
+        {bracket.round3 ?  <h2>Round 3</h2> : null}
+        {bracket.round3 ?
+          [...Array(bracket.round3)].map((e,i) => {
+          return (
+            <CreateMatch key={i} tournament_id={id.tournament_id} />
+          )
+        })
+        : null}
+
+        {bracket.round4 ?  <h2>Round 4</h2> : null}
+        {bracket.round4 ?
+          [...Array(bracket.round4)].map((e,i) => {
+          return (
+            <CreateMatch key={i} tournament_id={id.tournament_id} />
+          )
+        })
+        : null}
+
+        {bracket.round5 ?  <h2>Round 5</h2> : null}
+        {bracket.round5 ?
+          [...Array(bracket.round5)].map((e,i) => {
+          return (
+            <CreateMatch key={i} tournament_id={id.tournament_id} />
+          )
+        })
+        : null}
+
       </div>
     : null}
     </section>
