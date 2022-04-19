@@ -1,10 +1,10 @@
 import "./CreateMatch.css";
 import useApplicationData from "../hooks/useApplicationData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getSportId } from "../helpers/selectors";
 import MatchItem from "./MatchItem";
-
+import axios from "axios";
 export default function CreateMatch(props) {
   let location = useLocation();
   const { createMatch, getNewMatch } = useApplicationData()
@@ -14,9 +14,21 @@ export default function CreateMatch(props) {
   const [sport, setSport] = useState("Basketball")
   const [showNew, setShowNew] = useState(false)
   const [newMatch, setNewMatch] = useState()
+  const [sportsList, setSportsList] = useState()
+
+  useEffect(() => {
+    axios.get(`/api/sports/`)
+      .then((res) => {
+        setSportsList(res.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [])
+
   const handleClick = (e) => {
     e.preventDefault()
-    const sportId = getSportId(sport, location.state)
+    const sportId = getSportId(sport, sportsList)
     createMatch(sportId, date, matchLocation)
     getNewMatch()
     .then((data) => {
@@ -24,19 +36,18 @@ export default function CreateMatch(props) {
       setNewMatch(data.data[0])
     })
   }
-  const sportsArr = location.state.sports.map(sport => {
-    return sport = sport.name
-  })
-
+  // const sportsArr = location.state.sports.map(sport => {
+  //   return sport = sport.name
+  // })
+  console.log("sportsList", sportsList)
   console.log(location.state)
-  console.log(sportsArr)
   return (
     <div>
       <form>
         <h1>Create New Match</h1>
         <label htmlFor="sports-list">Choose Sport: </label>
         <select id="sports-list" name="sports-list" onChange={(e) => setSport(e.target.value)}>
-          {sportsArr.map(item => <option value={item}>{item}</option>)}
+          {sportsList ? sportsList.map(item => <option value={item.name}>{item.name}</option>) : null }
         </select>
         <label htmlFor="create-match-date">Match Date: </label>
         <input type="date" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />

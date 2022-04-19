@@ -20,12 +20,12 @@ export default function CreateTournament(props) {
   const handleClick = (e) => {
     e.preventDefault()
     const sportId = getSportId(sport, location.state)
-    const numMatches = createSingle(players)
+    const numMatches = players - 1
 
-    createNewTournament(name, sportId, players, type, numMatches.totalMatches)
+    createNewTournament(name, sportId, players, type, numMatches)
       .then((data) => {
-        console.log("new", id)
         setCreate(true)
+
       })
       .catch((error) => {
         console.log(error)
@@ -57,7 +57,7 @@ export default function CreateTournament(props) {
     {create ?
     <div>
       <h1>Tournament Created!</h1>
-      <Link to={`/tournaments/${id}`} state={id} >
+      <Link to={`/tournaments/${id}`} >
         <button>Manage Tournament</button>
       </Link>
       <button onClick={(e) => setCreate(false)}>back</button>
