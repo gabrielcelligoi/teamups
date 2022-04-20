@@ -26,12 +26,14 @@ article {
     font-family: variables.$logo-font;
     font-size: 40px;
     text-align: initial;
+    color: variables.$dark-color;
   }
 
   p {
     text-align: initial;
     font-size: 20px;
     line-height: 2rem;
+    color: variables.$dark-color;
   }
 
   button {

@@ -7,6 +7,7 @@ nav {
   box-sizing: border-box;
   width: 100%;
   position: relative;
+  background-color: variables.$dark-color;
 }
 
 nav .logo {
@@ -21,9 +22,9 @@ nav .logo {
 
 .logo-name {
   text-decoration: none;
-  color: black;
+  color: variables.$primary-color;
   font-family: variables.$logo-font;
-  font-size: 35px;
+  font-size: 50px;
 }
 
 nav ul {
@@ -37,17 +38,17 @@ nav ul {
   top: 50%;
   transform: translateY(-50%);
   position: inherit;
-  width: 250px;
+  width: 300px;
   list-style: none;
 }
 
 nav ul li {
-  color: black;
+  color: variables.$primary-color;
   text-decoration: none;
 }
 
 .navbar-link {
-  color: black;
+  color: variables.$primary-color;
   text-decoration: none;
   font-family: variables.$primary-font;
 }
