@@ -4,11 +4,15 @@ import Banner from "./components/Homepage/Banner";
 import HomepageIconsList from "./components/Homepage/HomepageIconsList";
 import HomepageLinkList from "./components/Homepage/HomepageLinkList";
 import HomepageStandardContainer from "./components/Homepage/HomepageStandardContainer";
+import SecundaryBanner from "./components/Homepage/SecondaryBanner";
 import "./App.scss"
 
-import { allTournamentsContent } from "./components/Homepage/HomepageContent"
+import { allTournamentsContent, allMatchesContent,allSportsContent, createSportContent } from "./components/Homepage/HomepageContent"
 
-import imgAllTournaments from "./images/home-all-tournaments.png"
+import imgAllTournaments from "./images/home-all-tournaments.png";
+import imgAllMatches from "./images/home-all-matches.png";
+import imgAllSports from "./images/home-all-sports.png";
+import imgCreateSport from "./images/home-create-sport.png";
     
 function App() {
   const { state }  = useApplicationData()
@@ -25,14 +29,32 @@ function App() {
         image={imgAllTournaments}
         title={allTournamentsContent.title}
         text={allTournamentsContent.text}
-        buttonText={allTournamentsContent.buttonText}
+        buttonText={allTournamentsContent.buttonText}        
       />
 
       <HomepageStandardContainer
-        image={imgAllTournaments}
-        title={allTournamentsContent.title}
-        text={allTournamentsContent.text}
-        buttonText={allTournamentsContent.buttonText}
+        image={imgAllMatches}
+        title={allMatchesContent.title}
+        text={allMatchesContent.text}
+        buttonText={allMatchesContent.buttonText}
+        mirror
+      />
+
+      <SecundaryBanner />
+
+      <HomepageStandardContainer
+        image={imgAllSports}
+        title={allSportsContent.title}
+        text={allSportsContent.text}
+        buttonText={allSportsContent.buttonText}        
+      />
+
+      <HomepageStandardContainer
+        image={imgCreateSport}
+        title={createSportContent.title}
+        text={createSportContent.text}
+        buttonText={createSportContent.buttonText}
+        mirror
       />
       <ul>
         <li><Link to="profiles" state={state}>Profiles</Link></li>
