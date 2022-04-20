@@ -6,6 +6,8 @@ import HomepageLinkList from "./components/Homepage/HomepageLinkList";
 import HomepageStandardContainer from "./components/Homepage/HomepageStandardContainer";
 import "./App.scss"
 
+import { allTournamentsContent } from "./components/Homepage/HomepageContent"
+
 import imgAllTournaments from "./images/home-all-tournaments.png"
     
 function App() {
@@ -19,8 +21,18 @@ function App() {
       
       <HomepageLinkList />
 
-      <HomepageStandardContainer 
+      <HomepageStandardContainer
         image={imgAllTournaments}
+        title={allTournamentsContent.title}
+        text={allTournamentsContent.text}
+        buttonText={allTournamentsContent.buttonText}
+      />
+
+      <HomepageStandardContainer
+        image={imgAllTournaments}
+        title={allTournamentsContent.title}
+        text={allTournamentsContent.text}
+        buttonText={allTournamentsContent.buttonText}
       />
       <ul>
         <li><Link to="profiles" state={state}>Profiles</Link></li>
