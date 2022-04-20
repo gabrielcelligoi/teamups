@@ -1,9 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
 import useApplicationData from "./hooks/useApplicationData";
-import Banner from "./components/Banner";
-import HomepageIconsList from "./components/HomepageIconsList";
-import HomepageLinkList from "./components/HomepageLinkList";
+import Banner from "./components/Homepage/Banner";
+import HomepageIconsList from "./components/Homepage/HomepageIconsList";
+import HomepageLinkList from "./components/Homepage/HomepageLinkList";
+import HomepageStandardContainer from "./components/Homepage/HomepageStandardContainer";
 import "./App.scss"
+
+import imgAllTournaments from "./images/home-all-tournaments.png"
     
 function App() {
   const { state }  = useApplicationData()
@@ -13,8 +16,12 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <HomepageIconsList />
+      
       <HomepageLinkList />
+
+      <HomepageStandardContainer 
+        image={imgAllTournaments}
+      />
       <ul>
         <li><Link to="profiles" state={state}>Profiles</Link></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>

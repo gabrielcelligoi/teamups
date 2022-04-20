@@ -1,5 +1,8 @@
+@use './components/sass/variables';
+
 * {
   margin: 0;
+  font-family: variables.$primary-font;
 }
 
 .App {

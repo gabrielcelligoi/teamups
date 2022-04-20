@@ -1,16 +1,18 @@
+@use '../sass/variables';
+
 .banner {
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../../docs/hands-up.png);
+  background-image: url(../../../docs/hands-up.png);
   background-size: cover;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: variables.$primary-font;
 }
 
 .background-txt {
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #ffa91d;
+  -webkit-text-stroke: 2px variables.$primary-color;
   font-family: "Alfa Slab One", cursive;
   font-size: 25em;
   letter-spacing: 0.1em;
@@ -20,7 +22,7 @@
 .front-txt {
   z-index: 100;
   font-size: 48px;
-  color: #6e2d2d;
+  color: variables.$secondary-color;
   /* font-style: italic; */
   font-weight: 700;
 }

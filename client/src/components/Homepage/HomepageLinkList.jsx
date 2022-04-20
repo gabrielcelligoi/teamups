@@ -1,8 +1,8 @@
 import HomepageLink from './HomepageLink'
 import './HomepageLinkList.scss'
-import imgLink1 from '../images/link-find-friend.png'
-import imgLink2 from '../images/link-create-team.png'
-import imgLink3 from '../images/link-create-tournament.png'
+import imgLink1 from '../../images/link-create-match.png'
+import imgLink2 from '../../images/link-create-team.png'
+import imgLink3 from '../../images/link-create-tournament.png'
 
 export default function HomepageLinkList(props) {
 
@@ -10,8 +10,8 @@ export default function HomepageLinkList(props) {
     {
       id: 1,
       image: imgLink1,
-      frase: 'Find a friend',
-      link: "#"
+      frase: 'Create match',
+      link: "matches/create"
     },
     {
       id: 2,

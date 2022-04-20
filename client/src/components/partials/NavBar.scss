@@ -1,3 +1,5 @@
+@use '../sass/variables';
+
 nav {
   height: 75px;
   margin: 0;
@@ -20,7 +22,7 @@ nav .logo {
 .logo-name {
   text-decoration: none;
   color: black;
-  font-family: 'Teko', sans-serif;
+  font-family: variables.$logo-font;
   font-size: 35px;
 }
 
@@ -47,7 +49,7 @@ nav ul li {
 .navbar-link {
   color: black;
   text-decoration: none;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: variables.$primary-font;
 }
 
 .navbar-link:hover {
