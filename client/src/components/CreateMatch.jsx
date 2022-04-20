@@ -7,7 +7,7 @@ import MatchItem from "./MatchItem";
 import axios from "axios";
 export default function CreateMatch(props) {
   let location = useLocation();
-  const { createMatch, getNewMatch } = useApplicationData()
+  const { createMatch, getNewMatch, createTournamentMatch } = useApplicationData()
   
   const [date, setDate] = useState("")
   const [matchLocation, setMatchLocation] = useState("")
@@ -36,6 +36,17 @@ export default function CreateMatch(props) {
       setNewMatch(data.data[0])
     })
   }
+
+  const handleTournamentClick = (e) => {
+    e.preventDefault()
+    const sportId = getSportId(sport, sportsList)
+    createTournamentMatch(sportId, date, matchLocation, props.tournament_id)
+    getNewMatch()
+    .then((data) => {
+      setShowNew(true)
+      setNewMatch(data.data[0])
+    })
+  }
   // const sportsArr = location.state.sports.map(sport => {
   //   return sport = sport.name
   // })
@@ -53,7 +64,7 @@ export default function CreateMatch(props) {
         <input type="date" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
         <label htmlFor="create-match-location">Location: </label>
         <input type="text" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
-        <button type="submit" onClick={handleClick}>Submit</button>
+        <button type="submit" onClick={props.tournament_id ? handleTournamentClick : handleClick}>Submit</button>
       </form>
       <div>
       {showNew ?
@@ -64,6 +75,7 @@ export default function CreateMatch(props) {
       sport={sport}
       location={newMatch.match_location}
       addPlayer={true}
+      tournament={props.tournament_id ? true : false}
       /> 
       : null}
       </div>

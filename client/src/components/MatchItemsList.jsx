@@ -22,6 +22,7 @@ export default function MatchItemList(props) {
       location={match.location}
       player1={match.players[0]}
       player2={match.players[1]}
+      tournament={match.tournament_id ? true : false}
       />
       )
     }) 

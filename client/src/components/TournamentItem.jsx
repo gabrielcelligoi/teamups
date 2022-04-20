@@ -29,6 +29,7 @@ export default function TournamentItem(props) {
     setModeMatches(true)
   }
 
+
   // console.log("BRACKET", Object.keys(bracket).length)
   return (
     <section>
@@ -46,13 +47,13 @@ export default function TournamentItem(props) {
         { [...Array(bracket.round1)].map((ele,i) => {
           console.log([...Array(bracket)])
           return (
-           <CreateMatch key={i} tournament_id={id.tournament_id}/> 
+           <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/> 
          ) 
         })}
         <h2>Round 2</h2>
         { [...Array(bracket.round2)].map((e,i) => {
           return (
-            <CreateMatch key={i} tournament_id={id.tournament_id} />
+            <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/>
           )
         })}
 
@@ -60,7 +61,7 @@ export default function TournamentItem(props) {
         {bracket.round3 ?
           [...Array(bracket.round3)].map((e,i) => {
           return (
-            <CreateMatch key={i} tournament_id={id.tournament_id} />
+            <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/>
           )
         })
         : null}
@@ -69,7 +70,7 @@ export default function TournamentItem(props) {
         {bracket.round4 ?
           [...Array(bracket.round4)].map((e,i) => {
           return (
-            <CreateMatch key={i} tournament_id={id.tournament_id} />
+            <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/>
           )
         })
         : null}

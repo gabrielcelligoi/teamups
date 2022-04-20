@@ -43,5 +43,22 @@ module.exports = (db) => {
       console.log(error)
     })
   })
+
+
+  router.put('/tournaments/create', (req, res) => {
+    console.log("body", req.body)
+
+    const sport = req.body.sport
+    const date = req.body.date
+    const location = req.body.location
+    const tournamentId = req.body.tournamentId
+    db.query(`
+      INSERT INTO matches (sport_id, match_date, match_location, tournament_id)
+      VALUES ($1::integer, $2::date, $3::text, $4::integer)
+    `, [sport, date, location, tournamentId])
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
   return router;
 }
