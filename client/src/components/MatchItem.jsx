@@ -16,12 +16,13 @@ return (
   <section className="match-container">
     <ul>
 
-      <h3>{props.date}</h3> 
+      <h3>{props.date}</h3>
       <h3>{props.sport}</h3> 
       <h3>{props.player1} vs {props.player2}</h3> 
-      <h3>{props.location}</h3> 
+      <h3>{props.location}</h3>  
+      {props.tournament ? <h3>Tournament Match</h3> : <h3>Non Tournament Match</h3>}
       {props.addPlayer ? <button type="Submit" onClick={handleClick}>Add Player To Match</button> : null}
-    </ul> 
+    </ul>
     {add ?
       <div>
         <AddPlayer 

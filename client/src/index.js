@@ -18,8 +18,12 @@ import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
 import CreateMatch from './components/CreateMatch';
 import SportsList from './components/SportsList';
-import Profiles from './components/Profiles';
+import CreateTournament from './components/CreateTournament';
+import TournamentItem from './components/TournamentItem';
+
+import Profile from './components/Profiles';
 import ViewUserDetails from './components/Profiles/ViewUserDetails';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,9 +38,11 @@ root.render(
         <Route path="matches/:matchid" element={<MatchItem />} />
         <Route path="matches/create" element={<CreateMatch />} />
         <Route path="sport/create" element={<CreateSport />} />
+        <Route path="tournament/create" element={<CreateTournament />}/>
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="sports" element={<SportsList />} />
-        <Route path="profiles" element={<Profiles />} />
+        <Route path='tournaments/:tournament_id' element={<TournamentItem />} />
+        <Route path="profiles" element={<Profile />} />
         <Route path="profiles/:profileid" element={<ViewUserDetails />} />
       </Routes>
     </BrowserRouter>

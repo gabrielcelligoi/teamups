@@ -5,7 +5,7 @@ import useApplicationData from "../../hooks/useApplicationData"
 
 
 export default function ProfileItem(props) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     Promise.all([

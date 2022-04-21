@@ -2,38 +2,17 @@ import React, {useState, useEffect} from 'react';
 import useApplicationData from "../hooks/useApplicationData";
 import { useLocation } from 'react-router-dom';
 import MatchItem from './MatchItem';
-import TournamentItem from './TournamentItem';
 import { getAllMatches } from "../helpers/selectors";
 
-// const users = [
-//   {
-//     id: 1,
-//     name: "Brenda",
-//     email: "brenda@walsh.com",
-//     password: "dylan",
-//     wins: 0,
-//     losses: 0,
-//     sports: [1, 3]
-//   },
-//   {
-//     id: 2,
-//     name: "Brandon",
-//     email: "brandon@walsh.com",
-//     password: "dylan",
-//     wins: 0,
-//     losses: 0,
-//     sports: [1, 2]
-//   }
-// ]
 
 
 export default function SportsList(props) {
   const { state }  = useApplicationData()
   let location = useLocation();
-  // console.log(location.state)
   const sports = location.state.sports;
   const matches = getAllMatches(location.state.matches);
   const tournaments = location.state.tournaments;
+  const users = location.state.users;
 
 
   const [filteredTournaments, setFilteredTournament] = useState(null);
@@ -44,10 +23,10 @@ export default function SportsList(props) {
   useEffect(() => {
     setFilteredMatches(matches)
   }, []);
-// const [filteredUsers, setFilteredUsers] = useState(null);
-// useEffect(() => {
-//   setFilteredUsers(users)
-// }, []);
+  const [filteredUsers, setFilteredUsers] = useState(null);
+  useEffect(() => {
+    setFilteredUsers(users)
+  }, []);
 
   const filterTournament = function(sport_id) {
     let filteredTournament = tournaments.filter(tournament => Number(tournament.sport_id) === Number(sport_id));
@@ -59,25 +38,26 @@ export default function SportsList(props) {
     return filteredMatch;
   }
 
-// const filterUser = function(sport_id) {
-//   let filteredUser = users.filter(user => {
-//     let sports = user.sports
-//     // console.log(sports)
-//     for (let sport of sports) {
-//       // console.log(sport)
-//       // console.log(user)
-//       if (Number(sport) === Number(sport_id)) {
-//         return user;
-//       }
-//     }
-//   });
-//   return filteredUser
-// };
+  const filterUser = function(sport_id) {
+    let filteredUser = users.filter(user => {
+      let sports = user.sports
+      for (let sport of sports) {
+        if (Number(sport) === Number(sport_id)) {
+          return user;
+        }
+      }
+    });
+    return filteredUser
+  };
 
 
   const handleTournaments = function(event) {
     let value = event.target.value;
+    if (!value) {
+      return null
+    } else {
     setFilteredTournament(filterTournament(value))
+  }
   }
 
   const handleMatches = function(event) {
@@ -85,15 +65,15 @@ export default function SportsList(props) {
     setFilteredMatches(filterMatch(value))
   }
 
-// const handleUsers = function(event) {
-//   let value = event.target.value;
-//   setFilteredUsers(filterUser(value))
-// }
+  const handleUsers = function(event) {
+    let value = event.target.value;
+    setFilteredUsers(filterUser(value))
+  }
 
   const handleAllClicks = function(event) {
     handleTournaments(event);
     handleMatches(event);
-  // handleUsers(event);
+    handleUsers(event);
   }
 
   return (
@@ -103,10 +83,15 @@ export default function SportsList(props) {
       sports.map(sport => (
         <button key={sport.id} value={sport.id} onClick={handleAllClicks}>{sport.name}</button>
       ))}
+      <h4>Connect with Users</h4>
+      {filteredUsers &&
+       filteredUsers.map(user => (
+      <p key={user.id} value={user.id}>{user.name}</p>
+    ))}
       <h4>Tournaments</h4>
       {filteredTournaments &&
       filteredTournaments.map(tournament => (
-        <h4 key={tournament.id} value={tournament.id}><TournamentItem name={tournament.name} /></h4>
+        <h4 key={tournament.id} value={tournament.id}>{tournament.name}</h4>
       ))}
       <h4>Matches</h4>
       {filteredMatches &&
@@ -120,11 +105,6 @@ export default function SportsList(props) {
         player2={match.players[1]}
         /></h4>
       ))}
-    {/* <h4>Users</h4>
-    {filteredUsers &&
-    filteredUsers.map(user => (
-      <p key={user.id} value={user.id}>{user.name}</p>
-    ))} */}
     </div>
   )
 }; 
