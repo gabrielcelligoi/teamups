@@ -1,17 +1,17 @@
 @use '../sass/variables';
 
-.banner {
+.secondary-banner {
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../images/home-fing-players.png);
+  background-image: url(../../images/home-bro.png);
   background-size: cover;
   font-family: variables.$primary-font;  
 }
 
-.banner:hover {
-  opacity: 0.5;
+.secondary-banner:hover {
+  background-image: url(../../images/home-bro-fragmented.png);
 }
 
 .background-txt {

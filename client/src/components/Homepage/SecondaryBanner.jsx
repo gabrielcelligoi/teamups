@@ -1,4 +1,4 @@
-import './Banner.scss'
+import './SecondaryBanner.scss'
 
 import useApplicationData from '../../hooks/useApplicationData'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ export default function SecundaryBanner () {
   return (
     <div>
       <Link to="profiles" state={state} style={{ textDecoration: 'none' }}>
-        <div className='banner'>
+        <div className='secondary-banner'>
           <h1 className='front-txt'>Check out other players</h1>
         </div>
       </Link>
