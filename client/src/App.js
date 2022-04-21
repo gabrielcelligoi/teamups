@@ -69,6 +69,7 @@ function App() {
         <li><Link to="tournament/create" state={state}>Create Tournament</Link></li>
         <li><Link to="teams/create">Create Teams</Link></li>
         <li><Link to="sport/create">Create Sport</Link></li>
+        <li><Link to="teams" state={state}>Teams</Link></li>
     </ul>
     <Outlet />
     </div>

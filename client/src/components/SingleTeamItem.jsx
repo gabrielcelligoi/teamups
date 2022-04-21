@@ -26,7 +26,7 @@ export default function SingleTeamItem(props) {
         console.log(error)
       })
   }, [])
-
+  console.log(props)
   return (
     <section>
       <h1>Team Details</h1>

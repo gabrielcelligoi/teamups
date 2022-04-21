@@ -19,6 +19,7 @@ export default function useApplicationData(props) {
       axios.get('/api/sports'),
       axios.get('/api/matches'),
       axios.get('/api/profiles'),
+      axios.get('/api/teams')
     ])
     .then((all) => {
       setState(prev => ({
@@ -28,6 +29,7 @@ export default function useApplicationData(props) {
         sports: all[2].data,
         match: all[3].data,
         users: all[4].data,
+        teams: all[5].data
       }))
     })
   }, [])
