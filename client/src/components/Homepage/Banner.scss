@@ -8,6 +8,7 @@
   background-image: url(../../../docs/hands-up.png);
   background-size: cover;
   font-family: variables.$primary-font;
+  z-index: -1;
 }
 
 .background-txt {
