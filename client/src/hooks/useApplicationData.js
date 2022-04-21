@@ -127,6 +127,17 @@ export default function useApplicationData(props) {
       })
   }
 
+  const addMemberToTeam = (id, teamId) => {
+    const data = {
+      user_id: id,
+      team_id: teamId
+    }
+    return axios.put('/api/teams/add', data)
+      .then(res => {
+        console.log('RES', res)
+      })
+  }
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam } 
+
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam } 
 }

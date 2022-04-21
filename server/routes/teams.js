@@ -28,5 +28,28 @@ router.put('/teams', (req,res) => {
       }
     )
   })
+
+  router.get('/teams/:teamid', (req, res) => {
+    const id = req.params.teamid
+    db.query(`
+    SELECT *
+    FROM teams
+    WHERE id = $1
+    `, [id])
+    .then(data => {
+        res.json(data.rows)
+      }
+    )
+  })
+  router.put('/teams/add', (req,res) => {
+    console.log("body", req.body)
+    // const userId = req.body.user_id
+    // const teamId = req.body.team_id
+
+    // db.query(`
+    //   INSERT INTO match_player (user_id, team_id)
+    //   VALUES ($1, $2)
+    // `, [userId, teamId])
+  })
   return router;
 }

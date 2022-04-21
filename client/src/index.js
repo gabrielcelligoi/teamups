@@ -23,7 +23,7 @@ import TournamentItem from './components/TournamentItem';
 import CreateTeam from './components/CreateTeam';
 import Profile from './components/Profiles';
 import ViewUserDetails from './components/Profiles/ViewUserDetails';
-
+import SingleTeamItem from './components/SingleTeamItem';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -45,6 +45,7 @@ root.render(
         <Route path="profiles" element={<Profile />} />
         <Route path="profiles/:profileid" element={<ViewUserDetails />} />
         <Route path="teams/create" element={<CreateTeam />} />
+        <Route path="teams/:teamid" element={<SingleTeamItem />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
