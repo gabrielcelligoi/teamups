@@ -1,15 +1,11 @@
-<<<<<<< HEAD
+
 import './TournamentItem.scss';
-import { useState } from 'react';
-=======
-import './TournamentItem.css';
 import { useDebugValue, useEffect, useState } from "react"
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { createSingle } from '../helpers/tournaments';
 import CreateMatch from './CreateMatch';
 
->>>>>>> main
 export default function TournamentItem(props) {
   const [tournament, setTournament] = useState()
   const [modeMatches, setModeMatches] = useState(false)
