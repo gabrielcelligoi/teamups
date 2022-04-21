@@ -29,7 +29,8 @@ function App() {
         image={imgAllTournaments}
         title={allTournamentsContent.title}
         text={allTournamentsContent.text}
-        buttonText={allTournamentsContent.buttonText}        
+        buttonText={allTournamentsContent.buttonText}
+        link="tournaments"   
       />
 
       <HomepageStandardContainer
@@ -37,6 +38,7 @@ function App() {
         title={allMatchesContent.title}
         text={allMatchesContent.text}
         buttonText={allMatchesContent.buttonText}
+        link="/matches" 
         mirror
       />
 
@@ -46,7 +48,8 @@ function App() {
         image={imgAllSports}
         title={allSportsContent.title}
         text={allSportsContent.text}
-        buttonText={allSportsContent.buttonText}        
+        buttonText={allSportsContent.buttonText}
+        link="sports"        
       />
 
       <HomepageStandardContainer
@@ -54,6 +57,7 @@ function App() {
         title={createSportContent.title}
         text={createSportContent.text}
         buttonText={createSportContent.buttonText}
+        link="sport/create" 
         mirror
       />
       <ul>

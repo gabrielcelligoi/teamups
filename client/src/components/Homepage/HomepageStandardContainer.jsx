@@ -1,6 +1,10 @@
 import './HomepageStandardContainer.scss'
+import { Link } from 'react-router-dom'
+import useApplicationData from '../../hooks/useApplicationData'
 
 export default function HomepageStandardContainer(props) {
+  const { state }  = useApplicationData()
+
   let containerClass = 'standard-container'
 
   if (props.mirror) {
@@ -14,7 +18,9 @@ export default function HomepageStandardContainer(props) {
       <article>
         <h2>{props.title}</h2>
         <p>{props.text}</p>
-        <button>{props.buttonText}</button>
+        <Link to={props.link} state={state} style={{ textDecoration: 'none' }}>
+          <button>{props.buttonText}</button>
+        </Link>
       </article>
 
     </div>
