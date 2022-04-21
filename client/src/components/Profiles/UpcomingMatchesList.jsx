@@ -35,6 +35,7 @@ export default function UpcomingMacthesList(props) {
           id={singleMatch.match_id}
           players={singleMatch.players}
           sport={singleMatch.sport}
+          sport_image={singleMatch.sport_image}
           date={singleMatch.date}
           location={singleMatch.location}
         />

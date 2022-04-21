@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import SportItem from "./SportItem";
+import './SportsList.scss'
 
 export default function SportsList(props) {
   const location = useLocation();
@@ -30,14 +31,15 @@ export default function SportsList(props) {
     const sport = allSports.map(singleSport => (
       <SportItem
           key={singleSport.sport_id}
-          sport_name={singleSport.sport_name}          
+          sport_name={singleSport.sport_name}
+          sport_image={singleSport.sport_image}
         />
     ))
 
     return (
       <div>
         <h1>Favorite Sports</h1>
-        <div className="sport-list">
+        <div className="sports-list">
           {sport}
         </div>
       </div>

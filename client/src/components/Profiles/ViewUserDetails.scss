@@ -1,0 +1,15 @@
+@use '../sass/variables';
+
+
+.view-user-details-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10em;
+  margin-top: 5em;  
+}
