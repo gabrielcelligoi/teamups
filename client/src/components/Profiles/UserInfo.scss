@@ -3,7 +3,12 @@
 .user-info-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  align-items: center;
+  background-color: #E9E7ED;
+  padding: 25px;
+  border-radius: 40px;
   margin-left: 10em;
   margin-top: 5rem;
+  margin-right: 15px;
+  width: 500px;
 }

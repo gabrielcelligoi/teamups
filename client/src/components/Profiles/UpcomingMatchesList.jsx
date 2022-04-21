@@ -44,7 +44,7 @@ export default function UpcomingMacthesList(props) {
     return (
       <div className="matches-list">
         <h1 className="matches-list-title">Upcoming Matches</h1>
-        <div>
+        <div className="matches-list-items">
           {match}
         </div>
       </div>
