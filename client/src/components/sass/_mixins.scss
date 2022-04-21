@@ -1,0 +1,6 @@
+@use './variables';
+
+@mixin standard-element {
+  width: 40%;
+  margin: 5rem;
+}

@@ -1,4 +1,4 @@
-import "./CreateMatch.css";
+import "./CreateMatch.scss";
 import useApplicationData from "../hooks/useApplicationData";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";

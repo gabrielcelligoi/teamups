@@ -1,4 +1,4 @@
-import './HomepageIcon.css'
+import './HomepageIcon.scss'
 
 export default function HomepageIcon(props) {
   

@@ -1,4 +1,4 @@
-import "./CreateSport.css";
+import "./CreateTeam.scss";
 import useApplicationData from "../hooks/useApplicationData";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -10,6 +10,8 @@ export default function CreateTeam(props) {
   const [sport, setSport] = useState("Basketball")
   const [sportsList, setSportsList] = useState()
   const [name, setName] = useState("")
+  const [add, setAdd] = useState(false)
+
   useEffect(() => {
     axios.get(`/api/sports/`)
       .then((res) => {
@@ -24,11 +26,13 @@ export default function CreateTeam(props) {
   const handleClick = (e) => {
     e.preventDefault()
     const sportId = getSportId(sport, sportsList)
-    createTeam(name, sportId, image)
+    createTeam(name, sportId, image).then(setAdd(true))
 
   } 
+
   return (
     <div>
+      {!add ? 
       <form>
         <h1>Create a Team</h1>
         <label htmlFor="team-input">Name: </label>
@@ -40,6 +44,11 @@ export default function CreateTeam(props) {
         <input type="text" id="team-img" name="team-img" value={image} onChange={(e) => setImage(e.target.value)} /> 
         <br /><button type="submit" onClick={handleClick}>Submit</button>
       </form>
+        :<form>
+        <h1>Team Created!</h1>
+        <button type="submit" onClick={(e) => setAdd(true)}>Create Another Team</button>
+        </form>} 
+        
     </div>
 
   )

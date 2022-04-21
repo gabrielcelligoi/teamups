@@ -1,3 +1,5 @@
+@use '../sass/variables';
+
 nav {
   height: 75px;
   margin: 0;
@@ -5,6 +7,7 @@ nav {
   box-sizing: border-box;
   width: 100%;
   position: relative;
+  background-color: variables.$dark-color;
 }
 
 nav .logo {
@@ -19,9 +22,9 @@ nav .logo {
 
 .logo-name {
   text-decoration: none;
-  color: black;
-  font-family: 'Teko', sans-serif;
-  font-size: 35px;
+  color: variables.$primary-color;
+  font-family: variables.$logo-font;
+  font-size: 50px;
 }
 
 nav ul {
@@ -35,19 +38,19 @@ nav ul {
   top: 50%;
   transform: translateY(-50%);
   position: inherit;
-  width: 250px;
+  width: 300px;
   list-style: none;
 }
 
 nav ul li {
-  color: black;
+  color: variables.$primary-color;
   text-decoration: none;
 }
 
 .navbar-link {
-  color: black;
+  color: variables.$primary-color;
   text-decoration: none;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: variables.$primary-font;
 }
 
 .navbar-link:hover {

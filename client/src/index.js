@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import MatchItem from "./components/MatchItem";
-import './App.css';
+import './App.scss';
 import MatchItemList from "./components/MatchItemsList";
 import NavBar from "./components/partials/NavBar"
 

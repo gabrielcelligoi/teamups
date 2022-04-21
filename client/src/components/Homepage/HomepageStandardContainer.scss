@@ -1,0 +1,58 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.standard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-image: url(../../images/background-ink-1.png);
+}
+
+.standard-container-mirror {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-image: url(../../images/background-ink-2.png);
+}
+
+.home-standard-img {
+  @include mixins.standard-element;
+}
+
+article {
+  @include mixins.standard-element;
+
+  h2 {
+    font-family: variables.$logo-font;
+    font-size: 40px;
+    text-align: initial;
+    color: variables.$dark-color;
+  }
+
+  p {
+    text-align: initial;
+    font-size: 20px;
+    line-height: 2rem;
+    color: variables.$dark-color;
+  }
+
+  button {
+    background-color: variables.$primary-color;
+    border: none;
+    margin: 1rem;
+    margin-left: 0;
+    float: left;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    &:hover {
+      background-color: variables.$secondary-color;
+    }
+  }
+}
