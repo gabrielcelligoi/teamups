@@ -42,9 +42,9 @@ export default function UpcomingMacthesList(props) {
     ))
 
     return (
-      <div>
-        <h1>Upcoming Matches</h1>
-        <div className="matches-list">
+      <div className="matches-list">
+        <h1 className="matches-list-title">Upcoming Matches</h1>
+        <div>
           {match}
         </div>
       </div>

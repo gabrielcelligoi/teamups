@@ -1,6 +1,18 @@
+@use '../sass/variables';
+
 .matches-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #E9E7ED;
+  padding: 25px;
+  border-radius: 40px;
+}
+
+.matches-list-title {
+  font-family: variables.$logo-font;
+  color: variables.$dark-color;
+  font-size: 40px;
 }
