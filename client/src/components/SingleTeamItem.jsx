@@ -33,7 +33,9 @@ export default function SingleTeamItem(props) {
       {state ? <article>
         <h2>{state.team[0].name}</h2>
         <h2>{state.sports[state.team[0].sport_id - 1].name}</h2>
+        <AddTeamMember teamId={state.team[0].id}/>
       </article>
+
       : null}
     </section>
   )

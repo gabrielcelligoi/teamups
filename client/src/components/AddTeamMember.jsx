@@ -9,7 +9,7 @@ export default function AddTeamMember(props) {
   const { addMemberToTeam } = useApplicationData()
   const handleClick = (e) => {
     e.preventDefault()
-    addMemberToTeam(user, props.id)
+    addMemberToTeam(user, props.teamId)
     setAdded(true)
   }
 
@@ -21,7 +21,7 @@ export default function AddTeamMember(props) {
     <section>
         {!added ? 
       <form>
-      <h2>Add Match Player</h2>
+      <h2>Add Team Member</h2>
       <label htmlFor='add-user-id'>Insert User Id: </label>
       <input type="text" id='add-user-id' name='add-user-id' onChange={(e) => setUser(Number(e.target.value))} />
       <button type="submit" onClick={handleClick}>Add</button>

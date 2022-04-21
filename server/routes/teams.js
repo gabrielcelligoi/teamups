@@ -42,14 +42,14 @@ router.put('/teams', (req,res) => {
     )
   })
   router.put('/teams/add', (req,res) => {
-    console.log("body", req.body)
-    // const userId = req.body.user_id
-    // const teamId = req.body.team_id
+    console.log("bodytest", req.body)
+    const userId = req.body.user_id
+    const teamId = req.body.team_id
 
-    // db.query(`
-    //   INSERT INTO match_player (user_id, team_id)
-    //   VALUES ($1, $2)
-    // `, [userId, teamId])
+    db.query(`
+      INSERT INTO team_member (user_id, team_id)
+      VALUES ($1, $2)
+    `, [userId, teamId])
   })
   return router;
 }
