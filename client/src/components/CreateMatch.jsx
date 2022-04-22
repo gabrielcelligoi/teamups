@@ -15,7 +15,6 @@ export default function CreateMatch(props) {
   const [showNew, setShowNew] = useState(false)
   const [newMatch, setNewMatch] = useState()
   const [sportsList, setSportsList] = useState()
-  const [update, setUpdate] = useState(false)
 
   useEffect(() => {
     axios.get(`/api/sports/`)
@@ -49,12 +48,6 @@ export default function CreateMatch(props) {
     })
   }
 
-  const updateComponent = (e) => {
-    e.preventDefault()
-    setUpdate(value => !value)
-  }
-  console.log("sportsList", sportsList)
-  console.log(location.state)
   return (
     <div>
       <form>
@@ -79,7 +72,6 @@ export default function CreateMatch(props) {
       location={newMatch.match_location}
       addPlayer={true}
       tournament={props.tournament_id ? true : false}
-      update={updateComponent}
       /> 
       : null}
       </div>
