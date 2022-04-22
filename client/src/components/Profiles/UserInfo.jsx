@@ -17,7 +17,7 @@ export default function UserInfo(props) {
 
       </div>
 
-      <div className="user-info-container">
+      <div className="user-stats-container">
         <h2 className="user-info-stats">Stats</h2>
         <p>WINS: {props.wins}</p>
         <p>LOSSES: {props.losses}</p>

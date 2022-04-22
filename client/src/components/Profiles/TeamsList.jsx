@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import TeamItem from "./TeamItem";
-
+import './TeamsList.scss'
 
 export default function TeamsList(props) {
   const location = useLocation();
@@ -36,8 +36,8 @@ export default function TeamsList(props) {
     ))
 
     return (
-      <div>
-        <h1>Teams</h1>
+      <div className="teams-list-container">
+        <h1 className="teams-title">Teams</h1>
         <div className="team-list">
           {team}
         </div>
