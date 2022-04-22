@@ -55,6 +55,7 @@ export default function Tournaments(props) {
         filteredMatch.map(match => (
         <h4 key={match.match_id}><MatchItem 
         key={match.match_id}
+        id={match.match_id}
         date={match.date}
         sport={match.sport}
         location={match.location}

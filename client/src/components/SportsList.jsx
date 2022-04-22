@@ -97,6 +97,7 @@ export default function SportsList(props) {
       {filteredMatches &&
       filteredMatches.map(match => (
         <h4 key={match.match_id}><MatchItem 
+        id={match.match_id}
         key={match.match_id}
         date={match.date}
         sport={match.sport}
