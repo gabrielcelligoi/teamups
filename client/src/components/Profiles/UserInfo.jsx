@@ -4,6 +4,7 @@ import './UserInfo.scss'
 export default function UserInfo(props) {
   return (
     <div className="user-info-container">
+      <img src={props.avatar} />
       <h1>{props.name}</h1>
       <SportsList />
       <h2>Stats</h2>

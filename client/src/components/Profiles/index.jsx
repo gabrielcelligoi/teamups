@@ -17,6 +17,7 @@ export default function Profiles() {
       key={user.id}
       id={user.id}
       name={user.name}
+      image={user.image}
       wins={user.wins}
       losses={user.losses}
     />

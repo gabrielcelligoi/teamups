@@ -15,6 +15,7 @@ export default function ViewUserDetails(props) {
     <div className="view-user-details-body">
       <UserInfo
         name={location.state[0].name}
+        avatar={location.state[0].image}
         wins={location.state[0].wins}
         losses={location.state[0].losses}
       />

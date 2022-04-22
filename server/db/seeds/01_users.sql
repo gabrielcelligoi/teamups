@@ -1,11 +1,11 @@
 -- seeds/01_users.sql
 -- users seeds
-INSERT INTO users (id, name, email, password) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick');
-INSERT INTO users (id, name, email, password) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh');
-INSERT INTO users (id, name, email, password) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule');
-INSERT INTO users (id, name, email, password) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula');
-INSERT INTO users (id, name, email, password) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra');
-INSERT INTO users (id, name, email, password) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79');
+INSERT INTO users (id, name, email, password, image) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://i.ibb.co/2K2t3dx/man-1.png');
+INSERT INTO users (id, name, email, password, image) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://i.ibb.co/4fXJ7wy/man-2.png');
+INSERT INTO users (id, name, email, password, image) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://i.ibb.co/stzdDNx/man-3.png');
+INSERT INTO users (id, name, email, password, image) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://i.ibb.co/P5YW8Px/woman-1.png');
+INSERT INTO users (id, name, email, password, image) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra', 'https://i.ibb.co/kgz48Tt/woman-2.png');
+INSERT INTO users (id, name, email, password, image) VALUES (6,'Jane', 'mario@mushroomkindom.jp', 'plumber79', 'https://i.ibb.co/z7ZvyyM/woman-3.png');
 
 
 INSERT INTO sports (name, image) VALUES ('Basketball','https://i.ibb.co/ss12BS4/icon-basketball.png');
