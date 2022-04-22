@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function MatchItem(props) {
 
 const [add, setAdd] = useState()
+const [update, setUpdate] = useState(false)
 const handleClick = () => {
   setAdd(true)
 }
@@ -12,6 +13,10 @@ const handlePlayerAdded = () => {
   setAdd(false)
 }
 
+const updateComponent = (e) => {
+  setUpdate(value => !value)
+  console.log(update)
+}
 return ( 
   <section className="match-container">
     <ul>
@@ -28,7 +33,8 @@ return (
         <AddPlayer 
         key={props.id}
         id={props.id}
-        onSubmit={() => handlePlayerAdded}
+        onSubmit={handlePlayerAdded}
+        update={updateComponent}
         />
       </div>
       : null}
