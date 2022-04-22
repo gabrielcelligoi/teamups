@@ -38,7 +38,7 @@ export default function SportsList(props) {
 
     return (
       <div>
-        <h1>Favorite Sports</h1>
+        <h2>Favorite Sports</h2>
         <div className="sports-list">
           {sport}
         </div>
