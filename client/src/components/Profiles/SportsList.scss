@@ -1,7 +1,16 @@
 @use '../sass/variables';
 
+.sports-list-container {
+  margin-top: 20px;
+}
+
 .sports-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 10px;
+}
+
+.sports-list-title {
+  color: variables.$dark-color;
 }
