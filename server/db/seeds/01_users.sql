@@ -1,11 +1,11 @@
 -- seeds/01_users.sql
 -- users seeds
-INSERT INTO users (id, name, email, password) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick');
-INSERT INTO users (id, name, email, password) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh');
-INSERT INTO users (id, name, email, password) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule');
-INSERT INTO users (id, name, email, password) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula');
-INSERT INTO users (id, name, email, password) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra');
-INSERT INTO users (id, name, email, password) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79');
+INSERT INTO users (name, email, password) VALUES ('Francis', 'rick.sandchez@gmail.com', 'picklerick');
+INSERT INTO users (name, email, password) VALUES ('Billy', 'lisa.simpson@gmail.com', 'ehhhhh');
+INSERT INTO users (name, email, password) VALUES ('Jacob', 'link@yahoo.com', 'hyrule');
+INSERT INTO users (name, email, password) VALUES ('Sally', 'simon_bel123@mail.ca', 'dracula');
+INSERT INTO users (name, email, password) VALUES ('Samantha', 'all_might@academia.jp', 'plusUltra');
+INSERT INTO users (name, email, password) VALUES ('Tommy', 'mario@mushroomkindom.jp', 'plumber79');
 
 
 INSERT INTO sports (name, image) VALUES ('Basketball','https://media.istockphoto.com/photos/basketball-picture-id170096587?k=20&m=170096587&s=612x612&w=0&h=Umu6ELi7aPSpCPE7hMPKWVYZUoRfdNek2ieBI5RrCCs=');

@@ -18,6 +18,17 @@ module.exports = (db) => {
 
   router.put('/register', (req, res) => {
     console.log("register", req.body)
+    const name = req.body.name
+    const email = req.body.email
+    const password = bcrypt.hashSync(req.body.password, 10);
+
+    db.query(`
+    INSERT into users (name, email, password)
+    VALUES ($1, $2, $3)
+    `, [name, email, password] )
+      .then(data => {
+        res.json(data)
+      })
   })
   return router;
 }
