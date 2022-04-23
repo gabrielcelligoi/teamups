@@ -13,6 +13,7 @@ export default function MyProfile(props) {
   return (
     <section>
       <EditImage />
+      <h1 className='header'>Account Information</h1>
       <EditName />
       <EditEmail />
       <EditPassword />
