@@ -30,5 +30,13 @@ module.exports = (db) => {
         res.json(data)
       })
   })
+
+  router.put('/login', (req,res) => {
+    console.log("login", req.body)
+    const email = req.body.email
+    const password = bcrypt.hashSync(req.body.password, 10);
+
+    
+  })
   return router;
 }

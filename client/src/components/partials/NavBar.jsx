@@ -11,7 +11,11 @@ export default function NavBar(props) {
     email: "",
     password: ""
   })
-  
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: ""
+  })
+
   const handleLoginClick = (e) => {
     e.preventDefault()
     if (register) {
@@ -29,10 +33,13 @@ export default function NavBar(props) {
     setRegister(value => !value)
     console.log("register", register)
   }
+  
   const handleLoginSubmit = (e) => {
     e.preventDefault()
     console.log("login")
+    axios.put('/users/login', loginData)
   }
+
   const handleRegisterSubmit = (e) => {
     e.preventDefault()
     console.log("submit")
@@ -79,9 +86,9 @@ export default function NavBar(props) {
       <div>
         <form className="form-inline">
           <label htmlFor='login-email'>Email: </label>
-            <input type="email" id="login-email" name="login-email" />
+            <input type="email" id="login-email" name="login-email" onChange={(e) => setLoginData(prev => ({...prev, email: e.target.value}))}/>
           <label htmlFor='login-password'>Password: </label>
-            <input type="password" id="login-password" name="login-password" />
+            <input type="password" id="login-password" name="login-password" onChange={(e) => setLoginData(prev => ({...prev, password: e.target.value}))}/>
             <button type="submit" onClick={handleLoginSubmit}>Login</button>
         </form>
       </div>
