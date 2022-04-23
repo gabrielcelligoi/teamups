@@ -35,4 +35,26 @@
       }
     }
   }
-  // getAllMatches(matches)
+  
+  
+  // const db = [
+  //   {
+  //     match_id: 2,
+  //     tournament_id: null,
+  //     players: "Francis",
+  //     sport: "Basketball",
+  //     sport_id: 1,
+  //     date: "2022-05-01T04:00:00.000Z",
+  //     location: "Toronto"
+  //   },
+  //   {
+  //     match_id: 2,
+  //     tournament_id: null,
+  //     players: "Billy",
+  //     sport: "Basketball",
+  //     sport_id: 1,
+  //     date: "2022-05-01T04:00:00.000Z",
+  //     location: "Toronto"
+  //   }
+  // ]
+

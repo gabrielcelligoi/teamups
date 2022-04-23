@@ -47,11 +47,7 @@ export default function CreateMatch(props) {
       setNewMatch(data.data[0])
     })
   }
-  // const sportsArr = location.state.sports.map(sport => {
-  //   return sport = sport.name
-  // })
-  console.log("sportsList", sportsList)
-  console.log(location.state)
+
   return (
     <div>
       <form>

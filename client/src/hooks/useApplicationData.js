@@ -19,6 +19,7 @@ export default function useApplicationData(props) {
       axios.get('/api/sports'),
       axios.get('/api/matches'),
       axios.get('/api/profiles'),
+      axios.get('/api/teams')
     ])
     .then((all) => {
       setState(prev => ({
@@ -28,6 +29,7 @@ export default function useApplicationData(props) {
         sports: all[2].data,
         match: all[3].data,
         users: all[4].data,
+        teams: all[5].data
       }))
     })
   }, [])
@@ -112,7 +114,32 @@ export default function useApplicationData(props) {
       })
 
   }
+  const createTeam = (name, sport_id, image) => {
+    const data = {
+      name: name,
+      sportId: sport_id,
+      image: image
+    }
+    return axios.put(`/api/teams`, data)
+      .then(res => {
+        console.log("res", res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  const addMemberToTeam = (id, teamId) => {
+    const data = {
+      user_id: id,
+      team_id: teamId
+    }
+    return axios.put('/api/teams/add', data)
+      .then(res => {
+        console.log('RES', res)
+      })
+  }
 
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch } 
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam } 
 }

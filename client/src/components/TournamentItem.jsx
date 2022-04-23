@@ -1,5 +1,5 @@
 import './TournamentItem.scss';
-import { useDebugValue, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { createSingle } from '../helpers/tournaments';

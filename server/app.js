@@ -11,7 +11,7 @@ const matchesRouter = require('./routes/matches')
 const tournamentsRouter = require('./routes/tournaments')
 const sportsRouter = require('./routes/sports')
 const profilesRouter = require('./routes/profiles')
-
+const teamsRouter = require('./routes/teams')
 const app = express();
 
 app.use(logger('dev'));
@@ -26,6 +26,7 @@ app.use('/api', matchesRouter(db));
 app.use('/api', tournamentsRouter(db));
 app.use('/api', sportsRouter(db));
 app.use('/api', profilesRouter(db));
+app.use('/api', teamsRouter(db));
 
 
 module.exports = app;

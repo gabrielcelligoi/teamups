@@ -67,12 +67,13 @@ function App() {
         <li><Link to="sports" state={state}>Sports</Link></li>
         <li><Link to="matches/create" state={state}>Create Match</Link></li>
         <li><Link to="tournament/create" state={state}>Create Tournament</Link></li>
-        <li><a href="team/create">Create Teams</a></li>
+        <li><Link to="teams/create">Create Teams</Link></li>
         <li><Link to="sport/create">Create Sport</Link></li>
+        <li><Link to="teams" state={state}>Teams</Link></li>
     </ul>
     <Outlet />
     </div>
-  );
+  );  
 }
 
 export default App;
