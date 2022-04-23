@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const bcrypt = require('bcryptjs');
 const users = ['Bob', 'Alex', 'Will', 'Tristan'];
 
 module.exports = (db) => {
@@ -11,5 +11,13 @@ module.exports = (db) => {
     })
   });
 
+  router.put('/login', (req, res) => {
+    console.log(req.body)
+  })
+
+
+  router.put('/register', (req, res) => {
+    console.log("register", req.body)
+  })
   return router;
 }
