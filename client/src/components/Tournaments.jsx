@@ -41,11 +41,13 @@ export default function Tournaments(props) {
   }
 
   return (
-    <div>
+    <div className='tournaments-container'>
       <h1>Tournaments</h1>
+
+      <div className='tournaments-list-container'>
         {Tournaments &&
           Tournaments.map(tournament => (
-            <div className='tournament-container'>
+            <div className='single-tournament-container'>
               <h2>{tournament.name}</h2>
               <h4>{`Type: ${tournament.type}`}</h4>
               <h4>{`${tournament.number_of_players} players`}</h4>
@@ -57,6 +59,7 @@ export default function Tournaments(props) {
                   handleMatches(e)}}> {tournament.name} </button>
             </div>
         ))}
+      </div>
 
       <div hidden={hidden}>
         <h1>Matches in Tournament:</h1>
