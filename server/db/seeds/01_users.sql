@@ -1,11 +1,11 @@
 -- seeds/01_users.sql
 -- users seeds
-INSERT INTO users (id, name, email, password) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick');
-INSERT INTO users (id, name, email, password) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh');
-INSERT INTO users (id, name, email, password) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule');
-INSERT INTO users (id, name, email, password) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula');
-INSERT INTO users (id, name, email, password) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra');
-INSERT INTO users (id, name, email, password) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79');
+INSERT INTO users (id, name, email, password, image, sports) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://images4.fanpop.com/image/photos/18500000/Brenda-Walsh-beverly-hills-90210-18519232-200-200.jpg', ARRAY [1, 2]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 3]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 4]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra'), 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2, 3]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [3, 4]);
 
 
 INSERT INTO sports (name, image) VALUES ('Basketball','https://media.istockphoto.com/photos/basketball-picture-id170096587?k=20&m=170096587&s=612x612&w=0&h=Umu6ELi7aPSpCPE7hMPKWVYZUoRfdNek2ieBI5RrCCs=');
