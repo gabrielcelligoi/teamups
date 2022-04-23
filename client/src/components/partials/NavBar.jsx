@@ -1,7 +1,9 @@
-
+import useApplicationData from '../../hooks/useApplicationData'
+import { Link } from 'react-router-dom'
 import styles from './NavBar.scss'
 
 export default function NavBar(props) {
+  const { state } = useApplicationData();
   return (
     <nav>
       <div className='logo'>
@@ -30,9 +32,9 @@ export default function NavBar(props) {
         </li>
 
         <li>
-          <a href="/my-profile" className='navbar-link'>
-            My Profile
-          </a>          
+        <Link to="my-profile" state={state} className='navbar-link'>
+          My Profile
+      </Link>      
         </li>
 
       </ul>
