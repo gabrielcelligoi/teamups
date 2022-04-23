@@ -1,0 +1,15 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+.create-tournament-container {
+  @include mixins.standard-container;
+}
+
+.create-tournament-title {
+  @include mixins.title;
+}
+
+.create-tournament-button {
+  @include mixins.standard-button;
+  width: 200px;
+}
