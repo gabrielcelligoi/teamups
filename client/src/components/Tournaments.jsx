@@ -62,20 +62,25 @@ export default function Tournaments(props) {
         ))}
       </div>
 
-      <div hidden={hidden}>
-        <h1>Matches in Tournament:</h1>
+      <div hidden={hidden} className='tournaments-container'>
+        <h1 className='tournaments-title'>Matches in Tournament</h1>
+
         {filteredMatch && 
-        filteredMatch.map(match => (
-        <h4 key={match.match_id}><MatchItem 
-          key={match.match_id}
-          id={match.match_id}
-          date={match.date}
-          sport={match.sport}
-          location={match.location}
-          player1={match.players[0]}
-          player2={match.players[1]}
-        /></h4>
-        ))}</div>
+          filteredMatch.map(match => (
+          <h4 key={match.match_id}>
+            <MatchItem 
+              key={match.match_id}
+              id={match.match_id}
+              date={match.date}
+              sport={match.sport}
+              location={match.location}
+              player1={match.players[0]}
+              player2={match.players[1]}
+            />
+          </h4>
+        ))}
+      </div>
+
     </div>
   );
 

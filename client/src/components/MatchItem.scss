@@ -1,4 +1,37 @@
-.match-container {
+@use './sass/mixins';
+@use './sass/variables';
 
-  border-style: solid;
+.match-item {
+  display: flex;
+  flex-direction: row;
+  // width: 100%;
+  margin-top: 1em;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.upcoming-match-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;  
+}
+
+.upcoming-inline-info {
+  display: flex;
+  align-items: baseline;
+  padding: 5px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+#upcoming-inline-info-icon {
+  color: variables.$dark-color;
+}
+
+.upcoming-inline-info-element {
+  padding-left: 20px;
+  color: variables.$dark-color;
 }

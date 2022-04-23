@@ -29,17 +29,71 @@ const handlePlayerAdded = () => {
 const updateComponent = (e) => {
   setUpdate(value => !value)
 }
-return ( 
-  <section className="match-container">
-    <ul>
 
-      <h3>{props.date}</h3>
-      <h3>{props.sport}</h3> 
-      {players ? <h3>{players[0]} vs {players[1]}</h3> : <h3>{props.player1} vs {props.player2}</h3>}
-      <h3>{props.location}</h3>  
-      {props.tournament ? <h3>Tournament Match</h3> : <h3>Non Tournament Match</h3>}
-      {props.addPlayer ? <button type="Submit" onClick={handleClick}>Add Player To Match</button> : null}
-    </ul>
+const date = new Date(props.date).toLocaleDateString('en', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric'
+})
+
+const time = new Date(props.date).toLocaleTimeString('en', {
+  hour: 'numeric',
+  minute: 'numeric'
+})
+
+return ( 
+  <section className="match-item">
+    <div className='upcoming-match-text'>
+
+      <div className='upcoming-inline-info'>
+      <i className="fa-solid fa-calendar" id='upcoming-inline-info-icon'></i>
+        <h3 className='upcoming-inline-info-element'>{date}</h3>
+      </div>
+
+      <div className='upcoming-inline-info'>
+        <i className="fa-solid fa-clock" id='upcoming-inline-info-icon'></i>
+        <h4 className='upcoming-inline-info-element'>{time}</h4>
+      </div>
+
+      <div className='upcoming-inline-info'>            
+        <i className="fa-solid fa-location-dot" id='upcoming-inline-info-icon'></i>          
+        <h4 className='upcoming-inline-info-element'>{props.location}</h4>
+      </div>
+
+      <div className='upcoming-inline-info'>            
+        <h4 className='upcoming-inline-info-element'>{props.sport}</h4>
+      </div>
+
+      
+      {players ?
+        <div className='upcoming-inline-info'>
+          <h4 className='upcoming-inline-info-element'>{players[0]} vs {players[1]}</h4>
+        </div>
+        :
+        <div className='upcoming-inline-info'>
+          <h4 className='upcoming-inline-info-element'>{props.player1} vs {props.player2}</h4>
+        </div>
+      }
+      
+      
+      {props.tournament ?
+        <div className='upcoming-inline-info'>
+          <h4 className='upcoming-inline-info-element'>Tournament Match</h4>
+        </div>
+        :
+        <div className='upcoming-inline-info'>
+          <h4 className='upcoming-inline-info-element'>Non Tournament Match</h4>
+        </div>  
+      }
+
+      {props.addPlayer ?
+        <button type="Submit" onClick={handleClick}>Add Player To Match</button>
+        :
+        null
+      }
+    
+    </div>
+
     {add ?
       <div>
         <AddPlayer 

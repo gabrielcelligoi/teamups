@@ -45,3 +45,15 @@
 .single-tournament-info {  
   color: variables.$dark-color;
 }
+
+.match-item {
+  display: flex;
+  flex-direction: row;
+  // width: 100%;
+  margin-top: 1em;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+  border-radius: 50px;
+  background-color: white;
+}
