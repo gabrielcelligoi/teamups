@@ -1,0 +1,23 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+.create-match-container {
+  @include mixins.standard-container;
+}
+
+.create-match-title {
+  @include mixins.title;
+}
+
+.form-control {
+  margin-top: 0;
+}
+
+.form-select {
+  margin-top: 0;
+}
+
+.create-match-button {
+  @include mixins.standard-button;
+  width: 200px;
+}
