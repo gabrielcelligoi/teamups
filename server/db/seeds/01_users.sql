@@ -4,7 +4,7 @@ INSERT INTO users (id, name, email, password, image, sports) VALUES (1,'Francis'
 INSERT INTO users (id, name, email, password, image, sports) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 3]);
 INSERT INTO users (id, name, email, password, image, sports) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2]);
 INSERT INTO users (id, name, email, password, image, sports) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 4]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra'), 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2, 3]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2, 3]);
 INSERT INTO users (id, name, email, password, image, sports) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [3, 4]);
 
 
