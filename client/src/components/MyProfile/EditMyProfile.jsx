@@ -4,6 +4,8 @@ import ShowEmail from "./ShowEmail"
 import FormEmail from "./FormEmail"
 import { useLocation } from "react-router-dom";
 import useVisualMode from "../../hooks/useVisualMode";
+import ShowPassword from "./ShowPassword";
+import FormPassword from "./FormPassword";
 
 
 export default function EditMyProfile(props) {
@@ -11,6 +13,7 @@ export default function EditMyProfile(props) {
   const SHOW = "SHOW";
   const EDITNAME = "EDITNAME"
   const EDITEMAIL = "EDITEMAIL"
+  const EDITPASSWORD = "EDITPASSWORD"
   const location = useLocation();
   const user = location.state.users[0];
   const { mode, transition, back } = useVisualMode(
@@ -40,6 +43,17 @@ export default function EditMyProfile(props) {
       {mode === EDITEMAIL && (
         <FormEmail 
         email={user.email}
+        onCancel={back}
+        onSave={() => transition(SHOW)}/>
+      )}
+            {mode === SHOW && (
+        <ShowPassword 
+        password={user.password}
+        onEdit={() => transition(EDITPASSWORD)}/>
+      )}
+            {mode === EDITPASSWORD && (
+        <FormPassword
+        password={user.password}
         onCancel={back}
         onSave={() => transition(SHOW)}/>
       )}
