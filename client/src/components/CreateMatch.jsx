@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { getSportId } from "../helpers/selectors";
 import MatchItem from "./MatchItem";
 import axios from "axios";
+import './CreateMatch.scss'
+
 export default function CreateMatch(props) {
   let location = useLocation();
   const { createMatch, getNewMatch, createTournamentMatch } = useApplicationData()
@@ -49,20 +51,26 @@ export default function CreateMatch(props) {
   }
 
   return (
-    <div>
-      <form>
-        <h1>Create New Match</h1>
-        <label htmlFor="sports-list">Choose Sport: </label>
-        <select id="sports-list" name="sports-list" onChange={(e) => setSport(e.target.value)}>
+    <div className="create-match-container">
+        <h1 className="create-match-title">Create New Match</h1>
+
+      <form className="row g-3">
+
+        <label htmlFor="sports-list" className="form-label">Choose Sport: </label>
+        <select id="sports-list" name="sports-list" className="form-select" onChange={(e) => setSport(e.target.value)}>
           {sportsList ? sportsList.map(item => <option value={item.name}>{item.name}</option>) : null }
         </select>
-        <label htmlFor="create-match-date">Match Date: </label>
-        <input type="date" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
-        <label htmlFor="create-match-location">Location: </label>
-        <input type="text" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
-        <button type="submit" onClick={props.tournament_id ? handleTournamentClick : handleClick}>Submit</button>
+
+        <label htmlFor="create-match-date" className="form-label">Match Date: </label>
+        <input type="date" class="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
+        
+        <label htmlFor="create-match-location" className="form-label">Location: </label>
+        <input type="text" class="form-control" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
+        
+        <button className='create-match-button' type="submit" onClick={props.tournament_id ? handleTournamentClick : handleClick}>Submit</button>
       </form>
-      <div>
+
+    <div>
       {showNew ?
       <MatchItem
       key={newMatch.id}

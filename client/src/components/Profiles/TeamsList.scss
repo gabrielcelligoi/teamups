@@ -1,7 +1,7 @@
-@use '../sass/variables';
 @use '../sass/mixins';
+@use '../sass/variables';
 
-.matches-list {
+.teams-list-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -9,13 +9,13 @@
   align-items: center;
   background-color: #E9E7ED;
   padding: 25px;
+  margin-top: 25px;
   border-radius: 40px;
 }
 
-.matches-list-title {
-  @include mixins.title;
+.teams-title {
+  // @include mixins.title;
+  color: variables.$dark-color;
+  font-size: 24px;
 }
 
-.matches-list-items {
-  width: 100%;
-}

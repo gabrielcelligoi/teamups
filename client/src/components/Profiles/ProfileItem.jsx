@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useApplicationData from "../../hooks/useApplicationData"
+import './ProfileItem.scss'
 
 
 export default function ProfileItem(props) {
@@ -17,13 +18,15 @@ export default function ProfileItem(props) {
   }, [])
 
   return (
-    <div>
-      <h2>
-        <Link to={`${props.id}`} state={user}>
-          {props.name}
-        </Link>        
-      </h2>
-      
+    <div>      
+        <Link to={`${props.id}`} state={user} style={{ textDecoration: 'none' }}>
+          <div  className="profile-item-container">
+            <img src={props.image} className='index-user-image'/>
+            <div className="profile-item-user-data">
+              <h3>{props.name}</h3>
+            </div>
+          </div>
+        </Link>     
     </div>
   )
 }

@@ -1,17 +1,18 @@
 -- seeds/01_users.sql
 -- users seeds
-INSERT INTO users (id, name, email, password, image, sports) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://images4.fanpop.com/image/photos/18500000/Brenda-Walsh-beverly-hills-90210-18519232-200-200.jpg', ARRAY [1, 2]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 3]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [1, 4]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [2, 3]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (6,'Tommy', 'mario@mushroomkindom.jp', 'plumber79', 'https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg', ARRAY [3, 4]);
+
+INSERT INTO users (id, name, email, password, image, sports) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://i.ibb.co/2K2t3dx/man-1.png', ARRAY [1, 2]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://i.ibb.co/4fXJ7wy/man-2.png', ARRAY [1, 3]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://i.ibb.co/stzdDNx/man-3.png', ARRAY [2]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://i.ibb.co/P5YW8Px/woman-1.png', ARRAY [1, 4]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra', 'https://i.ibb.co/kgz48Tt/woman-2.png', ARRAY [2, 3]);
+INSERT INTO users (id, name, email, password, image, sports) VALUES (6,'Jane', 'mario@mushroomkindom.jp', 'plumber79', 'https://i.ibb.co/z7ZvyyM/woman-3.png', ARRAY [3, 4]);
 
 
-INSERT INTO sports (name, image) VALUES ('Basketball','https://media.istockphoto.com/photos/basketball-picture-id170096587?k=20&m=170096587&s=612x612&w=0&h=Umu6ELi7aPSpCPE7hMPKWVYZUoRfdNek2ieBI5RrCCs=');
-INSERT INTO sports (name, image) VALUES ('Baseball','https://cdn.britannica.com/53/212553-050-E4A98496/Baseball-bat.jpg');
-INSERT INTO sports (name, image) VALUES ('Tennis','https://photoresources.wtatennis.com/photo-resources/2019/08/15/dbb59626-9254-4426-915e-57397b6d6635/tennis-origins-e1444901660593.jpg?width=1200&height=630');
-INSERT INTO sports (name, image) VALUES ('Soccer','https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg');
+INSERT INTO sports (name, image) VALUES ('Basketball','https://i.ibb.co/ss12BS4/icon-basketball.png');
+INSERT INTO sports (name, image) VALUES ('Baseball','https://i.ibb.co/cXQFnxb/icon-baseball2.png');
+INSERT INTO sports (name, image) VALUES ('Tennis','https://i.ibb.co/SXwc3Sx/icon-tennis3.png');
+INSERT INTO sports (name, image) VALUES ('Soccer','https://i.ibb.co/dBVC83R/icon-soccer.png');
 
 INSERT INTO teams (name, sport_id) VALUES ('Team1', 1);
 INSERT INTO teams (name, sport_id) VALUES ('Team2', 2);

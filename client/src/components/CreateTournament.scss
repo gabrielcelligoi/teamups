@@ -1,23 +1,15 @@
 @use './sass/variables';
 @use './sass/mixins';
 
-.create-match-container {
+.create-tournament-container {
   @include mixins.standard-container;
 }
 
-.create-match-title {
+.create-tournament-title {
   @include mixins.title;
 }
 
-.form-control {
-  margin-top: 0;
-}
-
-.form-select {
-  margin-top: 0;
-}
-
-.create-match-button {
+.create-tournament-button {
   @include mixins.standard-button;
   width: 200px;
 }
