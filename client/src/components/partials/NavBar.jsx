@@ -57,12 +57,22 @@ export default function NavBar(props) {
     e.preventDefault()
     await loginUser(loginData)
     setToken(loginData.email)
-
+    window.location.reload()
   }
   const handleRegisterSubmit = (e) => {
     e.preventDefault()
     console.log("submit")
     axios.put('/users/register', registerData)
+    .then(() => {
+      setToken(registerData.email)
+      window.location.reload()
+    })
+  }
+
+  const handleLogoutClick = (e) => {
+    e.preventDefault()
+    sessionStorage.clear()
+    window.location.reload()
   }
 
   return (
@@ -76,31 +86,29 @@ export default function NavBar(props) {
         </div>
         <ul>
           {token ?
-            <span>
-              <li>Welcome</li>
-              <li>{token}</li>
-            </span>
+              <li>Welcome {token}</li>
             :
-            <span>
               <li>
                 <a href="/register" className='navbar-link' onClick={handleRegisterClick}>
                   Register
                 </a>
               </li>
+          }
+          {!token ?
               <li>
                 <a href="/login" className='navbar-link' onClick={handleLoginClick}>
                   Login
                 </a>
               </li>
-            </span>
-          }
+        : null }
+
+          {token ?
           <li>
-          </li>
-          <li>
-            <a href="/logout" className='navbar-link'>
+            <a href="/logout" className='navbar-link' onClick={handleLogoutClick}>
               Logout
             </a>
           </li>
+          : null }
           <li>
             <a href="/my-profile" className='navbar-link'>
               My Profile
