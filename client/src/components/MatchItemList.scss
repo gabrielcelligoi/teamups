@@ -1,0 +1,10 @@
+@use './sass/mixins';
+@use './sass/variables';
+
+.match-item-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5rem;
+}

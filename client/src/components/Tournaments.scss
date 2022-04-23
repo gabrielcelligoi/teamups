@@ -46,7 +46,8 @@
   color: variables.$dark-color;
 }
 
-.match-item {
+
+.tournament-match-item {
   display: flex;
   flex-direction: row;
   // width: 100%;
@@ -55,5 +56,5 @@
   align-items: center;
   padding: 4px;
   border-radius: 50px;
-  background-color: white;
+  background-color: variables.$bg-color;
 }

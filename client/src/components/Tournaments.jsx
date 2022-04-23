@@ -67,7 +67,7 @@ export default function Tournaments(props) {
 
         {filteredMatch && 
           filteredMatch.map(match => (
-          <h4 key={match.match_id}>
+          <div className='tournament-match-item' key={match.match_id}>
             <MatchItem 
               key={match.match_id}
               id={match.match_id}
@@ -77,7 +77,7 @@ export default function Tournaments(props) {
               player1={match.players[0]}
               player2={match.players[1]}
             />
-          </h4>
+          </div>
         ))}
       </div>
 

@@ -42,7 +42,7 @@ const time = new Date(props.date).toLocaleTimeString('en', {
 })
 
 return ( 
-  <section className="match-item">
+  <section className="match-item-container">
     <div className='upcoming-match-text'>
 
       <div className='upcoming-inline-info'>

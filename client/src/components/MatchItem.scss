@@ -1,16 +1,20 @@
 @use './sass/mixins';
 @use './sass/variables';
 
-.match-item {
+.match-item-container {
   display: flex;
   flex-direction: row;
   // width: 100%;
   margin-top: 1em;
+  margin-left: 15px;
+  margin-right: 15px;
   justify-content: space-around;
   align-items: center;
   padding: 4px;
   border-radius: 50px;
-  background-color: white;
+  background-color: variables.$bg-color;
+  width: 20%;
+  min-width: 330px;
 }
 
 .upcoming-match-text {
