@@ -19,7 +19,7 @@ export default function HomepageStandardContainer(props) {
         <h2>{props.title}</h2>
         <p>{props.text}</p>
         <Link to={props.link} state={state} style={{ textDecoration: 'none' }}>
-          <button>{props.buttonText}</button>
+          <button className='home-button'>{props.buttonText}</button>
         </Link>
       </article>
 

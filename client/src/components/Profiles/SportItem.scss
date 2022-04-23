@@ -1,0 +1,37 @@
+@use '../sass/variables';
+
+.sport-item-container {
+  height: 60px;
+  margin: 5px;
+  background-color: variables.$dark-color;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sport-item {
+  width: 60px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.sport-item-name {
+  margin-left: 15px;
+  margin-right: 20px;
+  color: white;  
+}
+
+.sport-item-name-none {
+  display: none;  
+}
+
+#none {
+  display: none;
+}
+
+#show {
+  display: flex;
+}

@@ -35,15 +35,16 @@ export default function UpcomingMacthesList(props) {
           id={singleMatch.match_id}
           players={singleMatch.players}
           sport={singleMatch.sport}
+          sport_image={singleMatch.sport_image}
           date={singleMatch.date}
           location={singleMatch.location}
         />
     ))
 
     return (
-      <div>
-        <h1>Upcoming Matches</h1>
-        <div className="matches-list">
+      <div className="matches-list">
+        <h1 className="matches-list-title">Upcoming Matches</h1>
+        <div className="matches-list-items">
           {match}
         </div>
       </div>
@@ -52,14 +53,3 @@ export default function UpcomingMacthesList(props) {
 
 
 }
-
-
-// {tournament ? 
-//   <div>
-//     <h2>Manage {tournament.name}</h2>
-//     <div>Number of Players {tournament.number_of_players}</div>
-//     <div>Number of Matches {tournament.number_of_matches}</div>
-//     <button>Add Match To Tournament</button>
-//   </div>
-// : null }
-
