@@ -1,7 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import EditMyProfile from "./EditMyProfile";
-import ShowName from "./ShowName";
+import EditEmail from "./EditEmail"
+import EditName from "./EditName";
+import EditPassword from "./EditPassword"
+import EditImage from "./EditImage";
+import EditSports from "./EditSports";
 
 export default function MyProfile(props) {
   const location = useLocation();
@@ -9,7 +12,11 @@ export default function MyProfile(props) {
 
   return (
     <section>
-      <EditMyProfile />
+      <EditImage />
+      <EditName />
+      <EditEmail />
+      <EditPassword />
+      <EditSports />
     </section>
   )
 }
