@@ -61,12 +61,26 @@ export default function NavBar(props) {
       </nav>
       {login ? 
       <div>
-        <h1> Login test</h1>
+        <form className="form-inline">
+          <label htmlFor='login-email'>Email: </label>
+            <input type="email" id="login-email" name="login-email" />
+          <label htmlFor='login-password'>Password: </label>
+            <input type="password" id="login-password" name="login-password" />
+            <button type="submit">Login</button>
+        </form>
       </div>
       : null}
       {register ?
       <div>
-        <h1>Register Test</h1>
+        <form className="form-inline">
+          <label htmlFor="register-name">Name: </label>
+            <input type="text" id="register-name" name="register-name" />
+          <label htmlFor="register-email">Email: </label>
+            <input type="email" id='register-email' name='register-email' />
+          <label htmlFor="register-password">Password: </label>
+            <input type="password" id="register-password" name="register-password" />
+            <button type="submit">Register</button>
+        </form>
       </div>
       : null}
     </section>
