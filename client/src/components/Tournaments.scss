@@ -15,9 +15,33 @@
 
 .single-tournament-container {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   align-items: center;
   background-color: variables.$bg-color;
   width: 20%;
   min-width: 240px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+}
+
+.tournaments-title {
+  @include mixins.title;
+}
+
+.select-tournament-button {
+  @include mixins.standard-button;
+  margin: 0;
+  width: 100%;
+}
+
+.single-tournament-name {
+  font-size: 1.5em;
+  color: variables.$dark-color;
+}
+
+.single-tournament-info {  
+  color: variables.$dark-color;
 }
