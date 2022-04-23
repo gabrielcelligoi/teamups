@@ -41,28 +41,46 @@ export default function Tournaments(props) {
   }
 
   return (
-    <div>
-      <h1>Tournaments</h1>
+    <div className='tournaments-container'>
+      <h1 className='tournaments-title'>Tournaments</h1>
+
+      <div className='tournaments-list-container'>
         {Tournaments &&
-        Tournaments.map(tournament => (
-         <button key={tournament.id} value={tournament.id} onClick={(e) => {
-          e.preventDefault()
-          handleMatches(e)}}> {tournament.name} </button>
-         ))}
-      <div hidden={hidden}>
-        <h1>Matches in Tournament:</h1>
+          Tournaments.map(tournament => (
+            <div className='single-tournament-container'>
+              <p className='single-tournament-name'>{tournament.name}</p>
+              <p className='single-tournament-info'>{`Type: ${tournament.type}`}</p>
+              <p className='single-tournament-info'>{`${tournament.number_of_players} players`}</p>
+              <button
+                className='select-tournament-button'
+                key={tournament.id}
+                value={tournament.id}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMatches(e)}}> Check it out! </button>
+            </div>
+        ))}
+      </div>
+
+      <div hidden={hidden} className='tournaments-container'>
+        <h1 className='tournaments-title'>Matches in Tournament</h1>
+
         {filteredMatch && 
-        filteredMatch.map(match => (
-        <h4 key={match.match_id}><MatchItem 
-        key={match.match_id}
-        id={match.match_id}
-        date={match.date}
-        sport={match.sport}
-        location={match.location}
-        player1={match.players[0]}
-        player2={match.players[1]}
-        /></h4>
-        ))}</div>
+          filteredMatch.map(match => (
+          <div className='tournament-match-item' key={match.match_id}>
+            <MatchItem 
+              key={match.match_id}
+              id={match.match_id}
+              date={match.date}
+              sport={match.sport}
+              location={match.location}
+              player1={match.players[0]}
+              player2={match.players[1]}
+            />
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 

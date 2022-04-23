@@ -1,0 +1,60 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+.tournaments-container {
+  @include mixins.standard-container;
+}
+
+.tournaments-list-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.single-tournament-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  background-color: variables.$bg-color;
+  width: 20%;
+  min-width: 240px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+}
+
+.tournaments-title {
+  @include mixins.title;
+}
+
+.select-tournament-button {
+  @include mixins.standard-button;
+  margin: 0;
+  width: 100%;
+}
+
+.single-tournament-name {
+  font-size: 1.5em;
+  color: variables.$dark-color;
+}
+
+.single-tournament-info {  
+  color: variables.$dark-color;
+}
+
+
+.tournament-match-item {
+  display: flex;
+  flex-direction: row;
+  // width: 100%;
+  margin-top: 1em;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+  border-radius: 50px;
+  background-color: variables.$bg-color;
+}
