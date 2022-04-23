@@ -27,8 +27,9 @@ export default function FormPassword(props){
 
   return (
     <main>
-      <section>
+      <section className='profile'>
         <h1>New Password:</h1>
+        <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input
             name="name"
@@ -38,10 +39,11 @@ export default function FormPassword(props){
         </form>
       <section>
         <section>
+        <button onClick={validate}>Save</button>
           <button onClick={cancel}>Cancel</button>
-          <button onClick={validate}>Save</button>
         </section>
         </section>
+        </div>
       </section>
     </main>
   );

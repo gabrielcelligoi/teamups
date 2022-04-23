@@ -25,8 +25,9 @@ export default function FormEmail(props){
 
   return (
     <main>
-      <section>
+      <section className='profile'>
         <h1>Email:</h1>
+        <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input
             name="name"
@@ -37,10 +38,12 @@ export default function FormEmail(props){
         </form>
       <section>
         <section>
+        <button onClick={validate}>Save</button>
           <button onClick={cancel}>Cancel</button>
-          <button onClick={validate}>Save</button>
+          
         </section>
         </section>
+        </div>
       </section>
     </main>
   );
