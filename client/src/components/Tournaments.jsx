@@ -44,23 +44,32 @@ export default function Tournaments(props) {
     <div>
       <h1>Tournaments</h1>
         {Tournaments &&
-        Tournaments.map(tournament => (
-         <button key={tournament.id} value={tournament.id} onClick={(e) => {
-          e.preventDefault()
-          handleMatches(e)}}> {tournament.name} </button>
-         ))}
+          Tournaments.map(tournament => (
+            <div className='tournament-container'>
+              <h2>{tournament.name}</h2>
+              <h4>{`Type: ${tournament.type}`}</h4>
+              <h4>{`${tournament.number_of_players} players`}</h4>
+              <button
+                key={tournament.id}
+                value={tournament.id}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMatches(e)}}> {tournament.name} </button>
+            </div>
+        ))}
+
       <div hidden={hidden}>
         <h1>Matches in Tournament:</h1>
         {filteredMatch && 
         filteredMatch.map(match => (
         <h4 key={match.match_id}><MatchItem 
-        key={match.match_id}
-        id={match.match_id}
-        date={match.date}
-        sport={match.sport}
-        location={match.location}
-        player1={match.players[0]}
-        player2={match.players[1]}
+          key={match.match_id}
+          id={match.match_id}
+          date={match.date}
+          sport={match.sport}
+          location={match.location}
+          player1={match.players[0]}
+          player2={match.players[1]}
         /></h4>
         ))}</div>
     </div>
