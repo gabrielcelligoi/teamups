@@ -1,11 +1,17 @@
 import './NavBar.scss'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function NavBar(props) {
 
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
-
+  const [registerData, setRegisterData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  })
+  
   const handleLoginClick = (e) => {
     e.preventDefault()
     if (register) {
@@ -23,6 +29,16 @@ export default function NavBar(props) {
     setRegister(value => !value)
     console.log("register", register)
   }
+  const handleLoginSubmit = (e) => {
+    e.preventDefault()
+    console.log("login")
+  }
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault()
+    console.log("submit")
+    axios.put('/users/register', registerData)
+  }
+
   return (
     <section>
 
@@ -66,7 +82,7 @@ export default function NavBar(props) {
             <input type="email" id="login-email" name="login-email" />
           <label htmlFor='login-password'>Password: </label>
             <input type="password" id="login-password" name="login-password" />
-            <button type="submit">Login</button>
+            <button type="submit" onClick={handleLoginSubmit}>Login</button>
         </form>
       </div>
       : null}
@@ -74,12 +90,12 @@ export default function NavBar(props) {
       <div>
         <form className="form-inline">
           <label htmlFor="register-name">Name: </label>
-            <input type="text" id="register-name" name="register-name" />
+            <input type="text" id="register-name" name="register-name" onChange={(e) => setRegisterData(prev => ({...prev, name: e.target.value}))}/>
           <label htmlFor="register-email">Email: </label>
-            <input type="email" id='register-email' name='register-email' />
+            <input type="email" id='register-email' name='register-email' onChange={(e) => setRegisterData(prev => ({...prev, email: e.target.value}))}/>
           <label htmlFor="register-password">Password: </label>
-            <input type="password" id="register-password" name="register-password" />
-            <button type="submit">Register</button>
+            <input type="password" id="register-password" name="register-password" onChange={(e) => setRegisterData(prev => ({...prev, password: e.target.value}))}/>
+            <button type="submit" onClick={handleRegisterSubmit}>Register</button>
         </form>
       </div>
       : null}

@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bcrypt = require('bcryptjs');
+
 // db connection
 const db = require('./configs/db.config');
 const indexRouter = require('./routes/index');
