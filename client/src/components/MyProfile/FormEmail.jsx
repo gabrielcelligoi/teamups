@@ -1,38 +1,38 @@
 import { useState, useEffect } from "react";
 
-export default function FormName(props){
-  const [name, setName] = useState(props.name);
+export default function FormEmail(props){
+  const [email, setEmail] = useState(props.email);
   const [error, setError] = useState("");
 
   const reset = function() {
-    setName("");
+    setEmail("");
   }
   const cancel = function() {
     reset();
     props.onCancel();
   }
   function validate() {
-    if (name === "") {
+    if (email === "") {
       setError("Name cannot be blank");
       return;
     }
     else {
   
     setError("");
-    props.onSave(name);
+    props.onSave(email);
     }
   }
 
   return (
     <main>
       <section>
-        <h1>Name:</h1>
+        <h1>Email:</h1>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input
             name="name"
             type="text"
-            value={name}
-            onChange={(evt) => setName(evt.target.value)}
+            value={email}
+            onChange={(evt) => setEmail(evt.target.value)}
           />
         </form>
       <section>
