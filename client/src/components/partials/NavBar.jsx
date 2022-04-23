@@ -3,9 +3,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import useToken from '../../hooks/useToken'
 import useApplicationData from '../../hooks/useApplicationData'
+import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
-
+  const { state } = useApplicationData();
   const { token, setToken } = useToken()
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
