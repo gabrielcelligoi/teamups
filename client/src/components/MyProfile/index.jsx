@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import EditMyProfile from "./EditMyProfile";
 import ShowName from "./ShowName";
 
 export default function MyProfile(props) {
@@ -8,7 +9,7 @@ export default function MyProfile(props) {
 
   return (
     <section>
-      <ShowName name={user.name}/>
+      <EditMyProfile />
     </section>
   )
 }
