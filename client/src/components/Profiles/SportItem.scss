@@ -11,11 +11,27 @@
 }
 
 .sport-item {
-  width: 60px;  
+  width: 60px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .sport-item-name {
   margin-left: 15px;
   margin-right: 20px;
   color: white;  
+}
+
+.sport-item-name-none {
+  display: none;  
+}
+
+#none {
+  display: none;
+}
+
+#show {
+  display: flex;
 }

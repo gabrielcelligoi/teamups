@@ -21,8 +21,8 @@ export default function ViewUserDetails(props) {
       />
       
       <aside>
-        <UpcomingMacthesList />      
-        <TeamsList />
+        <UpcomingMacthesList /> 
+        
       </aside>
 
     </div>

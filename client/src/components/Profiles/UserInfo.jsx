@@ -1,6 +1,7 @@
 import SportsList from "./SportsList"
 import './UserInfo.scss'
 import bgDots from "../../images/bg-dots.png"
+import TeamsList from "./TeamsList"
 
 export default function UserInfo(props) {
   return (
@@ -14,6 +15,8 @@ export default function UserInfo(props) {
 
         <h1 className="user-info-name">{props.name}</h1>
         <SportsList />
+
+        <TeamsList />
 
       </div>
 

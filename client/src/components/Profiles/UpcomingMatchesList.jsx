@@ -53,14 +53,3 @@ export default function UpcomingMacthesList(props) {
 
 
 }
-
-
-// {tournament ? 
-//   <div>
-//     <h2>Manage {tournament.name}</h2>
-//     <div>Number of Players {tournament.number_of_players}</div>
-//     <div>Number of Matches {tournament.number_of_matches}</div>
-//     <button>Add Match To Tournament</button>
-//   </div>
-// : null }
-

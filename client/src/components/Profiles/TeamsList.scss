@@ -14,6 +14,8 @@
 }
 
 .teams-title {
-  @include mixins.title;
+  // @include mixins.title;
+  color: variables.$dark-color;
+  font-size: 24px;
 }
 
