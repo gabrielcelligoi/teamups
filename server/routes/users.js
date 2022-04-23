@@ -11,8 +11,24 @@ module.exports = (db) => {
     })
   });
 
-  router.put('/login', (req, res) => {
+  router.use('/login', (req, res) => {
     console.log(req.body)
+    const email = req.body.email
+    const password = req.body.password
+
+    db.query(`
+    SELECT * FROM users
+    WHERE email = $1
+    `, [email])
+      .then(data => {
+        if (bcrypt.compareSync(password, data.rows[0].password)) {
+          console.log("data", data.rows[0])
+          res.send({
+            email: data.rows[0].email,
+            password: data.rows[0].password
+          })
+        }
+      })
   })
 
 
@@ -31,12 +47,5 @@ module.exports = (db) => {
       })
   })
 
-  router.put('/login', (req,res) => {
-    console.log("login", req.body)
-    const email = req.body.email
-    const password = bcrypt.hashSync(req.body.password, 10);
-
-    
-  })
   return router;
 }
