@@ -66,10 +66,10 @@ export default function CreateMatch(props) {
         </select>
 
         <label htmlFor="create-match-date" className="form-label">Match Date: </label>
-        <input type="date" class="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
+        <input type="date" className="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
         
         <label htmlFor="create-match-location" className="form-label">Location: </label>
-        <input type="text" class="form-control" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
+        <input type="text" className="form-control" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
         
         <button className='create-match-button' type="submit" onClick={props.tournament_id ? handleTournamentClick : handleClick}>Submit</button>
       </form>
