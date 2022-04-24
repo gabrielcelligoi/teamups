@@ -1,12 +1,12 @@
 -- seeds/01_users.sql
 -- users seeds
 
-INSERT INTO users (id, name, email, password, image, sports) VALUES (1,'Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://i.ibb.co/2K2t3dx/man-1.png', ARRAY [1, 2]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (2,'Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://i.ibb.co/4fXJ7wy/man-2.png', ARRAY [1, 3]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (3,'Jacob', 'link@yahoo.com', 'hyrule', 'https://i.ibb.co/stzdDNx/man-3.png', ARRAY [2]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (4,'Sally', 'simon_bel123@mail.ca', 'dracula', 'https://i.ibb.co/P5YW8Px/woman-1.png', ARRAY [1, 4]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (5,'Samantha', 'all_might@academia.jp', 'plusUltra', 'https://i.ibb.co/kgz48Tt/woman-2.png', ARRAY [2, 3]);
-INSERT INTO users (id, name, email, password, image, sports) VALUES (6,'Jane', 'mario@mushroomkindom.jp', 'plumber79', 'https://i.ibb.co/z7ZvyyM/woman-3.png', ARRAY [3, 4]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Francis', 'rick.sandchez@gmail.com', 'picklerick', 'https://i.ibb.co/2K2t3dx/man-1.png', ARRAY [1, 2]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Billy', 'lisa.simpson@gmail.com', 'ehhhhh', 'https://i.ibb.co/4fXJ7wy/man-2.png', ARRAY [1, 3]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Jacob', 'link@yahoo.com', 'hyrule', 'https://i.ibb.co/stzdDNx/man-3.png', ARRAY [2]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Sally', 'simon_bel123@mail.ca', 'dracula', 'https://i.ibb.co/P5YW8Px/woman-1.png', ARRAY [1, 4]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Samantha', 'all_might@academia.jp', 'plusUltra', 'https://i.ibb.co/kgz48Tt/woman-2.png', ARRAY [2, 3]);
+INSERT INTO users (name, email, password, image, sports) VALUES ('Jane', 'mario@mushroomkindom.jp', 'plumber79', 'https://i.ibb.co/z7ZvyyM/woman-3.png', ARRAY [3, 4]);
 
 
 INSERT INTO sports (name, image) VALUES ('Basketball','https://i.ibb.co/ss12BS4/icon-basketball.png');
