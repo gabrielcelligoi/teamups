@@ -3,6 +3,7 @@ import useApplicationData from "../hooks/useApplicationData";
 import { useLocation } from 'react-router-dom';
 import MatchItem from './MatchItem';
 import { getAllMatches } from "../helpers/selectors";
+import './SportsList.scss'
 
 
 
@@ -77,21 +78,28 @@ export default function SportsList(props) {
   }
 
   return (
-    <div>
+    <div className='sports-list-container'>
       <h1>Browse by Sports</h1>
-      {sports &&
+      <div> {sports &&
       sports.map(sport => (
-        <button key={sport.id} value={sport.id} onClick={handleAllClicks}>{sport.name}</button>
-      ))}
-      <h4>Connect with Users</h4>
+ <button className='sports-button' key={sport.id} value={sport.id} onClick={handleAllClicks}>{sport.name}</button>
+      ))}</div>
+      <h4 className='title'>Connect with Users</h4>
+      <div className='single-container'>
       {filteredUsers &&
        filteredUsers.map(user => (
-      <p key={user.id} value={user.id}>{user.name}</p>
-    ))}
-      <h4>Tournaments</h4>
+         
+      <div className='user-connect'key={user.id} value={user.id}><div>{user.name}</div> <a href={`profiles/${user.id}`}>Check out Profile</a></div>
+    ))}</div>
+    <h4 className='title'>Tournaments</h4>
+      
       {filteredTournaments &&
       filteredTournaments.map(tournament => (
-        <h4 key={tournament.id} value={tournament.id}>{tournament.name}</h4>
+<div className='single-container'>
+              <p className='single-name'>{tournament.name}</p>
+              <p className='single-info'>{`Type: ${tournament.type}`}</p>
+              <p className='single-info'>{`${tournament.number_of_players} players`}</p>
+              </div>
       ))}
       <h4>Matches</h4>
       {filteredMatches &&
