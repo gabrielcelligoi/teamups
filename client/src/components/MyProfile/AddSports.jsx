@@ -13,23 +13,10 @@ export default function AddSports(props) {
     props.onCancel();
   }
 
-  let id = function(sportsObject) {
-    let result = [];
-    for(let sport of sportsObject) {
-      result.push(sport.id)
-    }
-    return result;
-  }
-
- const sportsId = id(props.sportsObject)
-  const userSports = props.userSports;
-
-  let filtered = sportsId.filter(item => !userSports.includes(item));
-
-  console.log(filtered)
 
   const showMySports = function(idArray, sportsObject) {
     let result = [];
+    if (Array.isArray(idArray)) {
     for (let number of idArray) {
       for (let sport of sportsObject) {
         if (number === sport.id) {
@@ -37,15 +24,25 @@ export default function AddSports(props) {
         }
       }
     }
+  }
     return result;
   }
 
-  const sportsResult = showMySports(filtered, props.sportsObject)
-
-  const mappedSports = sportsResult.map(sport => {
-    return <img className='sports--img'
-    src={sport.image}
-    />
+  const sport = function(userSports, sportsObject) {
+    let result = {}
+    if (Array.isArray(userSports)) {
+    result = showMySports(userSports, sportsObject);
+  } else {
+    result = sportsObject;
+  }
+  return result
+  }
+  
+const mySports = sport(props.userSports, props.sportsObject)
+  const mappedSports = mySports.map(sport => {
+    return     <img key={sport.id} className='sports--img'
+        src={sport.image}
+        />
   })
 
   return (

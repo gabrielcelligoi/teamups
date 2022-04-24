@@ -5,6 +5,7 @@ export default function ShowSports(props) {
 
   const showMySports = function(idArray, sportsObject) {
     let result = [];
+    if (Array.isArray(idArray)) {
     for (let number of idArray) {
       for (let sport of sportsObject) {
         if (number === sport.id) {
@@ -12,10 +13,21 @@ export default function ShowSports(props) {
         }
       }
     }
+  }
     return result;
   }
 
-  const mySports = showMySports(props.userSports, props.sportsObject);
+  const sport = function(userSports, sportsObject) {
+    let result = {}
+    if (!Array.isArray(userSports)) {
+    result = showMySports(userSports, sportsObject);
+  } else {
+    result = sportsObject;
+  }
+  return result
+  }
+  
+const mySports = sport(props.userSports, props.sportsObject)
   const myMappedSports = mySports.map(sport => {
     return     <img key={sport.id} className='sports--img'
         src={sport.image}

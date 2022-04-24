@@ -6,6 +6,7 @@ import EditPassword from "./EditPassword"
 import EditImage from "./EditImage";
 import EditSports from "./EditSports";
 import './styles.scss'
+import useToken from "../../hooks/useToken";
 
 export default function MyProfile(props) {
   const location = useLocation();
