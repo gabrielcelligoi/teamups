@@ -25,6 +25,10 @@ nav .logo {
   color: variables.$primary-color;
   font-family: variables.$logo-font;
   font-size: 50px;
+
+  &:hover {
+    color: gray;
+  }
 }
 
 nav ul {
@@ -57,3 +61,38 @@ nav ul li {
 .navbar-link:hover {
   color: gray;
 }
+
+.form-inline {
+  background-color: variables.$dark-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.form-label {
+  color: variables.$primary-color;
+  margin-right: 0.5em;
+  margin-left: 2em;
+}
+
+.form-input {
+  margin-bottom: 0.5em;
+}
+
+.form-btn {
+  color: variables.$primary-color;
+  margin-left: 2em;
+  background-color: transparent;
+  border: solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-width: thin;
+  margin-bottom: 0.5em;
+
+  &:hover {
+    color: gray;
+  }
+}
+
