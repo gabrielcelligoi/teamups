@@ -18,10 +18,10 @@ export default function CreateSport(props) {
       <form className="row g-3">
 
         <label className="form-label" htmlFor="sport-input">Name: </label>
-        <input class="form-control" type="text" id="sport-input" name="sport-input" value={sport} onChange={(e) => setSport(e.target.value)}/>
+        <input className="form-control" type="text" id="sport-input" name="sport-input" value={sport} onChange={(e) => setSport(e.target.value)}/>
         
         <label className="form-label" htmlFor="sport-img">Image: </label>
-        <input class="form-control" type="text" id="sport-img" name="sport-img" value={image} onChange={(e) => setImage(e.target.value)} /> 
+        <input className="form-control" type="text" id="sport-img" name="sport-img" value={image} onChange={(e) => setImage(e.target.value)} /> 
         
         <br />
         
