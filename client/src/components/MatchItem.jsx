@@ -8,6 +8,7 @@ export default function MatchItem(props) {
 const [add, setAdd] = useState()
 const [update, setUpdate] = useState(false)
 const [players, setPlayers] = useState()
+
 useEffect(() => {
   axios.get(`/api/matches/${props.id}`)
     .then((data) => {
