@@ -57,10 +57,14 @@ export default function Tournaments(props) {
         {Tournaments &&
           Tournaments.map(tournament => (
             <div className='single-tournament-container'>
-              <img src={getSportIcon(tournament.sport_id)}/>
               <p className='single-tournament-name'>{tournament.name}</p>
-              <p className='single-tournament-info'>{`Type: ${tournament.type}`}</p>
-              <p className='single-tournament-info'>{`${tournament.number_of_players} players`}</p>
+              <div className='single-tournament-inner-container'>
+                <img src={getSportIcon(tournament.sport_id)} className="tournament-icon"/>
+                <div className='single-tournament-info-container'>
+                  <p className='single-tournament-info'>{`Type: ${tournament.type}`}</p>
+                  <p className='single-tournament-info'>{`${tournament.number_of_players} players`}</p>
+                </div>
+              </div>
               <button
                 className='select-tournament-button'
                 key={tournament.id}
