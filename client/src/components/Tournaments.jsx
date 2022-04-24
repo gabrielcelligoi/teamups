@@ -12,6 +12,7 @@ export default function Tournaments(props) {
   let location = useLocation();
   let matches = getAllMatches(location.state.matches)
   let tournaments = location.state.tournaments
+  let sports = location.state.sports
 
 
   const [hidden, setHidden] = useState(true);
@@ -40,6 +41,14 @@ export default function Tournaments(props) {
     }
   }
 
+  const getSportIcon = function(sportId) {
+    for (let sport of sports) {
+      if (sport.id === sportId) {
+        return sport.image;
+      }
+    }
+  }
+
   return (
     <div className='tournaments-container'>
       <h1 className='tournaments-title'>Tournaments</h1>
@@ -48,6 +57,7 @@ export default function Tournaments(props) {
         {Tournaments &&
           Tournaments.map(tournament => (
             <div className='single-tournament-container'>
+              <img src={getSportIcon(tournament.sport_id)}/>
               <p className='single-tournament-name'>{tournament.name}</p>
               <p className='single-tournament-info'>{`Type: ${tournament.type}`}</p>
               <p className='single-tournament-info'>{`${tournament.number_of_players} players`}</p>
