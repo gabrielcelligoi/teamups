@@ -17,7 +17,7 @@ export default function HomepageLinkList(props) {
       id: 2,
       image: imgLink2,
       frase: 'Create team',
-      link: "team/create"
+      link: "teams/create"
     },
     {
       id: 3,
