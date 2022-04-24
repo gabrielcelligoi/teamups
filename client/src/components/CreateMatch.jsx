@@ -32,21 +32,25 @@ export default function CreateMatch(props) {
     e.preventDefault()
     const sportId = getSportId(sport, sportsList)
     createMatch(sportId, date, matchLocation)
-    getNewMatch()
-    .then((data) => {
-      setShowNew(true)
-      setNewMatch(data.data[0])
-    })
+      .then(res => {
+          getNewMatch()
+          .then((data) => {
+            setNewMatch(data.data[0])
+            setShowNew(true)
+          })
+      })
   }
 
   const handleTournamentClick = (e) => {
     e.preventDefault()
     const sportId = getSportId(sport, sportsList)
     createTournamentMatch(sportId, date, matchLocation, props.tournament_id)
-    getNewMatch()
-    .then((data) => {
-      setShowNew(true)
-      setNewMatch(data.data[0])
+    .then(res => {
+      getNewMatch()
+      .then((data) => {
+        setNewMatch(data.data[0])
+        setShowNew(true)
+      })
     })
   }
 
@@ -62,10 +66,10 @@ export default function CreateMatch(props) {
         </select>
 
         <label htmlFor="create-match-date" className="form-label">Match Date: </label>
-        <input type="date" class="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
+        <input type="date" className="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />
         
         <label htmlFor="create-match-location" className="form-label">Location: </label>
-        <input type="text" class="form-control" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
+        <input type="text" className="form-control" id="create-match-location" name="create-match-location" onChange={(e) => setMatchLocation(e.target.value)} />
         
         <button className='create-match-button' type="submit" onClick={props.tournament_id ? handleTournamentClick : handleClick}>Submit</button>
       </form>

@@ -103,6 +103,7 @@ export default function SportsList(props) {
       {filteredUsers &&
        filteredUsers.map(user => (
         <SportsListProfileItem
+        key={user.id}
         id={user.id}
         avatar={user.image}
         name={user.name}

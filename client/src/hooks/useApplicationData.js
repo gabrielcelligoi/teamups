@@ -56,24 +56,11 @@ export default function useApplicationData(props) {
       location: location
     }
     return axios.put('/api/matches/create', data)
-      .then(res => {
-        console.log("res put", res)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-
   }
 
   const getNewMatch = () => {
     return axios.get('/api/matches/create')
-    .then(res => {
-      console.log("res", res)
-      return res
-    })
-    .catch(error => {
-      console.log(error)
-    })
+
   }
 
   const addPlayerToMatch = (id, matchId) => {
@@ -106,13 +93,6 @@ export default function useApplicationData(props) {
       tournamentId: tournamentId
     }
     return axios.put('/api/tournaments/create', data)
-      .then(res => {
-        console.log("res put", res)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-
   }
   const createTeam = (name, sport_id, image) => {
     const data = {
