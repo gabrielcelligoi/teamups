@@ -32,21 +32,25 @@ export default function CreateMatch(props) {
     e.preventDefault()
     const sportId = getSportId(sport, sportsList)
     createMatch(sportId, date, matchLocation)
-    getNewMatch()
-    .then((data) => {
-      setShowNew(true)
-      setNewMatch(data.data[0])
-    })
+      .then(res => {
+          getNewMatch()
+          .then((data) => {
+            setNewMatch(data.data[0])
+            setShowNew(true)
+          })
+      })
   }
 
   const handleTournamentClick = (e) => {
     e.preventDefault()
     const sportId = getSportId(sport, sportsList)
     createTournamentMatch(sportId, date, matchLocation, props.tournament_id)
-    getNewMatch()
-    .then((data) => {
-      setShowNew(true)
-      setNewMatch(data.data[0])
+    .then(res => {
+      getNewMatch()
+      .then((data) => {
+        setNewMatch(data.data[0])
+        setShowNew(true)
+      })
     })
   }
 
