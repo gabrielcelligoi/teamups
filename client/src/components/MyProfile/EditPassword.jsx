@@ -21,11 +21,13 @@ return (
   <section> 
   {mode === SHOW && (
         <ShowPassword 
+        key={user.id}
         password={user.password}
         onEdit={() => transition(EDITPASSWORD)}/>
       )}
             {mode === EDITPASSWORD && (
         <FormPassword
+        key={user.id}
         password={user.password}
         onCancel={back}
         onSave={() => transition(SHOW)}/>

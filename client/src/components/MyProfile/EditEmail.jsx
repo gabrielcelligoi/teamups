@@ -12,7 +12,6 @@ const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const EDITEMAIL = "EDITEMAIL";
 const location = useLocation();
-// console.log(location.state.users)
 const user = location.state.users[0]
 
 const { mode, transition, back } = useVisualMode(
@@ -22,11 +21,13 @@ return (
   <section> 
       {mode === SHOW && (
         <ShowEmail 
+        key={user.id}
         email={user.email}
         onEdit={() => transition(EDITEMAIL)}/>
       )}
       {mode === EDITEMAIL && (
         <FormEmail 
+        key={user.id}
         email={user.email}
         onCancel={back}
         onSave={() => transition(SHOW)}/>

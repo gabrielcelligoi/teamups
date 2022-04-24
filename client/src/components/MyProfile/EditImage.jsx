@@ -9,7 +9,6 @@ export default function EditImage(props) {
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const location = useLocation();
-// console.log(location.state.users)
 const user = location.state.users[0]
 
 const { mode, transition, back } = useVisualMode(
@@ -19,6 +18,7 @@ return (
   <section> 
     {mode === SHOW && (
       <ShowImage 
+      key={user.id}
         image={user.image}
       />
     )}

@@ -17,7 +17,7 @@ export default function ShowSports(props) {
 
   const mySports = showMySports(props.userSports, props.sportsObject);
   const myMappedSports = mySports.map(sport => {
-    return     <img className='sports--img'
+    return     <img key={sport.id} className='sports--img'
         src={sport.image}
         />
   })

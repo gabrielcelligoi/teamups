@@ -19,12 +19,14 @@ return (
   <section> 
               {mode === SHOW && (
         <ShowSports 
+        key={user.id}
         userSports={user.sports}
         sportsObject={sports}
         onAddSports={() => transition(ADD)}/>
       )}
         {mode === ADD &&
         <AddSports 
+        key={user.id}
         userSports={user.sports}
         sportsObject={sports}
         onCancel={back}

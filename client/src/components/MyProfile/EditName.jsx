@@ -17,7 +17,6 @@ const EDITNAME = "EDITNAME";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 const location = useLocation();
-// console.log(location.state.users)
 const user = location.state.users[0]
 
 const { mode, transition, back } = useVisualMode(
@@ -27,12 +26,14 @@ return (
   <section> 
       {mode === SHOW && (
         <ShowName
+        key={user.id}
         name={user.name}
         onEdit={() => transition(EDITNAME)}
         />
       )}
       {mode === EDITNAME && (
         <FormName 
+        key={user.id}
         name={user.name}
         onCancel={back}
         onSave={() => transition(SHOW)}
