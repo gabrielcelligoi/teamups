@@ -1,0 +1,28 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+.create-team-container {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-team-title {
+  @include mixins.title;
+  text-align: center;
+}
+
+.form-control {
+  margin-top: 0;
+}
+
+.form-select {
+  margin-top: 0;
+}
+
+.create-team-button {
+  @include mixins.standard-button;
+  width: 200px;
+}
