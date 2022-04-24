@@ -34,24 +34,23 @@ export default function SportsList(props) {
     let filteredTournament = tournaments.filter(tournament => Number(tournament.sport_id) === Number(sport_id));
     return filteredTournament;
   }
-
   const filterMatch = function(sport_id) {
     let filteredMatch = matches.filter(match => Number(match.sport_id) === Number(sport_id));
     return filteredMatch;
   }
-
   const filterUser = function(sport_id) {
     let filteredUser = users.filter(user => {
       let sports = user.sports
-      for (let sport of sports) {
-        if (Number(sport) === Number(sport_id)) {
-          return user;
+      if (sports !== null) {
+        for (let sport of sports) {
+          if (Number(sport) === Number(sport_id)) {
+            return user;
+          }
         }
-      }
+       }
     });
     return filteredUser
   };
-
 
   const handleTournaments = function(event) {
     let value = event.target.value;
@@ -92,39 +91,38 @@ export default function SportsList(props) {
       <h1>Browse by Sports</h1>
       <div> {sports &&
       sports.map(sport => (
- <button className='sports-button' key={sport.id} value={sport.id} onClick={(e) => {
-   e.preventDefault()
-   handleAllClicks(e)
- }}>{sport.name}</button>
-      ))}</div>
-      <div hidden={hidden}>
-      <h4 className='title'>Connect with Users</h4>
-      <div className='single-container'>
-      {filteredUsers &&
-       filteredUsers.map(user => (
-        <SportsListProfileItem
-        key={user.id}
-        id={user.id}
-        avatar={user.image}
-        name={user.name}
-        wins={user.wins}
-        losses={user.losses}/>
-    ))}</div></div>
-    <div hidden={hidden}>
-    <h4 className='title'>Tournaments</h4>
-    <div className='single-container'>
+        <button className='sports-button' key={sport.id} value={sport.id} onClick={(e) => {
+          e.preventDefault()
+          handleAllClicks(e)
+        }}>{sport.name}</button>
+             ))}</div>
+             <div hidden={hidden}>
+             <h4 className='title'>Connect with Users</h4>
+             <div className='single-container'>
+             {filteredUsers &&
+              filteredUsers.map(user => (
+                <SportsListProfileItem
+                key={user.id}
+                id={user.id}
+                avatar={user.image}
+                name={user.name}
+                wins={user.wins}
+                losses={user.losses}/>
+            ))}</div></div>
+            <div hidden={hidden}>
+            <h4 className='title'>Tournaments</h4>
+            <div className='single-container'>
       {filteredTournaments &&
       filteredTournaments.map(tournament => (
+        <div className='single-item'>
+        <p>{tournament.name}</p>
+        <p>{`Type: ${tournament.type}`}</p>
+        <p>{`${tournament.number_of_players} players`}</p>
+        </div>
 
-  <div className='single-item'>
-              <p>{tournament.name}</p>
-              <p>{`Type: ${tournament.type}`}</p>
-              <p>{`${tournament.number_of_players} players`}</p>
-              </div>
-              
       ))}</div></div>
       <div hidden={hidden}>
-      <h4>Matches</h4>
+      <h4 className='title'>Matches</h4>
       <div className='single-container'>
       {filteredMatches &&
       filteredMatches.map(match => (
@@ -137,8 +135,8 @@ export default function SportsList(props) {
         player1={match.players[0]}
         player2={match.players[1]}
         /></h4>
-      ))}</div>
-    </div>
-    </div>
-  )
-}; 
+        ))}</div>
+        </div>
+        </div>
+      )
+    };
