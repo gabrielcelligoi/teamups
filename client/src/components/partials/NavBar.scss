@@ -38,13 +38,14 @@ nav ul {
   top: 50%;
   transform: translateY(-50%);
   position: inherit;
-  width: 300px;
+  width: auto;
   list-style: none;
 }
 
 nav ul li {
   color: variables.$primary-color;
   text-decoration: none;
+  margin-left: 2em;
 }
 
 .navbar-link {
