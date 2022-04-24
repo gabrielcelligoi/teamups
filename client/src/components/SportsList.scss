@@ -1,0 +1,32 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+.sports-button {
+  @include mixins.standard-button;
+  width: 200px;
+}
+
+.user-image {
+  width: 5em;
+  border-radius: 50%;
+
+}
+.title {
+  text-align: center;
+}
+.single-container {
+ display: flex;
+ flex-direction: row; 
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+.single-item {
+  background-color: #E9E7ED;
+  align-items: center;
+ margin: 2em;
+ border-radius: 10%;
+ width: 15em;
+ padding: 0.5em;
+}

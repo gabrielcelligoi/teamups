@@ -31,22 +31,23 @@ export default function CreateTeam(props) {
   } 
 
   return (
-    <div>
+    <div className='create-team-container'>
       {!add ? 
       <form>
-        <h1>Create a Team</h1>
-        <label htmlFor="team-input">Name: </label>
-        <input type="text" id="team-input" name="team-input" value={name} onChange={(e) => setName(e.target.value)}/>
-        <select id="sports-list" name="sports-list" onChange={(e) => setSport(e.target.value)}>
+        <h1 className='create-team-title'>Create a Team</h1>
+        <label className='form-label' htmlFor="team-input">Name: </label>
+        <input className='form-control' type="text" id="team-input" name="team-input" value={name} onChange={(e) => setName(e.target.value)}/>
+        <label className='form-label' htmlFor="team-input">Select Sport Type: </label>
+        <select className='form-control' id="sports-list" name="sports-list" onChange={(e) => setSport(e.target.value)}>
           {sportsList ? sportsList.map(item => <option value={item.name}>{item.name}</option>) : null }
         </select>
-        <label htmlFor="team-img">Image: </label>
-        <input type="text" id="team-img" name="team-img" value={image} onChange={(e) => setImage(e.target.value)} /> 
-        <br /><button type="submit" onClick={handleClick}>Submit</button>
+        <label className='form-label' htmlFor="team-img">Image: </label>
+        <input className='form-control' type="text" id="team-img" name="team-img" value={image} onChange={(e) => setImage(e.target.value)} /> 
+        <br /><button className='create-team-button' type="submit" onClick={handleClick}>Submit</button>
       </form>
         :<form>
         <h1>Team Created!</h1>
-        <button type="submit" onClick={(e) => setAdd(true)}>Create Another Team</button>
+        <button className='create-team-button' type="submit" onClick={(e) => setAdd(true)}>Create Another Team</button>
         </form>} 
         
     </div>

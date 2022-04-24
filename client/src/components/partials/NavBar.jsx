@@ -2,10 +2,11 @@ import './NavBar.scss'
 import { useState } from 'react'
 import axios from 'axios'
 import useToken from '../../hooks/useToken'
-
+import useApplicationData from '../../hooks/useApplicationData'
+import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
-
+  const { state } = useApplicationData();
   const { token, setToken } = useToken()
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
@@ -110,9 +111,9 @@ export default function NavBar(props) {
           </li>
           : null }
           <li>
-            <a href="/my-profile" className='navbar-link'>
-              My Profile
-            </a>
+          <Link to="my-profile" state={state} className='navbar-link'>
+          My Profile
+      </Link>  
           </li>
         </ul>
       </nav>

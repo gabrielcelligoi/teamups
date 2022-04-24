@@ -25,6 +25,7 @@ import Profile from './components/Profiles';
 import ViewUserDetails from './components/Profiles/ViewUserDetails';
 import SingleTeamItem from './components/SingleTeamItem';
 import TeamItemsList from './components/TeamItemsList';
+import MyProfile from './components/MyProfile';
 import UserTest from './components/UserTest';
 
 
@@ -49,6 +50,7 @@ root.render(
         <Route path="teams/create" element={<CreateTeam />} />
         <Route path="teams/:teamid" element={<SingleTeamItem />} />
         <Route path="teams" element={<TeamItemsList />} />
+        <Route path="my-profile" element={<MyProfile />} />
         <Route path="login/test" element={<UserTest />} />
       </Routes>
     </BrowserRouter>

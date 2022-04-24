@@ -8,7 +8,8 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   wins INTEGER DEFAULT 0,
   losses INTEGER DEFAULT 0,
-  image VARCHAR(255)
+  image VARCHAR(255),
+  sports INTEGER[]
 );
 
 
