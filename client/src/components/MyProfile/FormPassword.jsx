@@ -28,7 +28,7 @@ export default function FormPassword(props){
   return (
     <main>
       <section className='profile'>
-        <h1>New Password:</h1>
+        <h3>New Password:</h3>
         <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input

@@ -3,7 +3,7 @@ import './styles.scss'
 export default function ShowName(props) {
   return (
     <section className='profile'>
-      <h1>Name:</h1>
+      <h3>Name:</h3>
       <div className='edit'>
       <div>{props.name}</div>
       <img 

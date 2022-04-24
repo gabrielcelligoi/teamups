@@ -50,7 +50,7 @@ export default function AddSports(props) {
 
   return (
     <section className='profile'>
-      <h1>Add Sports:</h1>
+      <h3>Add Sports:</h3>
       <div className='edit'>
       <h2>{mappedSports}</h2>
       <button onClick={cancel}>Cancel</button>

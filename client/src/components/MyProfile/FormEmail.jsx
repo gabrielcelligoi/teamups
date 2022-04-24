@@ -26,7 +26,7 @@ export default function FormEmail(props){
   return (
     <main>
       <section className='profile'>
-        <h1>Email:</h1>
+        <h3>Email:</h3>
         <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input

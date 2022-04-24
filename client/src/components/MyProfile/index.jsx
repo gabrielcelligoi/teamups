@@ -5,15 +5,16 @@ import EditName from "./EditName";
 import EditPassword from "./EditPassword"
 import EditImage from "./EditImage";
 import EditSports from "./EditSports";
+import './styles.scss'
 
 export default function MyProfile(props) {
   const location = useLocation();
   const user = location.state.users[0];
 
   return (
-    <section>
+    <section className='container'>
       <EditImage />
-      <h1 className='header'>Account Information</h1>
+      <h2 className='header'>Account Information</h2>
       <EditName />
       <EditEmail />
       <EditPassword />

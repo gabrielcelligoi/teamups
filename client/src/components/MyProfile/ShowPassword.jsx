@@ -13,7 +13,7 @@ export default function ShowPassword(props) {
 
   return(
     <section className='profile'>
-    <h1>Password:</h1>
+    <h3>Password:</h3>
     <div className='edit'>
     <div>{length(props.password)}</div>
     <img 

@@ -26,7 +26,7 @@ export default function FormName(props){
   return (
     <main>
       <section className='profile'>
-        <h1>Name:</h1>
+        <h3>Name:</h3>
         <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input

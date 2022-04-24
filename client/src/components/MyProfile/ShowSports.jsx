@@ -25,7 +25,7 @@ export default function ShowSports(props) {
   return(
     <main>
       <section className='profile'>
-          <h1>My Sports</h1>
+          <h3>My Sports</h3>
           <div className='edit'>
           {myMappedSports}
           <img

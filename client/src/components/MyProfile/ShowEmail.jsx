@@ -2,7 +2,7 @@ import './styles.scss'
 export default function ShowEmail(props) {
   return (
     <section className='profile'>
-      <h1>Email:</h1>
+      <h3>Email:</h3>
       <div className='edit'>
       <div>{props.email}</div>
       <img 
