@@ -1,0 +1,6 @@
+@use '../sass/mixins';
+@use '../sass/variables';
+
+.header {
+  @include mixins.title;
+}

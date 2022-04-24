@@ -5,6 +5,7 @@ import EditName from "./EditName";
 import EditPassword from "./EditPassword"
 import EditImage from "./EditImage";
 import EditSports from "./EditSports";
+import './index.scss'
 
 export default function MyProfile(props) {
   const location = useLocation();
