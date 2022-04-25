@@ -84,6 +84,11 @@ const handlePlayer2Win = (e) => {
         })
       })
 }
+
+const handleManageClick = (e) => {
+  e.preventDefault()
+  setAdd(true)
+}
 return ( 
   <section className="match-item-container">
     <div className='upcoming-match-text'>
@@ -128,12 +133,13 @@ return (
       }
 
       {props.addPlayer ?
-        <button type="Submit" onClick={handleClick}>Add Player To Match</button>
+        <button type="Submit" onClick={handleClick}>Manage</button>
         :
         null
       }
-    
-    </div>
+      {props.manage ? 
+        <button type="submit" onClick={handleManageClick}>Manage</button>
+      : null}
 
     {add ?
     <div>
@@ -153,7 +159,7 @@ return (
         </div>
       : 
       null
-        }
+    }
         </div>
       : null}
       {winner ? 
@@ -167,6 +173,7 @@ return (
           <h3>{final} wins!</h3> 
         </div>
       : null}
+      </div>
   </section>
 )
 

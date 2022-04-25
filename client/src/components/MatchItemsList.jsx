@@ -24,6 +24,7 @@ export default function MatchItemList(props) {
           player1={match.players[0]}
           player2={match.players[1]}
           tournament={match.tournament_id ? true : false}
+          manage={true}
         />
       </div>
       )
