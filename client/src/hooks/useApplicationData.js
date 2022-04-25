@@ -120,6 +120,17 @@ export default function useApplicationData(props) {
       })
   }
 
+  const editName = (id, name) => {
+    const data = {
+      id: id,
+      name: name
+    }
+    return axios.put('/api/profiles/editname', data)
+    .then(res => {
+      console.log('res', res)
+    })
+  }
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam } 
+
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName } 
 }

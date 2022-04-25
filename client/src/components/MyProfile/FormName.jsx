@@ -1,26 +1,42 @@
 import { useState, useEffect } from "react";
+import useApplicationData from "../../hooks/useApplicationData";
+import { useLocation } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 export default function FormName(props){
   const [name, setName] = useState(props.name);
-  const [error, setError] = useState("");
+  // const [edited, setEdited] = useState(false);
+  const { editName } = useApplicationData();
+  const location = useLocation();
+const user = location.state.users
+const userToken = useToken();
+const email = userToken.token
+// console.log(user)
+const retrieveUser = function (email, userArray) {
+  for (let user of userArray) {
+    if(email === user.email) {
+      return user
+    }
+  }
+}
 
+
+let loggedIn = retrieveUser(email, user)
   const reset = function() {
     setName("");
   }
+
+  let id = loggedIn.id;
+
   const cancel = function() {
     reset();
     props.onCancel();
   }
-  function validate() {
-    if (name === "") {
-      setError("Name cannot be blank");
-      return;
-    }
-    else {
-  
-    setError("");
-    props.onSave(name);
-    }
+
+  const save = function(e) {
+    e.preventDefault();
+    editName(id, name);
+    props.onSave();
   }
 
   return (
@@ -38,7 +54,7 @@ export default function FormName(props){
         </form>
       <section>
         <section>
-        <button onClick={validate}>Save</button>
+        <button onClick={save}>Save</button>
           <button onClick={cancel}>Cancel</button>
         </section>
         </section>

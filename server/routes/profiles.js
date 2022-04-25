@@ -84,6 +84,17 @@ module.exports = (db) => {
     })
   })
 
+  router.put('/profiles/editname', (req, res) => {
+    console.log('bodytest', req.body)
+    const id = req.body.id;
+    const name = req.body.name
+    console.log('hello')
+    db.query(`UPDATE users SET name = $1 WHERE id = $2;`, [name, id])
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+
   return router;
 }
 

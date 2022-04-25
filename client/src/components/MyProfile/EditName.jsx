@@ -34,7 +34,6 @@ const retrieveUser = function (email, userArray) {
 let loggedIn = retrieveUser(email, user)
 
 
-
 const { mode, transition, back } = useVisualMode(
   loggedIn.name ? SHOW : EMPTY
 );
