@@ -5,7 +5,9 @@ export default function AddImage(props) {
     <section className='profile'>
       <img 
       className='profile-img'
-      src='https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png' />
+      src='https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png'    
+      onClick={props.onEdit}
+      />
       </section>
   )
 };

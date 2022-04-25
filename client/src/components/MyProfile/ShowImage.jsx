@@ -5,7 +5,9 @@ export default function ShowImage(props) {
     <section className='profile'>
       <img 
       className='profile-img'
-      src={props.image} />
+      src={props.image}
+      onClick={props.onEdit}
+      />
       </section>
   )
 };

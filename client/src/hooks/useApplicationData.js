@@ -141,7 +141,18 @@ export default function useApplicationData(props) {
       console.log('res', res)
     })
   }
+
+  const editImage = (id, image) => {
+    const data = {
+      id: id,
+      image: image
+    }
+    return axios.put('/api/profiles/editimage', data)
+    .then(res => {
+      console.log('res', res)
+    })
+  }
   
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName, editEmail } 
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName, editEmail, editImage } 
 }

@@ -88,7 +88,6 @@ module.exports = (db) => {
     console.log('bodytest', req.body)
     const id = req.body.id;
     const name = req.body.name
-    console.log('hello')
     db.query(`UPDATE users SET name = $1 WHERE id = $2;`, [name, id])
     .then(data => {
       res.json(data.rows)
@@ -96,11 +95,20 @@ module.exports = (db) => {
   })
 
   router.put('/profiles/editemail', (req, res) => {
-    console.log('bodytest', req.body)
     const id = req.body.id;
     const email = req.body.email
     console.log('hello')
     db.query(`UPDATE users SET email = $1 WHERE id = $2;`, [email, id])
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+
+  router.put('/profiles/editimage', (req, res) => {
+    console.log('test')
+    const id = req.body.id;
+    const image = req.body.image
+    db.query(`UPDATE users SET image = $1 WHERE id = $2;`, [image, id])
     .then(data => {
       res.json(data.rows)
     })
