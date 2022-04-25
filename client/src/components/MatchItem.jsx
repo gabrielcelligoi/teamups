@@ -8,7 +8,7 @@ export default function MatchItem(props) {
 const [add, setAdd] = useState()
 const [update, setUpdate] = useState(false)
 const [players, setPlayers] = useState()
-
+const [winner, setWinner] = useState()
 useEffect(() => {
 
   axios.get(`/api/matches/${props.id}`)
@@ -133,19 +133,29 @@ return (
         onSubmit={handlePlayerAdded}
         update={updateComponent}
         />
-      {players ? 
+      {players.length > 1 ? 
         <div>
+          {setAdd(false)}
+          {setWinner(true)}
           <button type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
           <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
       : 
-        <div>
-          <button type="submit" onClick={handlePlayer1Win}>{props.player1} wins</button>
-          <button type="submit" onClick={handlePlayer2Win}>{props.player2} wins</button>
-        </div>
+      null
+        // <div>
+        //   <button type="submit" onClick={handlePlayer1Win}>{props.player1} wins</button>
+        //   <button type="submit" onClick={handlePlayer2Win}>{props.player2} wins</button>
+        // </div>
         }
         </div>
       : null}
+      {winner ? 
+        <div>
+          <button type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
+          <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+        </div>
+          : null}
+
   </section>
 )
 
