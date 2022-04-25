@@ -36,7 +36,7 @@ export default function Messenger() {
   useEffect(() => {
     axios.get(`api/conversations/1`)
       .then(data => {
-        setState({...state, conversations: data.data})
+        setState(prev => ({...prev, conversations: data.data}))
       })
   }, [state.currentUser])
   
