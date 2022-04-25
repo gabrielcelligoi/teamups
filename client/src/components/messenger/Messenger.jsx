@@ -12,8 +12,12 @@ export default function Messenger() {
 
   
   const { token, setToken } = useToken()
-  const [userId, setUserId] = useState();
-  const [conversations, setConversations] = useState([])
+
+  const [state, setState] = useState({
+    token,
+    currentUser: {},
+    conversations: []
+  })
 
   console.log("token", token)
   let location = useLocation()
@@ -23,7 +27,7 @@ export default function Messenger() {
     axios.put('/users/current', email)
       .then(data => {
         const currentUser = data.data.id
-        setUserId(data.data.id)
+        setState({...state, currentUser: data.data})
         console.log("data is", data)
         console.log("CURRENT", currentUser)
       })
@@ -32,9 +36,9 @@ export default function Messenger() {
   useEffect(() => {
     axios.get(`api/conversations/1`)
       .then(data => {
-        setConversations(data.data)
+        setState({...state, conversations: data.data})
       })
-  }, [userId])
+  }, [state.currentUser])
   
 
   return (
@@ -44,10 +48,10 @@ export default function Messenger() {
       <div className="chatMenu">
         <div className="chatMenuWrapper">
           <input placeholder='Search for friends' className='chatMenuInput' />
-          {conversations.map(c => (
+          {state.conversations.map(c => (
             <Conversation 
               conversation={c}
-              currentUserId={userId}
+              currentUser={state.currentUser}
             />
           ))}
           
