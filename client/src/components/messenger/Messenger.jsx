@@ -42,6 +42,19 @@ export default function Messenger() {
       })
   }, [state.currentUser])
   
+  useEffect(() => {
+    const getMessages = async () => {
+      try {
+        const res = await axios.get(`api/messages/${state.currentChat?.id}`);
+        setState(prev => ({...prev, messages: res.data}))
+      } catch (err) {
+        console.log(err);
+      }
+    };    
+    getMessages();
+  }, [state.currentChat])
+
+  console.log(state.messages)
 
   return (
     <div className='messenger'>
@@ -51,10 +64,12 @@ export default function Messenger() {
         <div className="chatMenuWrapper">
           <input placeholder='Search for friends' className='chatMenuInput' />
           {state.conversations.map(c => (
-            <Conversation 
-              conversation={c}
-              currentUser={state.currentUser}
-            />
+            <div onClick={() => setState(prev => ({...prev, currentChat: c}))}>
+              <Conversation 
+                conversation={c}
+                currentUser={state.currentUser}
+              />
+            </div>
           ))}
           
           
@@ -63,7 +78,9 @@ export default function Messenger() {
 
       <div className="chatBox">
         <div className="chatBoxWrapper">
-          <div className="chatBoxTop">
+          {
+            state.currentChat ?
+            <div className="chatBoxTop">
             <Message />
             <Message own={true}/>
             <Message />
@@ -77,6 +94,9 @@ export default function Messenger() {
             <Message own={true}/>
             <Message />
           </div> 
+          :
+          <span className='noConversation'>Start a chat</span>
+          }
           <div className="chatBoxBottom">
             <textarea className='chatMessageInput' placeholder='write something...'></textarea>
             <button className='chatSubmitButton'>Send</button>
