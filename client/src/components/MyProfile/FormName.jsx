@@ -9,8 +9,8 @@ export default function FormName(props){
   const { editName } = useApplicationData();
   const location = useLocation();
 const user = location.state.users
-const userToken = useToken();
-const email = userToken.token
+const { token, setToken } = useToken()
+const userToken = token
 // console.log(user)
 const retrieveUser = function (email, userArray) {
   for (let user of userArray) {
@@ -21,7 +21,7 @@ const retrieveUser = function (email, userArray) {
 }
 
 
-let loggedIn = retrieveUser(email, user)
+let loggedIn = retrieveUser(userToken, user)
   const reset = function() {
     setName("");
   }
@@ -36,6 +36,7 @@ let loggedIn = retrieveUser(email, user)
   const save = function(e) {
     e.preventDefault();
     editName(id, name);
+    setName(name)
     props.onSave();
   }
 

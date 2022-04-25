@@ -16,9 +16,8 @@ const EDITED = "EDITED";
 const EDITNAME = "EDITNAME";
 const location = useLocation();
 const user = location.state.users
-const userToken = useToken();
-const email = userToken.token
-const { state } = useApplicationData();
+const { token, setToken } = useToken()
+const email = token
 
 const retrieveUser = function (email, userArray) {
   if(Array.isArray(userArray)) {
