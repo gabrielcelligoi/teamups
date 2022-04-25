@@ -27,7 +27,7 @@ const retrieveUser = function (email, userArray) {
 let loggedIn = retrieveUser(email, user)
 // console.log(loggedIn)
 // let loggedIn=location.state.users[0]
-console.log(loggedIn)
+// console.log(loggedIn)
 const { mode, transition, back } = useVisualMode(
   loggedIn.sports ? SHOW : SHOW
 );

@@ -6,32 +6,34 @@ import FormName from './FormName'
 import useVisualMode from '../../hooks/useVisualMode'
 import { useLocation } from "react-router-dom";
 import useToken from "../../hooks/useToken";
+import useApplicationData from "../../hooks/useApplicationData";
+import EditedName from "./EditedName";
 
 export default function EditName(props) {
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
-const CREATE = "CREATE";
-const SAVING = "SAVING";
-const DELETING = "DELETING";
-const EDITEMAIL = "EDITEMAIL";
+const EDITED = "EDITED";
 const EDITNAME = "EDITNAME";
-const ERROR_SAVE = "ERROR_SAVE";
-const ERROR_DELETE = "ERROR_DELETE";
 const location = useLocation();
 const user = location.state.users
 const userToken = useToken();
 const email = userToken.token
-// console.log(user)
+const { state } = useApplicationData();
+
 const retrieveUser = function (email, userArray) {
+  if(Array.isArray(userArray)) {
   for (let user of userArray) {
     if(email === user.email) {
       return user
     }
   }
+  }
 }
 
 
 let loggedIn = retrieveUser(email, user)
+
+
 
 
 const { mode, transition, back } = useVisualMode(
@@ -51,7 +53,12 @@ return (
         key={loggedIn.id}
         name={loggedIn.name}
         onCancel={back}
-        onSave={() => transition(SHOW)}
+        onSave={() => transition(EDITED)}
+        />
+      )}
+            {mode === EDITED && (
+        <EditedName
+        key={loggedIn.id}
         />
       )}
     </section>
