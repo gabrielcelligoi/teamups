@@ -49,6 +49,12 @@ const handlePlayer1Win = (e) => {
     name: players[0]
   }
   axios.put('/users/win', data)
+    .then(() => {
+      const data = {
+        name: players[1]
+      }
+      axios.put('/users/loss', data)
+    })
 }
 
 const handlePlayer2Win = (e) => {
@@ -57,6 +63,12 @@ const handlePlayer2Win = (e) => {
     name: players[1]
   }
   axios.put('/users/win', data)
+    .then(() => {
+      const data = {
+        name: players[0]
+      }
+      axios.put('/users/loss', data)
+    })
 }
 return ( 
   <section className="match-item-container">
