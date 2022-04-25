@@ -120,24 +120,29 @@ export default function NavBar(props) {
       {login ?
         <div>
           <form className="form-inline">
-            <label htmlFor='login-email'>Email: </label>
-            <input type="email" id="login-email" name="login-email" onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))} />
-            <label htmlFor='login-password'>Password: </label>
-            <input type="password" id="login-password" name="login-password" onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))} />
-            <button type="submit" onClick={handleLoginSubmit}>Login</button>
+            <label htmlFor='login-email' className="form-label">Email: </label>
+            <input className="form-input" type="email" id="login-email" name="login-email" onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))} />
+            
+            <label htmlFor='login-password' className="form-label">Password: </label>
+            <input className="form-input" type="password" id="login-password" name="login-password" onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))} />
+            
+            <button className='form-btn' type="submit" onClick={handleLoginSubmit}>Login</button>
           </form>
         </div>
         : null}
       {register ?
         <div>
           <form className="form-inline">
-            <label htmlFor="register-name">Name: </label>
-            <input type="text" id="register-name" name="register-name" onChange={(e) => setRegisterData(prev => ({ ...prev, name: e.target.value }))} />
-            <label htmlFor="register-email">Email: </label>
-            <input type="email" id='register-email' name='register-email' onChange={(e) => setRegisterData(prev => ({ ...prev, email: e.target.value }))} />
-            <label htmlFor="register-password">Password: </label>
-            <input type="password" id="register-password" name="register-password" onChange={(e) => setRegisterData(prev => ({ ...prev, password: e.target.value }))} />
-            <button type="submit" onClick={handleRegisterSubmit}>Register</button>
+            <label htmlFor="register-name" className="form-label">Name: </label>
+            <input className="form-input" type="text" id="register-name" name="register-name" onChange={(e) => setRegisterData(prev => ({ ...prev, name: e.target.value }))} />
+            
+            <label htmlFor="register-email" className="form-label">Email: </label>
+            <input className="form-input" type="email" id='register-email' name='register-email' onChange={(e) => setRegisterData(prev => ({ ...prev, email: e.target.value }))} />
+            
+            <label htmlFor="register-password" className="form-label">Password: </label>
+            <input className="form-input" type="password" id="register-password" name="register-password" onChange={(e) => setRegisterData(prev => ({ ...prev, password: e.target.value }))} />
+            
+            <button className='form-btn' type="submit" onClick={handleRegisterSubmit}>Register</button>
           </form>
         </div>
         : null}

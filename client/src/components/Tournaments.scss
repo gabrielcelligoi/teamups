@@ -42,8 +42,25 @@
   color: variables.$dark-color;
 }
 
+.single-tournament-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .single-tournament-info {  
   color: variables.$dark-color;
+}
+
+.tournament-icon {
+  height: 75px;
+}
+
+.single-tournament-inner-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 1rem;
 }
 
 
