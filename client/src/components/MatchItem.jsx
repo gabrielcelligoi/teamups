@@ -10,6 +10,7 @@ const [update, setUpdate] = useState(false)
 const [players, setPlayers] = useState()
 
 useEffect(() => {
+
   axios.get(`/api/matches/${props.id}`)
     .then((data) => {
       const match = getAllMatches(data.data)
@@ -42,6 +43,21 @@ const time = new Date(props.date).toLocaleTimeString('en', {
   minute: 'numeric'
 })
 
+const handlePlayer1Win = (e) => {
+  e.preventDefault()
+  const data = {
+    name: players[0]
+  }
+  axios.put('/users/win', data)
+}
+
+const handlePlayer2Win = (e) => {
+  e.preventDefault()
+  const data = {
+    name: players[1]
+  }
+  axios.put('/users/win', data)
+}
 return ( 
   <section className="match-item-container">
     <div className='upcoming-match-text'>
@@ -71,9 +87,10 @@ return (
           <h4 className='upcoming-inline-info-element'>{players[0]} vs {players[1]}</h4>
         </div>
         :
-        <div className='upcoming-inline-info'>
-          <h4 className='upcoming-inline-info-element'>{props.player1} vs {props.player2}</h4>
-        </div>
+        null
+        // <div className='upcoming-inline-info'>
+        //   <h4 className='upcoming-inline-info-element'>{props.player1} vs {props.player2}</h4>
+        // </div>
       }
       
       
@@ -96,14 +113,26 @@ return (
     </div>
 
     {add ?
-      <div>
+    <div>
+
         <AddPlayer 
         key={props.id}
         id={props.id}
         onSubmit={handlePlayerAdded}
         update={updateComponent}
         />
-      </div>
+      {players ? 
+        <div>
+          <button type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
+          <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+        </div>
+      : 
+        <div>
+          <button type="submit" onClick={handlePlayer1Win}>{props.player1} wins</button>
+          <button type="submit" onClick={handlePlayer2Win}>{props.player2} wins</button>
+        </div>
+        }
+        </div>
       : null}
   </section>
 )

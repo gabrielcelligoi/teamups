@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import { useLocation }from 'react-router-dom'
-import useToken from '../hooks/useToken'
+import useToken from '../../hooks/useToken'
 import axios from 'axios'
 export default function Chat(props) {
 
