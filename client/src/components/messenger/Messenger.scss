@@ -1,3 +1,6 @@
+@use '../sass/mixins';
+@use '../sass/variables';
+
 .messenger {
   height: calc(100vh - 70px);
   display: flex;
@@ -19,11 +22,27 @@
 }
 
 .chatBoxTop {
-
+  height: 75vh;
+  overflow-y: scroll;
+  padding-right: 10px;
 }
 
 .chatBoxBottom {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.chatMessageInput {
+  width: 80%;
+  height: 90px;
+  padding: 10px;
+}
+
+.chatSubmitButton {
+  @include mixins.standard-button;
+  margin-left: 1rem;
 }
 
 .chatOnline {
@@ -34,3 +53,7 @@
   padding: 10px;
 }
 
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+}

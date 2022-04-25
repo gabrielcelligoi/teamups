@@ -1,6 +1,7 @@
 import './Messenger.scss';
 import Conversation from './Conversation';
 import Message from './Message';
+import ChatOnline from './ChatOnline';
 
 export default function Messenger() {
   return (
@@ -22,16 +23,26 @@ export default function Messenger() {
             <Message />
             <Message own={true}/>
             <Message />
+            <Message />
+            <Message own={true}/>
+            <Message />
+            <Message />
+            <Message own={true}/>
+            <Message />
+            <Message />
+            <Message own={true}/>
+            <Message />
           </div> 
           <div className="chatBoxBottom">
-            
+            <textarea className='chatMessageInput' placeholder='write something...'></textarea>
+            <button className='chatSubmitButton'>Send</button>
           </div>
         </div>
       </div>
       
       <div className="chatOnline">
         <div className="chatOnlineWrapper">
-          online  
+          <ChatOnline />
         </div>
       </div> 
     </div>
