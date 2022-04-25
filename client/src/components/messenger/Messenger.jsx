@@ -16,7 +16,9 @@ export default function Messenger() {
   const [state, setState] = useState({
     token,
     currentUser: {},
-    conversations: []
+    conversations: [],
+    currentChat: null,
+    messages: []
   })
 
   console.log("token", token)
