@@ -27,6 +27,7 @@ import SingleTeamItem from './components/SingleTeamItem';
 import TeamItemsList from './components/TeamItemsList';
 import MyProfile from './components/MyProfile';
 import UserTest from './components/UserTest';
+import Messenger from './messenger/Messenger';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -52,6 +53,7 @@ root.render(
         <Route path="teams" element={<TeamItemsList />} />
         <Route path="my-profile" element={<MyProfile />} />
         <Route path="login/test" element={<UserTest />} />
+        <Route path="/messenger" element={<Messenger />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
