@@ -8,7 +8,9 @@ export default function MatchItem(props) {
 const [add, setAdd] = useState()
 const [update, setUpdate] = useState(false)
 const [players, setPlayers] = useState()
-const [winner, setWinner] = useState()
+const [winner, setWinner] = useState(false)
+const [final, setFinal] = useState() 
+
 useEffect(() => {
 
   axios.get(`/api/matches/${props.id}`)
@@ -22,10 +24,14 @@ useEffect(() => {
 const handleClick = (e) => {
   setAdd(true)
   e.target.style.display = "none"
-}
+} 
 
 const handlePlayerAdded = () => {
-  setAdd(false)
+  if (players.length > 1) {
+    
+    setAdd(false)
+  }
+  
 }
 
 const updateComponent = (e) => {
@@ -44,6 +50,7 @@ const time = new Date(props.date).toLocaleTimeString('en', {
 })
 
 const handlePlayer1Win = (e) => {
+  setWinner(false)
   e.preventDefault()
   const data = {
     name: players[0]
@@ -54,10 +61,14 @@ const handlePlayer1Win = (e) => {
         name: players[1]
       }
       axios.put('/users/loss', data)
-    })
+        .then(() => {
+          setFinal(players[0])
+        })
+      })
 }
 
 const handlePlayer2Win = (e) => {
+  setWinner(false)
   e.preventDefault()
   const data = {
     name: players[1]
@@ -68,7 +79,10 @@ const handlePlayer2Win = (e) => {
         name: players[0]
       }
       axios.put('/users/loss', data)
-    })
+        .then(() => {
+          setFinal(players[1])
+        })
+      })
 }
 return ( 
   <section className="match-item-container">
@@ -100,9 +114,6 @@ return (
         </div>
         :
         null
-        // <div className='upcoming-inline-info'>
-        //   <h4 className='upcoming-inline-info-element'>{props.player1} vs {props.player2}</h4>
-        // </div>
       }
       
       
@@ -142,10 +153,6 @@ return (
         </div>
       : 
       null
-        // <div>
-        //   <button type="submit" onClick={handlePlayer1Win}>{props.player1} wins</button>
-        //   <button type="submit" onClick={handlePlayer2Win}>{props.player2} wins</button>
-        // </div>
         }
         </div>
       : null}
@@ -155,7 +162,11 @@ return (
           <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
           : null}
-
+      {final ?
+        <div>
+          <h3>{final} wins!</h3> 
+        </div>
+      : null}
   </section>
 )
 

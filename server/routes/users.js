@@ -47,5 +47,43 @@ module.exports = (db) => {
       })
   })
 
+  router.use('/current', (req, res) => {
+    console.log(req.body)
+    const email = req.body.email
+
+    db.query(`
+    SELECT * FROM users
+    WHERE email = $1
+    `, [email])
+    .then(data => {
+      res.json(data.rows[0])
+    })
+  })
+
+  router.put('/win', (req, res) => {
+    console.log(req.body)
+    const name = req.body.name
+    db.query(`
+    UPDATE users
+    SET wins = wins + 1
+    WHERE name = $1
+    `, [name])
+    .then(data => {
+      res.json(data.rows[0])
+    })
+  })
+
+  router.put('/loss', (req, res) => {
+    console.log(req.body)
+    const name = req.body.name
+    db.query(`
+    UPDATE users
+    SET losses = losses + 1
+    WHERE name = $1
+    `, [name])
+    .then(data => {
+      res.json(data.rows[0])
+    })
+  })
   return router;
 }
