@@ -1,4 +1,5 @@
 import './Messenger.scss';
+import Conversation from './Conversation';
 
 export default function Messenger() {
   return (
@@ -6,7 +7,8 @@ export default function Messenger() {
 
       <div className="chatMenu">
         <div className="chatMenuWrapper">
-          menu  
+          <input placeholder='Search for friends' className='chatMenuInput' />
+          <Conversation />
         </div>
       </div>
 
