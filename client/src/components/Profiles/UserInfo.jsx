@@ -2,7 +2,7 @@ import SportsList from "./SportsList"
 import './UserInfo.scss'
 import bgDots from "../../images/bg-dots.png"
 import TeamsList from "./TeamsList"
-
+import Chat from "./ChatTest"
 export default function UserInfo(props) {
   return (
     <div>
