@@ -22,15 +22,15 @@ export default function AddPlayer(props) {
     <section>
         {!added ? 
       <form>
-      <h2>Add Match Player</h2>
+      <h4>Add Match Player</h4>
       <label htmlFor='add-user-id'>Insert User Id: </label>
       <input type="text" id='add-user-id' name='add-user-id' onChange={(e) => setUser(Number(e.target.value))} />
-      <button type="submit" onClick={handleClick}>Add</button>
+      <button class="btn btn-dark btn-sm" type="submit" onClick={handleClick}>Add</button>
 
       </form>
     : <div>
-        <h2>Player Added</h2>
-        <button type="submit" onClick={handleAddAnother}>Add Another Player</button> 
+        <h4>Player Added</h4>
+        <button class="btn btn-dark btn-sm" type="submit" onClick={handleAddAnother}>Add Another Player</button> 
       </div>}
     </section>
   )

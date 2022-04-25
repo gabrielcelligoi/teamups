@@ -133,12 +133,12 @@ return (
       }
 
       {props.addPlayer ?
-        <button type="Submit" onClick={handleClick}>Manage</button>
+        <button type="Submit" class="btn btn-dark btn-sm" onClick={handleClick}>Manage</button>
         :
         null
       }
       {props.manage ? 
-        <button type="submit" onClick={handleManageClick}>Manage</button>
+        <button type="submit" class="btn btn-dark btn-sm" onClick={handleManageClick}>Manage</button>
       : null}
 
     {add ?
@@ -154,8 +154,8 @@ return (
         <div>
           {setAdd(false)}
           {setWinner(true)}
-          <button type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
-          <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+          <button type="button" class="btn btn-dark btn-sm" onClick={handlePlayer1Win}>{players[0]} wins</button>
+          <button type="submit" class="btn btn-dark btn-sm" onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
       : 
       null
@@ -163,9 +163,10 @@ return (
         </div>
       : null}
       {winner ? 
-        <div>
-          <button type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
-          <button type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+        <div class="winner-buttons">
+          <button class="btn btn-dark btn-sm" type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
+            &ensp;
+          <button class="btn btn-dark btn-sm" type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
           : null}
       {final ?
