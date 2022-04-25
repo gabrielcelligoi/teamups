@@ -27,7 +27,7 @@ import SingleTeamItem from './components/SingleTeamItem';
 import TeamItemsList from './components/TeamItemsList';
 import MyProfile from './components/MyProfile';
 import UserTest from './components/UserTest';
-import Messenger from './messenger/Messenger';
+import Messenger from './components/messenger/Messenger';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
