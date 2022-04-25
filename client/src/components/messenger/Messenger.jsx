@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
+
 export default function Messenger() {
 
   
@@ -55,7 +56,24 @@ export default function Messenger() {
     getMessages();
   }, [state.currentChat])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = {
+      sender: state.currentUser.id,
+      text: state.newMessage,
+      conversationId: state.currentChat.id
+    }
 
+    try{
+      const res = await axios.put('api/messages', message)
+      console.log("THIS IS DATA", res.data)
+      setState(prev => ({...prev, messages: res.data})) //there is a bug here and the page doesn't refresh
+      setState(prev => ({...prev, messages: ""}))
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  
 
   return (
     <div className='messenger'>
@@ -94,8 +112,13 @@ export default function Messenger() {
           <span className='noConversation'>Start a chat</span>
           }
           <div className="chatBoxBottom">
-            <textarea className='chatMessageInput' placeholder='write something...'></textarea>
-            <button className='chatSubmitButton'>Send</button>
+            <textarea
+              className='chatMessageInput'
+              placeholder='write something...'
+              onChange={(e) => setState(prev => ({...prev, newMessage: e.target.value}))}
+              value={state.newMessage}
+            ></textarea>
+            <button className='chatSubmitButton' onClick={handleSubmit}>Send</button>
           </div>
         </div>
       </div>

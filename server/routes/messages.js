@@ -4,13 +4,15 @@ module.exports = (db) => {
 
   router.put('/messages', (req,res) => {
     console.log("body", req.body)
-    const message = req.body
+    const conversation = req.body.conversationId;
+    const sender = req.body.sender;
+    const message = req.body.text;
         
 
     db.query(`
-      INSERT INTO messages (message_txt)
-      VALUES ($1);
-    `, [message])
+      INSERT INTO messages (conversation_id, sender_id, message_txt)
+      VALUES ($1, $2, $3);
+    `, [conversation, sender, message])
   })
 
   router.get('/messages/:conversationId', (req,res) => {
