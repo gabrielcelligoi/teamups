@@ -6,8 +6,10 @@ import SportsList from "./SportsList";
 import TeamsList from "./TeamsList";
 import UserInfo from "./UserInfo";
 import './ViewUserDetails.scss'
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function ViewUserDetails(props) {
+  const { state }  = useApplicationData()
   const location = useLocation();
 
   
