@@ -1,0 +1,1 @@
+INSERT INTO messages (conversation_id, sender_id, message_txt) VALUES (1, 2, 'Hey! How is it going?');

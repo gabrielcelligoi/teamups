@@ -90,8 +90,8 @@ DROP TABLE IF EXISTS conversations CASCADE;
 
 CREATE TABLE conversations (
   id SERIAL PRIMARY KEY,
-  user1 VARCHAR(255),
-  user2 VARCHAR(255),
+  sender_id INTEGER REFERENCES users(id) NOT NULL,
+  receiver_id INTEGER REFERENCES users(id) NOT NULL,
   conversation_date TIMESTAMP
 );
 
@@ -100,7 +100,7 @@ DROP TABLE IF EXISTS messages CASCADE;
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY,
   conversation_id INTEGER REFERENCES conversations(id),
-  sender VARCHAR(255),
+  sender_id INTEGER REFERENCES users(id) NOT NULL,
   message_txt VARCHAR(255),
   message_date TIMESTAMP
 );
