@@ -18,7 +18,8 @@ export default function Messenger() {
     currentUser: {},
     conversations: [],
     currentChat: null,
-    messages: []
+    messages: [],
+    newMessage: ""
   })
 
   console.log("token", token)
@@ -54,7 +55,7 @@ export default function Messenger() {
     getMessages();
   }, [state.currentChat])
 
-  console.log(state.messages)
+
 
   return (
     <div className='messenger'>
@@ -81,18 +82,13 @@ export default function Messenger() {
           {
             state.currentChat ?
             <div className="chatBoxTop">
-            <Message />
-            <Message own={true}/>
-            <Message />
-            <Message />
-            <Message own={true}/>
-            <Message />
-            <Message />
-            <Message own={true}/>
-            <Message />
-            <Message />
-            <Message own={true}/>
-            <Message />
+              {state.messages.map(m => (
+                <Message
+                  message={m}
+                  own={m.sender_id === state.currentUser.id}
+                />
+              ))}
+            
           </div> 
           :
           <span className='noConversation'>Start a chat</span>
