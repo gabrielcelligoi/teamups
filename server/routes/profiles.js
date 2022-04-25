@@ -95,6 +95,17 @@ module.exports = (db) => {
     })
   })
 
+  router.put('/profiles/editemail', (req, res) => {
+    console.log('bodytest', req.body)
+    const id = req.body.id;
+    const email = req.body.email
+    console.log('hello')
+    db.query(`UPDATE users SET email = $1 WHERE id = $2;`, [email, id])
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+
   return router;
 }
 

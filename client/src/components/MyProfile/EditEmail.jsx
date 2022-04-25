@@ -6,11 +6,15 @@ import useVisualMode from '../../hooks/useVisualMode'
 import { useLocation } from "react-router-dom";
 import ShowEmail from "./ShowEmail";
 import FormEmail from "./FormEmail";
+import useApplicationData from "../../hooks/useApplicationData";
 
-export default function EditPassword(props) {
+
+
+export default function EditEmail(props) {
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const EDITEMAIL = "EDITEMAIL";
+const EDITED = "EDITED"
 const location = useLocation();
 const user = location.state.users
 const userToken = useToken();
@@ -25,10 +29,12 @@ const retrieveUser = function (email, userArray) {
 }
 
 
+
+
 let loggedIn = retrieveUser(email, user)
 
 const { mode, transition, back } = useVisualMode(
-  loggedIn.password ? SHOW : EMPTY
+  loggedIn.email ? SHOW : EMPTY
 );
 return (
   <section> 

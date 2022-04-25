@@ -1,26 +1,44 @@
 import { useState, useEffect } from "react";
+import useApplicationData from "../../hooks/useApplicationData";
+import { useLocation } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 export default function FormEmail(props){
   const [email, setEmail] = useState(props.email);
-  const [error, setError] = useState("");
+  const { editEmail } = useApplicationData();
+  const location = useLocation();
+  const user = location.state.users
+  const { token, setToken } = useToken()
+  const userEmail = token
+  
 
+  const retrieveUser = function (email, userArray) {
+    for (let user of userArray) {
+      if(email === user.email) {
+        return user
+      }
+    }
+  }
+
+
+let loggedIn = retrieveUser(userEmail, user)
   const reset = function() {
     setEmail("");
   }
+
+  let id = loggedIn.id;
+
   const cancel = function() {
     reset();
     props.onCancel();
   }
-  function validate() {
-    if (email === "") {
-      setError("Name cannot be blank");
-      return;
-    }
-    else {
-  
-    setError("");
-    props.onSave(email);
-    }
+
+  const save = function(e) {
+    e.preventDefault();
+    editEmail(id, email);
+    setToken(email)
+    window.location.reload();
+    props.onSave();
   }
 
   return (
@@ -38,7 +56,7 @@ export default function FormEmail(props){
         </form>
       <section>
         <section>
-        <button onClick={validate}>Save</button>
+        <button onClick={save}>Save</button>
           <button onClick={cancel}>Cancel</button>
           
         </section>

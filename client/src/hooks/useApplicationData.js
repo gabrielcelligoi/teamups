@@ -131,6 +131,17 @@ export default function useApplicationData(props) {
     })
   }
 
+  const editEmail = (id, email) => {
+    const data = {
+      id: id,
+      email: email
+    }
+    return axios.put('/api/profiles/editemail', data)
+    .then(res => {
+      console.log('res', res)
+    })
+  }
+  
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName } 
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName, editEmail } 
 }
