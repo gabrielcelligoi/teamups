@@ -15,7 +15,7 @@ export default function ShowPassword(props) {
     <section className='profile'>
     <h3>Password:</h3>
     <div className='edit'>
-    <div>{length(props.password)}</div>
+    <div className="display-text-box">{length(props.password)}</div>
     <img 
     className="img"
     src='https://upload.wikimedia.org/wikipedia/commons/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg'

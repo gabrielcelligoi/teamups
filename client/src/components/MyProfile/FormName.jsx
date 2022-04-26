@@ -34,6 +34,7 @@ export default function FormName(props){
         <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input
+          className="text-box"
             name="name"
             type="text"
             value={name}
@@ -42,8 +43,8 @@ export default function FormName(props){
         </form>
       <section>
         <section>
-        <button onClick={save}>Save</button>
-          <button onClick={cancel}>Cancel</button>
+        <button className='sports-button' onClick={save}>Save</button>
+          <button className='sports-button' onClick={cancel}>Cancel</button>
         </section>
         </section>
         </div>

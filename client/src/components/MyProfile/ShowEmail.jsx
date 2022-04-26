@@ -4,7 +4,7 @@ export default function ShowEmail(props) {
     <section className='profile'>
       <h3>Email:</h3>
       <div className='edit'>
-      <div>{props.email}</div>
+      <div className="display-text-box">{props.email}</div>
       <p>{props.message}</p>
       <img 
       className="img"

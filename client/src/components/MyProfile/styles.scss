@@ -1,5 +1,15 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.sports-button {
+  @include mixins.standard-button;
+  width: 110px;
+  border-radius: 2em;
+}
+
 .img {
   width: 2em;
+  margin-right: 2em;
 }
 
 .sports--img {
@@ -14,14 +24,31 @@
 }
 .profile {
   text-align: center;
+  padding-bottom: 1em;
   &-img {
   border-radius: 50%;
   width: 10em;
   margin-top: 2em;
   margin-bottom: 0.5em;
+  visibility: visible;
 }
 }
 
+.new-img-text {
+  text-align: center;
+  padding-top: 4em;
+  padding-bottom: 1em;
+}
+
+.img-container {
+  position: relative;
+  text-align: center;  
+}
+
+
+.profile-img:hover {
+  opacity: 0.5;
+}
 .edit {
   display: flex;
   flex-direction: row;
@@ -31,6 +58,17 @@
   margin-right: 2em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  border: solid;
   padding: 0.5em;
+  border-radius: 5em;
+  background-color: variables.$bg-color;
+}
+
+.text-box {
+  margin-left: 2em;
+  width: 20em;
+}
+
+.display-text-box {
+  margin-left: 2em;
+  padding: 1.5em;
 }

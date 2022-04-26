@@ -21,11 +21,6 @@ const retrieve = function(userArray, sportsObj) {
   return array;
 }
 
-// const handleClick = function(event) {
-//   console.log(event.target.value)
-//   // addSport(props.id, event.target.value);
-// }
-
 const mapping = retrieve(props.userSports, sportObject)
 
 let myMappedSports = mapping.map(sport => {
@@ -35,11 +30,9 @@ let myMappedSports = mapping.map(sport => {
 )
 })
 
-console.log(myMappedSports)
 
 
   return(
-    <main>
       <section className='profile'>
           <h3>My Sports</h3>
           <div className='edit'>
@@ -51,6 +44,5 @@ console.log(myMappedSports)
             onClick={props.onAddSports}
           /></div>
       </section>
-    </main>
   )
 };
