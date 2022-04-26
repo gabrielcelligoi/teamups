@@ -2,8 +2,10 @@ import SportsList from "./SportsList"
 import './UserInfo.scss'
 import bgDots from "../../images/bg-dots.png"
 import TeamsList from "./TeamsList"
+import MessageItemList from "./MessageItemList"
 
 export default function UserInfo(props) {
+  
   return (
     <div>
       <div className="user-info-container">
@@ -25,6 +27,13 @@ export default function UserInfo(props) {
         <p>WINS: {props.wins}</p>
         <p>LOSSES: {props.losses}</p>
       </div>
+
+      <div className="user-message-container">
+      <h2 className="user-info-message">Message Wall</h2>
+        <MessageItemList key={props.id} id={props.id} />
+
+      </div>
+
     </div>
   )
 }

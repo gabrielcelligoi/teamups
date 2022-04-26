@@ -35,7 +35,7 @@ export default function TournamentItem(props) {
     <section>
     {tournament ? 
       <div>
-        <h2>Manage {tournament.name}</h2>
+        <h2>Managing {tournament.name}</h2>
         <div>Number of Players {tournament.number_of_players}</div>
         <div>Number of Matches {tournament.number_of_matches}</div>
         <button onClick={handleMatchesClick}>Matches</button>
@@ -43,21 +43,21 @@ export default function TournamentItem(props) {
     : null }
       {modeMatches ? 
       <div>
-        <h2>Round 1</h2>
+        <h3>Round 1</h3>
         { [...Array(bracket.round1)].map((ele,i) => {
           console.log([...Array(bracket)])
           return (
            <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/> 
          ) 
         })}
-        <h2>Round 2</h2>
+        <h3>Round 2</h3>
         { [...Array(bracket.round2)].map((e,i) => {
           return (
             <CreateMatch key={99 - i} tournament_id={id.tournament_id} tournament={true}/>
           )
         })}
 
-        {bracket.round3 ?  <h2>Round 3</h2> : null}
+        {bracket.round3 ?  <h3>Round 3</h3> : null}
         {bracket.round3 ?
           [...Array(bracket.round3)].map((e,i) => {
           return (
@@ -66,7 +66,7 @@ export default function TournamentItem(props) {
         })
         : null}
 
-        {bracket.round4 ?  <h2>Round 4</h2> : null}
+        {bracket.round4 ?  <h3>Round 4</h3> : null}
         {bracket.round4 ?
           [...Array(bracket.round4)].map((e,i) => {
           return (
@@ -75,7 +75,7 @@ export default function TournamentItem(props) {
         })
         : null}
 
-        {bracket.round5 ?  <h2>Round 5</h2> : null}
+        {bracket.round5 ?  <h3>Round 5</h3> : null}
         {bracket.round5 ?
           [...Array(bracket.round5)].map((e,i) => {
           return (

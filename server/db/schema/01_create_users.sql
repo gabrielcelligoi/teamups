@@ -85,3 +85,12 @@ CREATE TABLE match_team (
   match_id INTEGER REFERENCES matches(id) NOT NULL,
   win BOOLEAN
 );
+
+DROP TABLE IF EXISTS messages CASCADE;
+
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY,
+  message_to INTEGER REFERENCES users(id),
+  message_text VARCHAR(255) NOT NULL,
+  message_from INTEGER REFERENCES users(id)
+);

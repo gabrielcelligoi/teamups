@@ -28,6 +28,8 @@
   width: 500px;
 }
 
+
+
 .user-image-container {
   display: contents;
   height: 400px;
@@ -55,6 +57,13 @@
   font-size: 40px;
   font-family: variables.$logo-font;
   color: variables.$dark-color;
+}
+
+
+.user-info-message {
+  @include mixins.title;
+  text-align: center
+
 }
 
 .user-info-stats {

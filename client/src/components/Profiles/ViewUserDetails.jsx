@@ -6,8 +6,10 @@ import SportsList from "./SportsList";
 import TeamsList from "./TeamsList";
 import UserInfo from "./UserInfo";
 import './ViewUserDetails.scss'
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function ViewUserDetails(props) {
+  const { state }  = useApplicationData()
   const location = useLocation();
 
   
@@ -18,6 +20,7 @@ export default function ViewUserDetails(props) {
         avatar={location.state[0].image}
         wins={location.state[0].wins}
         losses={location.state[0].losses}
+        id={location.state[0].id}
       />
       
       <aside>

@@ -19,7 +19,7 @@ export default function ProfileItem(props) {
 
   return (
     <div>      
-        <Link to={`${props.id}`} state={user} style={{ textDecoration: 'none' }}>
+        <Link to={`${props.id}`} state={user} style={{ textDecoration: 'none' }} locationState={props.locationState}>
           <div  className="profile-item-container">
             <img src={props.image} className='index-user-image'/>
             <div className="profile-item-user-data">

@@ -1,4 +1,5 @@
-
+import axios from 'axios';
+import { useEffect, useState } from 'react'
 import './UpcomingMatchItem.scss'
 
 export default function UpcomingMatchItem(props) {
@@ -14,8 +15,34 @@ export default function UpcomingMatchItem(props) {
     minute: 'numeric'
   })
 
+  const [state, setState] = useState();
+
+  useEffect(() => {
+    Promise.all([
+      axios.get(`/api/matches/${props.id}`)
+    ])
+    .then(all => {
+      setState( all[0].data)
+    })
+  }, [])
+
+  
+
+  // const setPlayers = function(arrayOfObj) {
+  //   let players = [];
+
+  //   arrayOfObj.map(element => {
+  //     players.push(element.players);
+  //   })
+
+  //   return players;
+  // }
+
+  // const competitors = setPlayers(state);
+
   return (
     <div className="match-item">
+      
         <img src={props.sport_image} alt={props.sport} className='upcoming-sport-icon'/>
 
       <div className='upcoming-match-text'>

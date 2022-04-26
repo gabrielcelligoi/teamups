@@ -8,8 +8,11 @@ export default function MatchItem(props) {
 const [add, setAdd] = useState()
 const [update, setUpdate] = useState(false)
 const [players, setPlayers] = useState()
+const [winner, setWinner] = useState(false)
+const [final, setFinal] = useState() 
 
 useEffect(() => {
+
   axios.get(`/api/matches/${props.id}`)
     .then((data) => {
       const match = getAllMatches(data.data)
@@ -21,10 +24,14 @@ useEffect(() => {
 const handleClick = (e) => {
   setAdd(true)
   e.target.style.display = "none"
-}
+} 
 
 const handlePlayerAdded = () => {
-  setAdd(false)
+  if (players.length > 1) {
+    
+    setAdd(false)
+  }
+  
 }
 
 const updateComponent = (e) => {
@@ -42,6 +49,46 @@ const time = new Date(props.date).toLocaleTimeString('en', {
   minute: 'numeric'
 })
 
+const handlePlayer1Win = (e) => {
+  setWinner(false)
+  e.preventDefault()
+  const data = {
+    name: players[0]
+  }
+  axios.put('/users/win', data)
+    .then(() => {
+      const data = {
+        name: players[1]
+      }
+      axios.put('/users/loss', data)
+        .then(() => {
+          setFinal(players[0])
+        })
+      })
+}
+
+const handlePlayer2Win = (e) => {
+  setWinner(false)
+  e.preventDefault()
+  const data = {
+    name: players[1]
+  }
+  axios.put('/users/win', data)
+    .then(() => {
+      const data = {
+        name: players[0]
+      }
+      axios.put('/users/loss', data)
+        .then(() => {
+          setFinal(players[1])
+        })
+      })
+}
+
+const handleManageClick = (e) => {
+  e.preventDefault()
+  setAdd(true)
+}
 return ( 
   <section className="match-item-container">
     <div className='upcoming-match-text'>
@@ -71,9 +118,7 @@ return (
           <h4 className='upcoming-inline-info-element'>{players[0]} vs {players[1]}</h4>
         </div>
         :
-        <div className='upcoming-inline-info'>
-          <h4 className='upcoming-inline-info-element'>{props.player1} vs {props.player2}</h4>
-        </div>
+        null
       }
       
       
@@ -88,23 +133,48 @@ return (
       }
 
       {props.addPlayer ?
-        <button type="Submit" onClick={handleClick}>Add Player To Match</button>
+        <button type="Submit" class="btn btn-dark btn-sm" onClick={handleClick}>Manage</button>
         :
         null
       }
-    
-    </div>
+      {props.manage ? 
+        <button type="submit" class="btn btn-dark btn-sm" onClick={handleManageClick}>Manage</button>
+      : null}
 
     {add ?
-      <div>
+    <div>
+
         <AddPlayer 
         key={props.id}
         id={props.id}
         onSubmit={handlePlayerAdded}
         update={updateComponent}
         />
-      </div>
+      {players.length > 1 ? 
+        <div>
+          {setAdd(false)}
+          {setWinner(true)}
+          <button type="button" class="btn btn-dark btn-sm" onClick={handlePlayer1Win}>{players[0]} wins</button>
+          <button type="submit" class="btn btn-dark btn-sm" onClick={handlePlayer2Win}>{players[1]} wins</button>
+        </div>
+      : 
+      null
+    }
+        </div>
       : null}
+      {winner ? 
+        <div class="winner-buttons">
+          <button class="btn btn-dark btn-sm" type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
+            &ensp;
+          <button class="btn btn-dark btn-sm" type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+        </div>
+          : null}
+      {final ?
+        <div>
+          <h3>{final} wins!</h3> 
+        </div>
+      : null}
+      </div>
   </section>
 )
 

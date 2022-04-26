@@ -1,0 +1,28 @@
+.user-message-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #E9E7ED;
+  border-radius: 40px;
+  margin-left: 10em;
+  margin-top: 1.5rem;
+  margin-right: 15px;
+}
+
+.message-container {
+  border-color: black;
+  height: 60%;
+  width: 90%;
+  margin-left: 1.5em;
+}
+
+.message-post {
+
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
+textarea {
+  resize: none;
+}
