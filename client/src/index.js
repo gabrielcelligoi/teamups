@@ -13,6 +13,7 @@ import MatchItem from "./components/MatchItem";
 import './App.scss';
 import MatchItemList from "./components/MatchItemsList";
 import NavBar from "./components/partials/NavBar"
+import Footer from './components/partials/Footer';
 
 import CreateSport from './components/CreateSport';
 import Tournaments from './components/Tournaments';
@@ -53,6 +54,7 @@ root.render(
         <Route path="my-profile" element={<MyProfile />} />
         <Route path="login/test" element={<UserTest />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );

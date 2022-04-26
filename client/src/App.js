@@ -60,7 +60,7 @@ function App() {
         link="sport/create" 
         mirror
       />
-      <ul>
+      <ul className="display-none">
         <li><Link to="profiles" state={state}>Profiles</Link></li>
         <li><Link to="/matches" state={state}>Matches</Link></li>
         <li><Link to="tournaments" state={state}>All Tournaments</Link></li>

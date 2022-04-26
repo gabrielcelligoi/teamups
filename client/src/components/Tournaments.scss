@@ -3,6 +3,7 @@
 
 .tournaments-container {
   @include mixins.standard-container;
+  padding-bottom: 65px;
 }
 
 .tournaments-list-container{
