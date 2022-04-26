@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcryptjs');
 
 module.exports = (db) => {
   router.get('/profiles', (req, res) => {
@@ -127,7 +128,7 @@ module.exports = (db) => {
 
   router.put('/profiles/editpassword', (req, res) => {
     const id = req.body.id;
-    const password = req.body.password
+    const password = bcrypt.hashSync(req.body.password, 10);
     db.query(`UPDATE users SET password = $1 WHERE id = $2;`, [password, id])
     .then(data => {
       res.json(data.rows)

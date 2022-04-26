@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ShowPassword(props) {
   const length = function(word) {
-    let leng = word.length;
+    let leng = word.length / 4;
     let result = '';
     for (let i = 0; i < leng; i++) {
       result += '*'
