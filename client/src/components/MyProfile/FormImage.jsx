@@ -1,45 +1,33 @@
 import { useState, useEffect } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
 import { useLocation } from "react-router-dom";
-import useToken from "../../hooks/useToken";
+import useVisualMode from '../../hooks/useVisualMode'
+import ShowImage from "./ShowImage";
 
 export default function FormImage(props){
-  const [image, setImage] = useState(props.image)
+  const [img, setImg] = useState(props.image)
   const { editImage } = useApplicationData();
-  const location = useLocation();
-  const user = location.state.users;
-  const { token, setToken } = useToken();
-  const userToken = token;
-
-  const retrieveUser = function(email, userArray) {
-    for (let user of userArray) {
-      if(email === user.email) {
-        return user;
-      }
-    }
-  }
-
-  let loggedIn = retrieveUser(userToken, user)
-
+  const TEST = 'TEST'
+  const { mode, transition, back } = useVisualMode();
   const reset = function() {
-    setImage("");
+    setImg("");
   }
-
-  let id = loggedIn.id;
 
   const cancel = function() {
     reset();
     props.onCancel();
   }
-
   const save = function(e) {
     e.preventDefault();
-    editImage(id, image);
-    setImage(image);
-    props.onSave();
+    editImage(props.id, img);
+    setImg(img);
+    props.onSave(transition(TEST));
   }
+
+  // console.log(image)
 return (
   <main>
+    {mode !== TEST && (
   <section className='profile'>
     <h3>Add New Image Link:</h3>
     <div className='edit'>
@@ -47,8 +35,8 @@ return (
       <input
         name="name"
         type="text"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
+        value={img}
+        onChange={(e) => setImg(e.target.value)}
       />
     </form>
   <section>
@@ -59,6 +47,15 @@ return (
     </section>
     </div>
   </section>
+    )}
+  {mode === TEST && (
+    <ShowImage 
+    key={props.id}
+    id={props.id}
+    image={img}
+      onEdit={() => transition(!TEST)}
+    />
+  )}
 </main>
 )
 }
