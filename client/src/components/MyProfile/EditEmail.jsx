@@ -11,45 +11,27 @@ import useApplicationData from "../../hooks/useApplicationData";
 
 
 export default function EditEmail(props) {
-const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const EDITEMAIL = "EDITEMAIL";
-const EDITED = "EDITED"
-const location = useLocation();
-const user = location.state.users
-const userToken = useToken();
-const email = userToken.token
-// console.log(user)
-const retrieveUser = function (email, userArray) {
-  for (let user of userArray) {
-    if(email === user.email) {
-      return user
-    }
-  }
-}
 
-
-
-
-let loggedIn = retrieveUser(email, user)
-
-const { mode, transition, back } = useVisualMode(
-  loggedIn.email ? SHOW : EMPTY
-);
+const { mode, transition, back } = useVisualMode(SHOW);
 return (
   <section> 
       {mode === SHOW && (
         <ShowEmail 
-        key={loggedIn.id}
-        email={loggedIn.email}
+        key={props.id}
+        id={props.id}
+        email={props.email}
         onEdit={() => transition(EDITEMAIL)}/>
       )}
       {mode === EDITEMAIL && (
         <FormEmail 
-        key={loggedIn.id}
-        email={loggedIn.email}
+        key={props.id}
+        id={props.id}
+        email={props.email}
         onCancel={back}
-        onSave={() => transition(SHOW)}/>
+        onSave={props.onSave}
+        />
       )}
     </section>
 )
