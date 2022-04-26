@@ -24,28 +24,25 @@ const retrieveUser = function (email, userArray) {
 }
 
 
-let loggedIn = retrieveUser(email, user)
-// console.log(loggedIn)
-// let loggedIn=location.state.users[0]
-// console.log(loggedIn)
-const { mode, transition, back } = useVisualMode(
-  loggedIn.sports ? SHOW : SHOW
-);
+const { mode, transition, back } = useVisualMode(SHOW);
 return (
   <section> 
               {mode === SHOW && (
         <ShowSports 
-        key={loggedIn.id}
-        userSports={loggedIn.sports}
-        sportsObject={sports}
+        key={props.id}
+        id={props.id}
+        userSports={props.userSports}
+        sportsObject={props.sportsObject}
         onAddSports={() => transition(ADD)}/>
       )}
         {mode === ADD &&
         <AddSports 
-        key={loggedIn.id}
-        userSports={loggedIn.sports}
-        sportsObject={sports}
+        key={props.id}
+        id={props.id}
+        userSports={props.userSports}
+        sportsObject={props.sportsObject}
         onCancel={back}
+        onClick={() => transition(SHOW)}
         />}
     </section>
 )

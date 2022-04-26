@@ -1,38 +1,42 @@
 import React from "react";
 import './styles.scss'
+import { useState } from "react";
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function ShowSports(props) {
+const [ sportObject, setSportObject ] = useState(props.sportsObject);
 
-  const showMySports = function(idArray, sportsObject) {
-    let result = [];
-    if (Array.isArray(idArray)) {
-    for (let number of idArray) {
-      for (let sport of sportsObject) {
-        if (number === sport.id) {
-          result.push(sport);
-        }
+const retrieve = function(userArray, sportsObj) {
+  let array = [];
+  for (let sport of sportsObj) {
+    if(Array.isArray(userArray)) {
+    for (let userSport of userArray) {
+      if(sport.id === userSport){
+        array.push(sport)
+      }
       }
     }
-  }
-    return result;
-  }
+  } let newarray = new Set(array);
+  array = [...newarray];
+  return array;
+}
 
-  const sport = function(userSports, sportsObject) {
-    let result = {}
-    if (!Array.isArray(userSports)) {
-    result = showMySports(userSports, sportsObject);
-  } else {
-    result = sportsObject;
-  }
-  return result
-  }
-  
-const mySports = sport(props.userSports, props.sportsObject)
-  const myMappedSports = mySports.map(sport => {
-    return     <img key={sport.id} className='sports--img'
-        src={sport.image}
-        />
-  })
+// const handleClick = function(event) {
+//   console.log(event.target.value)
+//   // addSport(props.id, event.target.value);
+// }
+
+const mapping = retrieve(props.userSports, sportObject)
+
+let myMappedSports = mapping.map(sport => {
+  return (
+  <img key={sport.id} value={Number(sport.id)} className='sports--img' src={sport.image}
+  />
+)
+})
+
+console.log(myMappedSports)
+
 
   return(
     <main>

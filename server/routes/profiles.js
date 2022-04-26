@@ -114,6 +114,22 @@ module.exports = (db) => {
     })
   })
 
+  router.put('/profiles/editsport', (req, res) => {
+    console.log(req.body)
+    const id = req.body.id;
+    const sport_id = req.body.sport_id
+    console.log('hello')
+    db.query(`UPDATE users SET sports = sports || '{${sport_id}}' WHERE id = ${id};`)
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+  
+  // update users    
+  // set sports = array_append(sports, 1)
+  // where id=7;
+
+
   return router;
 }
 
