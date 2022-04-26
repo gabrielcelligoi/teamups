@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import EditEmail from "./EditEmail"
 import EditName from "./EditName";
@@ -7,25 +7,67 @@ import EditImage from "./EditImage";
 import EditSports from "./EditSports";
 import './styles.scss'
 import useToken from "../../hooks/useToken";
+import useVisualMode from '../../hooks/useVisualMode'
 
 export default function MyProfile(props) {
+  const LOGGEDIN = "LOGGEDIN";
+  const LOGGEDOUT = "LOGGEDOUT";
+  const { token } = useToken();
+  const [ currentUser, setCurrentUser ] = useState(token)
   const location = useLocation();
-  const user = location.state.users[0];
-  const userToken = useToken();
-  let email = userToken.token
-  return (
+  const users = location.state.users;
+  const sports = location.state.sports;
 
+
+  const retrieve = function(user, users) {
+    for (let userObject of users) {
+      if (userObject.email === user) {
+        return userObject;
+      }
+    }
+  }
+
+ let userObject = retrieve(currentUser, users)
+ console.log(userObject)
+ const { mode } = useVisualMode(currentUser ? LOGGEDIN : LOGGEDOUT);
+
+  return (
+    <main> {mode === LOGGEDIN && (
     <section className='container'>
-      {email ?
-       <div><EditImage />
-         <h2 className='header'>Account Information</h2>
-         <EditName />
-         <EditEmail />
-         <EditPassword />
-         <EditSports />
+       <div>
+         <EditImage 
+         id={userObject.id}
+         image={userObject.image}
+         onSave={() => console.log(userObject)}
+         />
+         <EditName 
+         id={userObject.id}
+         name={userObject.name}
+         onSave={() => console.log(userObject)}
+         />
+         <EditEmail 
+         id={userObject.id}
+         email={userObject.email}
+         onSave={() => console.log(userObject)}
+         />
+         <EditPassword 
+         id={userObject.id}
+         password={userObject.password}
+         onSave={() => console.log(userObject)}
+         />
+        <EditSports
+        id={userObject.id}
+        image={userObject.image}
+        userSports={userObject.sports}
+        sportsObject={sports}
+        onSave={() => console.log(userObject)}
+        />
          </div>
-    :
-    <p>Please login to see your profile!</p>}
     </section>
+    )}
+    {mode === LOGGEDOUT && (
+      <div>Please log in to view your profile!</div>
+    )}
+    </main>
   )
 }
