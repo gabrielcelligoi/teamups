@@ -1,32 +1,18 @@
 import { useState, useEffect } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
-import { useLocation } from "react-router-dom";
-import useToken from "../../hooks/useToken";
+import useVisualMode from '../../hooks/useVisualMode'
+import ShowImage from "./ShowImage";
+import ShowName from "./ShowName";
 
 export default function FormName(props){
   const [name, setName] = useState(props.name);
-  // const [edited, setEdited] = useState(false);
   const { editName } = useApplicationData();
-  const location = useLocation();
-const user = location.state.users
-const { token, setToken } = useToken()
-const userToken = token
-// console.log(user)
-const retrieveUser = function (email, userArray) {
-  for (let user of userArray) {
-    if(email === user.email) {
-      return user
-    }
-  }
-}
+  const { mode, transition, back } = useVisualMode();
+  const TEST = 'TEST'
 
-
-let loggedIn = retrieveUser(userToken, user)
   const reset = function() {
     setName("");
   }
-
-  let id = loggedIn.id;
 
   const cancel = function() {
     reset();
@@ -35,13 +21,14 @@ let loggedIn = retrieveUser(userToken, user)
 
   const save = function(e) {
     e.preventDefault();
-    editName(id, name);
-    setName(name)
-    props.onSave();
+    editName(props.id, name);
+    setName(name);
+    props.onSave(transition(TEST));
   }
 
   return (
     <main>
+      {mode !== TEST && (
       <section className='profile'>
         <h3>Name:</h3>
         <div className='edit'>
@@ -61,6 +48,15 @@ let loggedIn = retrieveUser(userToken, user)
         </section>
         </div>
       </section>
+       )}
+         {mode === TEST && (
+    <ShowName 
+    key={props.id}
+    id={props.id}
+    name={name}
+      onEdit={() => transition(!TEST)}
+    />
+  )}
     </main>
   );
 }
