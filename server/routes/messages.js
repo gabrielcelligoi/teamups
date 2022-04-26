@@ -24,5 +24,16 @@ module.exports = (db) => {
       res.json(data.rows)
     })
   })
+
+  router.use('/postmessage', (req, res) => {
+    const messageTo = req.body.message_to
+    const message = req.body.message
+    const messageFrom = req.body.message_from
+
+    db.query(`
+      INSERT INTO messages (message_to, message_text, message_from)
+      VALUES ($1, $2, $3)
+    `, [messageTo, message, messageFrom])
+  })
   return router;
 }
