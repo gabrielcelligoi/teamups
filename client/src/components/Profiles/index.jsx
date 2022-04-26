@@ -21,6 +21,7 @@ export default function Profiles() {
       image={user.image}
       wins={user.wins}
       losses={user.losses}
+      locationState={usersList}
     />
   ))
 

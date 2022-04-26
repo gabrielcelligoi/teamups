@@ -59,19 +59,12 @@
   color: variables.$dark-color;
 }
 
-.user-message-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E9E7ED;
-  padding: 1em;
-  border-radius: 40px;
-  margin-left: 10em;
-  margin-top: 1.5rem;
-  margin-right: 15px;
-  width: 500px;
-}
 
+.user-info-message {
+  @include mixins.title;
+  text-align: center
+
+}
 
 .user-info-stats {
   @include mixins.title;

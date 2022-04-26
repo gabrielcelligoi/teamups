@@ -5,6 +5,7 @@ import TeamsList from "./TeamsList"
 import MessageItemList from "./MessageItemList"
 
 export default function UserInfo(props) {
+  
   return (
     <div>
       <div className="user-info-container">
@@ -28,7 +29,8 @@ export default function UserInfo(props) {
       </div>
 
       <div className="user-message-container">
-      <MessageItemList key={props.id} id={props.id} />
+      <h2 className="user-info-message">Message Wall</h2>
+        <MessageItemList key={props.id} id={props.id} />
 
       </div>
 
