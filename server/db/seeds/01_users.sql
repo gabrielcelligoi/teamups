@@ -55,3 +55,8 @@ INSERT INTO match_team (team_id, match_id, win) VALUES (1, 4, true);
 INSERT INTO match_team (team_id, match_id, win) VALUES (2, 4, true);
 INSERT INTO match_team (team_id, match_id) VALUES (1, 5);
 INSERT INTO match_team (team_id, match_id) VALUES (2, 5);
+
+INSERT INTO messages (message_to, message_text, message_from) VALUES (1, 'hey', 2);
+INSERT INTO messages (message_to, message_text, message_from) VALUES (1, 'whats up', 2);
+INSERT INTO messages (message_to, message_text, message_from) VALUES (1, 'hows it going', 2);
+INSERT INTO messages (message_to, message_text, message_from) VALUES (1, 'lets play some baseball', 2);
