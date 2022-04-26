@@ -22,25 +22,23 @@ const retrieveUser = function (email, userArray) {
     }
   }
 }
+console.log(props.id)
 
-
-let loggedIn = retrieveUser(email, user)
-
-const { mode, transition, back } = useVisualMode(
-  loggedIn.password ? SHOW : EMPTY
-);
+const { mode, transition, back } = useVisualMode(SHOW);
 return (
   <section> 
   {mode === SHOW && (
         <ShowPassword 
-        key={loggedIn.id}
-        password={'******'}
+        key={props.id}
+        id={props.id}
+        password={props.password}
         onEdit={() => transition(EDITPASSWORD)}/>
       )}
             {mode === EDITPASSWORD && (
         <FormPassword
-        key={loggedIn.id}
-        password={loggedIn.password}
+        key={props.id}
+        id={props.id}
+        password={props.password}
         onCancel={back}
         onSave={() => transition(SHOW)}/>
       )}

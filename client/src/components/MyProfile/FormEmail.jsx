@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
 import useVisualMode from '../../hooks/useVisualMode'
-import ShowImage from "./ShowImage";
 import ShowEmail from "./ShowEmail";
 import useToken from "../../hooks/useToken";
 

@@ -124,11 +124,16 @@ module.exports = (db) => {
       res.json(data.rows)
     })
   })
-  
-  // update users    
-  // set sports = array_append(sports, 1)
-  // where id=7;
 
+  router.put('/profiles/editpassword', (req, res) => {
+    const id = req.body.id;
+    const password = req.body.password
+    db.query(`UPDATE users SET password = $1 WHERE id = $2;`, [password, id])
+    .then(data => {
+      res.json(data.rows)
+    })
+  })
+  
 
   return router;
 }

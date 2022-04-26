@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import useApplicationData from "../../hooks/useApplicationData";
+import useVisualMode from '../../hooks/useVisualMode'
 
 export default function FormPassword(props){
   const [password, setPassword] = useState(props.password);
-  const [error, setError] = useState("");
+const { editPassword } = useApplicationData();
+const { mode, transition, back } = useVisualMode();
+const TEST = 'TEST'
 
   const reset = function() {
     setPassword("");
@@ -11,19 +15,13 @@ export default function FormPassword(props){
     reset();
     props.onCancel();
   }
-  function validate() {
-    if (password === "") {
-      setError("Password cannot be blank");
-      return;
-    }
-    else {
-  
-    setError("");
-    props.onSave(password);
-    }
+
+  const save = function(e) {
+    e.preventDefault();
+    editPassword(props.id, password);
+    setPassword(password)
+    props.onSave();
   }
-
-
 
   return (
     <main>
@@ -32,6 +30,7 @@ export default function FormPassword(props){
         <div className='edit'>
         <form autoComplete="off" onSubmit={evt => evt.preventDefault()}>
           <input
+          className="text-box"
             name="name"
             type="text"
             onChange={(evt) => setPassword(evt.target.value)}
@@ -39,8 +38,8 @@ export default function FormPassword(props){
         </form>
       <section>
         <section>
-        <button onClick={validate}>Save</button>
-          <button onClick={cancel}>Cancel</button>
+        <button className='sports-button' onClick={save}>Save</button>
+          <button className='sports-button' onClick={cancel}>Cancel</button>
         </section>
         </section>
         </div>

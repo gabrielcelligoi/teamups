@@ -165,6 +165,16 @@ export default function useApplicationData(props) {
     })
   }
   
+  const editPassword = (id, password) => {
+    const data ={
+      id: id,
+      password: password
+    }
+    return axios.put('/api/profiles/editpassword', data)
+    .then(res => {
+      console.log('res', res)
+    })
+  }
 
-  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName, editEmail, editImage, addSport } 
+  return { state, createSport, createMatch, getNewMatch, addPlayerToMatch, createNewTournament, createTournamentMatch, createTeam, addMemberToTeam, editName, editEmail, editImage, addSport, editPassword } 
 }
