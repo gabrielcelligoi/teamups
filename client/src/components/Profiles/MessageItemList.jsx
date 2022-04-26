@@ -40,10 +40,8 @@ export default function MessageItemList(props) {
 
     axios.put('/api/postmessage', data)
       .then((data) => {
-        console.log("data", data)
-      })
-      .catch((error) => {
-        console.log(error)
+        console.log(data)
+        setUpdate(value => !value)
       })
   }
   return (

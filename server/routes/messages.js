@@ -19,6 +19,8 @@ module.exports = (db) => {
     db.query(`
     SELECT * FROM messages
     WHERE message_to = $1
+    ORDER BY id DESC
+    LIMIT 5
     `, [id])
     .then((data) => {
       res.json(data.rows)
@@ -34,6 +36,9 @@ module.exports = (db) => {
       INSERT INTO messages (message_to, message_text, message_from)
       VALUES ($1, $2, $3)
     `, [messageTo, message, messageFrom])
+    .then((data) => {
+      res.json(data.rows)
+    })
   })
   return router;
 }
