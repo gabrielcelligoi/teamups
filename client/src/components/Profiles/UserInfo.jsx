@@ -2,7 +2,8 @@ import SportsList from "./SportsList"
 import './UserInfo.scss'
 import bgDots from "../../images/bg-dots.png"
 import TeamsList from "./TeamsList"
-import Chat from "./ChatTest"
+import MessageItemList from "./MessageItemList"
+
 export default function UserInfo(props) {
   return (
     <div>
@@ -25,6 +26,12 @@ export default function UserInfo(props) {
         <p>WINS: {props.wins}</p>
         <p>LOSSES: {props.losses}</p>
       </div>
+
+      <div className="user-message-container">
+      <MessageItemList />
+
+      </div>
+
     </div>
   )
 }
