@@ -39,7 +39,8 @@ module.exports = (db) => {
       FROM matches 
       LEFT JOIN match_player ON matches.id = match_id
       JOIN sports ON sport_id = sports.id
-      LEFT JOIN users ON users.id = ${id}
+      LEFT JOIN users ON users.id = user_id
+      WHERE users.id = ${id}
     `)
     .then(data => {
       res.json(data.rows)

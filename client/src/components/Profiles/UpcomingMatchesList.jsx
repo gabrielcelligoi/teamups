@@ -2,6 +2,7 @@ import UpcomingMatchItem from "./UpcomingMatchItem";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import MatchItem from "../MatchItem"
 
 import './UpcomingMatchesList.scss'
 
@@ -30,7 +31,7 @@ export default function UpcomingMacthesList(props) {
     const allMatches = state.matches;
 
     const match = allMatches.map(singleMatch => (
-      <UpcomingMatchItem
+      <MatchItem
           key={singleMatch.key}
           id={singleMatch.match_id}
           players={singleMatch.players}
