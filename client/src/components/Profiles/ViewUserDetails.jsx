@@ -20,6 +20,7 @@ export default function ViewUserDetails(props) {
         avatar={location.state[0].image}
         wins={location.state[0].wins}
         losses={location.state[0].losses}
+        id={location.state[0].id}
       />
       
       <aside>

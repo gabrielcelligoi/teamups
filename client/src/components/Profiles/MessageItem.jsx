@@ -6,7 +6,10 @@ export default function MessageItem(props) {
 
   return (
     <article>
-      <h3>testing message item</h3>
+      <div>{props.from}</div>
+      <div>
+        <p>{props.text}</p>
+      </div>
     </article>
   )
 }

@@ -28,7 +28,7 @@ export default function UserInfo(props) {
       </div>
 
       <div className="user-message-container">
-      <MessageItemList />
+      <MessageItemList key={props.id} id={props.id} />
 
       </div>
 
