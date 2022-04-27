@@ -43,7 +43,11 @@ export default function CreateMatch(props) {
 
   const handleTournamentClick = (e) => {
     e.preventDefault()
-    const sportId = getSportId(sport, sportsList)
+    let sportId = getSportId(sport, sportsList)
+    if (props.sport) {
+      sportId = props.sport
+      setSport(sportsList[props.sport - 1 || 0].name)
+    }
     createTournamentMatch(sportId, date, matchLocation, props.tournament_id)
     .then(res => {
       getNewMatch()
@@ -59,11 +63,15 @@ export default function CreateMatch(props) {
         <h1 className="create-match-title">Create New Match</h1>
 
       <form className="row g-3">
-
+        {!props.sport ? 
+        <div>
         <label htmlFor="sports-list" className="form-label">Choose Sport: </label>
         <select id="sports-list" name="sports-list" className="form-select" onChange={(e) => setSport(e.target.value)}>
           {sportsList ? sportsList.map(item => <option value={item.name}>{item.name}</option>) : null }
         </select>
+
+        </div>
+       : null }
 
         <label htmlFor="create-match-date" className="form-label">Match Date: </label>
         <input type="date" className="form-control" id="create-match-date" name="create-match-date" onChange={(e) => setDate(e.target.value)} />

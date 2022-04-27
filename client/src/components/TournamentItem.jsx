@@ -47,13 +47,13 @@ export default function TournamentItem(props) {
         { [...Array(bracket.round1)].map((ele,i) => {
           console.log([...Array(bracket)])
           return (
-           <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true}/> 
+           <CreateMatch key={i} tournament_id={id.tournament_id} tournament={true} sport={tournament.sport_id}/> 
          ) 
         })}
         <h3>Round 2</h3>
         { [...Array(bracket.round2)].map((e,i) => {
           return (
-            <CreateMatch key={99 - i} tournament_id={id.tournament_id} tournament={true}/>
+            <CreateMatch key={99 - i} tournament_id={id.tournament_id} tournament={true} sport={tournament.sport_id}/>
           )
         })}
 
@@ -61,7 +61,7 @@ export default function TournamentItem(props) {
         {bracket.round3 ?
           [...Array(bracket.round3)].map((e,i) => {
           return (
-            <CreateMatch key={50 - i} tournament_id={id.tournament_id} tournament={true}/>
+            <CreateMatch key={50 - i} tournament_id={id.tournament_id} tournament={true} sport={tournament.sport_id}/>
           )
         })
         : null}
@@ -70,7 +70,7 @@ export default function TournamentItem(props) {
         {bracket.round4 ?
           [...Array(bracket.round4)].map((e,i) => {
           return (
-            <CreateMatch key={100 + i} tournament_id={id.tournament_id} tournament={true}/>
+            <CreateMatch key={100 + i} tournament_id={id.tournament_id} tournament={true} sport={tournament.sport_id}/>
           )
         })
         : null}
