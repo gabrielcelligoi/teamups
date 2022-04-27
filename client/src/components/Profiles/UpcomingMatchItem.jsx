@@ -15,14 +15,14 @@ export default function UpcomingMatchItem(props) {
     minute: 'numeric'
   })
 
-  const [state, setState] = useState();
+  const [sports, setSports] = useState();
 
   useEffect(() => {
     Promise.all([
-      axios.get(`/api/matches/${props.id}`)
+      axios.get(`/api/sports`)
     ])
     .then(all => {
-      setState( all[0].data)
+      setSports( all[0].data)
     })
   }, [])
 

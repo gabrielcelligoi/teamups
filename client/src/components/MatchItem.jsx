@@ -93,6 +93,21 @@ return (
   <section className="match-item-container">
     <div className='upcoming-match-text'>
 
+
+      {/* <div className='upcoming-inline-info'>            
+        <h4 className='upcoming-inline-info-element'>{props.sport}</h4>
+      </div> */}
+
+      
+      {players ?
+        <div className='match-info'>
+          <img src={props.sport_image} alt={props.sport} className='upcoming-sport-icon'/>
+          <h4 className='match-players'>{players[0]} vs {players[1]}</h4>
+        </div>
+        :
+        null
+      }
+
       <div className='upcoming-inline-info'>
       <i className="fa-solid fa-calendar" id='upcoming-inline-info-icon'></i>
         <h3 className='upcoming-inline-info-element'>{date}</h3>
@@ -108,18 +123,6 @@ return (
         <h4 className='upcoming-inline-info-element'>{props.location}</h4>
       </div>
 
-      <div className='upcoming-inline-info'>            
-        <h4 className='upcoming-inline-info-element'>{props.sport}</h4>
-      </div>
-
-      
-      {players ?
-        <div className='upcoming-inline-info'>
-          <h4 className='upcoming-inline-info-element'>{players[0]} vs {players[1]}</h4>
-        </div>
-        :
-        null
-      }
       
       
       {props.tournament ?

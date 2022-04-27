@@ -1,8 +1,19 @@
+@use '../sass/variables';
+
 .message-item {
-  border-style: solid;
   width: 100%;
   margin-left: 0;
   margin-bottom: 0;
   margin-top:.5em;
-  background-color: white;
+  background-color: variables.$bg-color;
+  padding: 15px;
+  padding-bottom: 0;
+  border-bottom: solid;
+  border-color: #cbcbcb;
+  border-width: thin;
+  margin-bottom: 25px;
+}
+
+.message {
+  margin-bottom: 0;
 }

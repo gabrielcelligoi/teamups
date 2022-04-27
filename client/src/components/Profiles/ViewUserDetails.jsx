@@ -25,7 +25,11 @@ export default function ViewUserDetails(props) {
       
       <aside>
         <UpcomingMacthesList /> 
-        
+        <div className="user-stats-container">
+        <h2 className="user-info-stats">Stats</h2>
+        <p>WINS: {location.state[0].wins}</p>
+        <p>LOSSES: {location.state[0].losses}</p>
+      </div>
       </aside>
 
     </div>

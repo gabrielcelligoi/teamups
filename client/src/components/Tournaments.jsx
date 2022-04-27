@@ -14,6 +14,14 @@ export default function Tournaments(props) {
   let tournaments = location.state.tournaments
   let sports = location.state.sports
 
+  const getSportImage = function(sportsList, sportsName){
+    for (let sport of sportsList) {
+      if (sport.name === sportsName) {
+        return sport.image;
+      }
+    }
+  }
+
 
   const [hidden, setHidden] = useState(true);
   const [Tournaments, setTournaments] = useState(null);
@@ -90,6 +98,7 @@ export default function Tournaments(props) {
               location={match.location}
               player1={match.players[0]}
               player2={match.players[1]}
+              sport_image={getSportImage(sports, match.sport)}
             />
           </div>
         ))}

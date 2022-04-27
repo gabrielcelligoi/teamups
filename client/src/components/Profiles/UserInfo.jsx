@@ -22,11 +22,11 @@ export default function UserInfo(props) {
 
       </div>
 
-      <div className="user-stats-container">
+      {/* <div className="user-stats-container">
         <h2 className="user-info-stats">Stats</h2>
         <p>WINS: {props.wins}</p>
         <p>LOSSES: {props.losses}</p>
-      </div>
+      </div> */}
 
       <div className="user-message-container">
       <h2 className="user-info-message">Message Wall</h2>
