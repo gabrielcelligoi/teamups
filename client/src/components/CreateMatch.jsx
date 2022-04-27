@@ -17,6 +17,8 @@ export default function CreateMatch(props) {
   const [showNew, setShowNew] = useState(false)
   const [newMatch, setNewMatch] = useState()
   const [sportsList, setSportsList] = useState()
+ 
+  console.log("THIS ISSSS SPORTLISTTTT", sportsList)
 
   useEffect(() => {
     axios.get(`/api/sports/`)
@@ -58,6 +60,14 @@ export default function CreateMatch(props) {
     })
   }
 
+  const getSportImage = function(sportsList, sportsName){
+    for (let sport of sportsList) {
+      if (sport.name === sportsName) {
+        return sport.image;
+      }
+    }
+  }
+
   return (
     <div className="create-match-container">
         <h1 className="create-match-title">Create New Match</h1>
@@ -92,6 +102,7 @@ export default function CreateMatch(props) {
       location={newMatch.match_location}
       addPlayer={true}
       tournament={props.tournament_id ? true : false}
+      sport_image={getSportImage(sportsList, sport)}
       /> 
       : null}
       </div>
