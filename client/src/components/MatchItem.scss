@@ -15,31 +15,50 @@
   background-color: variables.$bg-color;
   width: 20%;
   min-width: 330px;
+  margin-bottom: 3em;
+}
 
+.match-info {
+  display: flex;
+  align-items: center;
+  border-bottom: solid;
+  border-width: medium;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-color: variables.$primary-color;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.match-players {
+  font-size: 1.4rem;
+  margin: 0;
 }
 
 .upcoming-match-text {
   display: flex;
 
   flex-direction: column;
-  margin-left: 30px;  
+  margin: 0;
 }
 
 .upcoming-inline-info {
   display: flex;
   align-items: baseline;
-  padding: 5px;
+  // padding: 5px;
   width: 100%;
   justify-content: flex-start;
 }
 
 #upcoming-inline-info-icon {
   color: variables.$dark-color;
+  margin-bottom: 0;
 }
 
 .upcoming-inline-info-element {
   padding-left: 20px;
   color: variables.$dark-color;
+  margin-bottom: 0;
 }
 
 .winner-buttons {
@@ -47,4 +66,9 @@
   padding: .5em;
   display: flex;
   justify-content: space-between;
+}
+
+.upcoming-sport-icon {
+  width: 50px;
+  height: 50px;
 }
