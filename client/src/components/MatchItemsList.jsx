@@ -11,19 +11,15 @@ export default function MatchItemList(props) {
   const matches = getAllMatches(location.state.matches)
   const sports = location.state.sports;
 
-  
-  const mappedMatches = matches.map(match => {
-    
-    const getSportImage = function(){
-      for (let sport of sports) {
-        if (sport.name === match.sport) {
-          return sport.image;
-        }
+  const getSportImage = function(sportsList, sportsName){
+    for (let sport of sportsList) {
+      if (sport.name === sportsName) {
+        return sport.image;
       }
     }
-
-    
-    
+  }
+  
+  const mappedMatches = matches.map(match => {    
     
     return (
       <div >
@@ -37,12 +33,11 @@ export default function MatchItemList(props) {
           player2={match.players[1]}
           tournament={match.tournament_id ? true : false}
           manage={true}
-          sport_image={getSportImage()}
+          sport_image={getSportImage(sports, match.sport)}
         />
       </div>
       )
-    }) 
-    
+    })
       
 
   return (
