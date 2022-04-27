@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   background-color: #E9E7ED;
-  // border-radius: 40px;
+  border-radius: 10px;
   margin-left: 10em;
   margin-top: 1.5rem;
   margin-right: 15px;
   padding: 25px;
+  padding: 15px;
+  margin-bottom: 0;
 }
 
 .message-container {

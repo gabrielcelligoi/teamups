@@ -11,7 +11,7 @@ export default function MessageItem(props) {
     <article class="message-item">
       <div>From: {getUserName(props.users, props.from)}</div>
       <div>
-        <p>{props.text}</p>
+        <p className="message">{props.text}</p>
       </div>
     </article>
   )
