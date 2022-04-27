@@ -86,6 +86,14 @@ export default function SportsList(props) {
     handleUsers(event);
   }
 
+  const getSportImage = function(sportsList, sportsName){
+    for (let sport of sportsList) {
+      if (sport.name === sportsName) {
+        return sport.image;
+      }
+    }
+  }
+
   return (
     <div className='sports-list-container'>
       <h1>Browse by Sports</h1>
@@ -134,6 +142,7 @@ export default function SportsList(props) {
         location={match.location}
         player1={match.players[0]}
         player2={match.players[1]}
+        sport_image={getSportImage(sports, match.sport)}
         /></h4>
         ))}</div>
         </div>
