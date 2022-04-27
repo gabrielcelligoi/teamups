@@ -28,7 +28,7 @@ export default function MyProfile(props) {
   }
 
  let userObject = retrieve(currentUser, users)
- console.log(userObject)
+ console.log("test", userObject)
  const { mode } = useVisualMode(currentUser ? LOGGEDIN : LOGGEDOUT);
 
   return (
@@ -40,6 +40,13 @@ export default function MyProfile(props) {
          image={userObject.image}
          onSave={() => console.log(userObject)}
          />
+        <section className="profile">
+          <h3>Your Id:</h3>
+          <div className="edit">
+          <div className="display-text-box">{userObject.id}</div>
+
+          </div>
+        </section>
          <EditName 
          id={userObject.id}
          name={userObject.name}
