@@ -1,6 +1,12 @@
 @use './sass/variables';
 @use './sass/mixins';
 
+.create-tournament-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .create-tournament-container {
   @include mixins.standard-container;
 }
@@ -12,4 +18,39 @@
 .create-tournament-button {
   @include mixins.standard-button;
   width: 200px;
+}
+
+.tournament-created-title {
+  @include mixins.title;
+}
+
+.tournament-created-btn {
+  @include mixins.standard-button;
+}
+
+.tournament-created-back-btn {
+  @include mixins.standard-button;
+  background-color: transparent;
+  color: #ffa91d;
+  border: solid;
+  font-weight: 600;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  &:hover {
+    color: variables.$secondary-color;
+    background-color: transparent;
+  }
+}
+
+.tournament-created-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tournament-created-btns-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

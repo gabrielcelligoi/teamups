@@ -36,7 +36,7 @@ export default function CreateTournament(props) {
     return sport = sport.name
   })
   return (
-    <section>
+    <section className='create-tournament-section'>
 
       <div className="create-tournament-container">
         <h1 className="create-tournament-title">Create A Tournament</h1>
@@ -69,16 +69,18 @@ export default function CreateTournament(props) {
         </form>
       </div>
 
-    {create ?
-    <div>
-      <h1>Tournament Created!</h1>
-      <Link to={`/tournaments/${id}`} >
-        <button>Manage Tournament</button>
-      </Link>
-      <button onClick={(e) => setCreate(false)}>back</button>
-    </div>
-    : null}
+      {create ?
+      <div className='tournament-created-container'>
+        <h1 className='tournament-created-title'>Tournament Created!</h1>
+        <div className='tournament-created-btns-container'>
+          <Link to={`/tournaments/${id}`} >
+            <button className='tournament-created-btn'>Manage Tournament</button>
+          </Link>
+          <button className='tournament-created-back-btn' onClick={(e) => setCreate(false)}>back</button>
+        </div>
+      </div>
+      : null}
 
-  </section>
+    </section>
   )
 }
