@@ -11,7 +11,12 @@ export default function AddPlayer(props) {
     e.preventDefault()
     addPlayerToMatch(user, props.id)
     setAdded(true)
-    props.update()
+
+    setTimeout(() => {
+      props.update()
+    }, 300)
+    
+    
   }
 
   const handleAddAnother = (e) => {

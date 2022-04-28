@@ -69,9 +69,6 @@ export default function useApplicationData(props) {
       match_id: matchId
     }
     return axios.put('/api/matches/add', data)
-      .then(res => {
-        console.log('RES', res)
-      })
   }
 
   const createNewTournament = (name, sport, number_of_players, type, number_of_matches) => {

@@ -35,7 +35,8 @@ module.exports = (db) => {
         sports.name as Sport,
         sports.image AS sport_image,
         match_date as Date,
-        match_location as Location
+        match_location as Location,
+        tournament_id
       FROM matches 
       LEFT JOIN match_player ON matches.id = match_id
       JOIN sports ON sport_id = sports.id

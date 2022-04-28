@@ -112,11 +112,11 @@ return (
       <i className="fa-solid fa-calendar" id='upcoming-inline-info-icon'></i>
         <h3 className='upcoming-inline-info-element'>{date}</h3>
       </div>
-
+{/* 
       <div className='upcoming-inline-info'>
         <i className="fa-solid fa-clock" id='upcoming-inline-info-icon'></i>
         <h4 className='upcoming-inline-info-element'>{time}</h4>
-      </div>
+      </div> */}
 
       <div className='upcoming-inline-info'>            
         <i className="fa-solid fa-location-dot" id='upcoming-inline-info-icon'></i>          
@@ -131,17 +131,17 @@ return (
         </div>
         :
         <div className='upcoming-inline-info'>
-          <h4 className='upcoming-inline-info-element'>Non Tournament Match</h4>
+          <h4 className='upcoming-inline-info-element'>Single Match</h4>
         </div>  
       }
 
       {props.addPlayer ?
-        <button type="Submit" class="btn btn-dark btn-sm" onClick={handleClick}>Manage</button>
+        <button type="Submit" className="btn btn-dark btn-sm" onClick={handleClick}>Manage</button>
         :
         null
       }
       {props.manage ? 
-        <button type="submit" class="btn btn-dark btn-sm" onClick={handleManageClick}>Manage</button>
+        <button type="submit" className="btn btn-dark btn-sm" onClick={handleManageClick}>Manage</button>
       : null}
 
     {add ?
@@ -157,8 +157,8 @@ return (
         <div>
           {setAdd(false)}
           {setWinner(true)}
-          <button type="button" class="btn btn-dark btn-sm" onClick={handlePlayer1Win}>{players[0]} wins</button>
-          <button type="submit" class="btn btn-dark btn-sm" onClick={handlePlayer2Win}>{players[1]} wins</button>
+          <button type="button" className="btn btn-dark btn-sm" onClick={handlePlayer1Win}>{players[0]} wins</button>
+          <button type="submit" className="btn btn-dark btn-sm" onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
       : 
       null
@@ -166,10 +166,10 @@ return (
         </div>
       : null}
       {winner ? 
-        <div class="winner-buttons">
-          <button class="btn btn-dark btn-sm" type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
+        <div className="winner-buttons">
+          <button className="btn btn-dark btn-sm" type="submit" onClick={handlePlayer1Win}>{players[0]} wins</button>
             &ensp;
-          <button class="btn btn-dark btn-sm" type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
+          <button className="btn btn-dark btn-sm" type="submit"onClick={handlePlayer2Win}>{players[1]} wins</button>
         </div>
           : null}
       {final ?

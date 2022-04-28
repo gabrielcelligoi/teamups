@@ -36,9 +36,8 @@ export default function TournamentItem(props) {
     {tournament ? 
       <div>
         <h2>Managing {tournament.name}</h2>
-        <div>Number of Players {tournament.number_of_players}</div>
-        <div>Number of Matches {tournament.number_of_matches}</div>
-        <button onClick={handleMatchesClick}>Matches</button>
+        <div>Number of Players: {tournament.number_of_players}</div>
+        <button onClick={handleMatchesClick}>Set Up Matches</button>
       </div>
     : null }
       {modeMatches ? 

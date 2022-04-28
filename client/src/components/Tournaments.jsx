@@ -99,6 +99,7 @@ export default function Tournaments(props) {
               player1={match.players[0]}
               player2={match.players[1]}
               sport_image={getSportImage(sports, match.sport)}
+              tournament={match.tournament_id}
             />
           </div>
         ))}
