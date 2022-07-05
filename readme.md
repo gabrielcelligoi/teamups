@@ -29,4 +29,6 @@ TeamUps is an application that allows registered people to find players to pract
 
 ## Final Product
 
-!["Home Page"](https://github.com/gabrielcelligoi/store-website/blob/root-page/doc/homepage.png?raw=true)
+!["Home Page"](https://github.com/keilamari/final-project/blob/main/screenshots/homepage-banner.png?raw=true)
+
+!["Home Page Links"](https://github.com/keilamari/final-project/blob/main/screenshots/homepage-links.png?raw=true)
