@@ -10,7 +10,7 @@ TeamUps
 ## Briefing
 
 This is a full stack web application built with: 
- - HTML, CSS, SASS, Bootstrap, and JS in front-end;
+ - HTML, CSS, SASS, Bootstrap, and React in front-end;
  - Node and Express in back-end;
  - PostgreSQL for Database Management System.
 
